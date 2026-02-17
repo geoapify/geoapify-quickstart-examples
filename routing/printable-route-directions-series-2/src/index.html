@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw Route on Static Map Image | Geoapify Static Maps API</title>
+  <link rel="stylesheet" href="style.css" inline>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Draw a Route on a Static Map Image</h1>
+    <p class="description">
+      This demo shows how to render a route as a static image using the Geoapify Static Maps API.
+      Static maps are perfect for printing, sharing, or embedding where interactive maps are not needed.
+    </p>
+
+    <div class="controls">
+      <button id="generate-btn">Generate Route Preview</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <div class="results">
+      <div class="result-section">
+        <h2>Route Preview Image</h2>
+        <div id="image-container" class="image-container">
+          <p class="placeholder">Click "Generate Route Preview" to create the static map</p>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h2>Request Details</h2>
+        <pre id="request-details" class="code-box"><code>// Request details will appear here</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" inline></script>
+</body>
+
+</html>
+

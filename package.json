@@ -1,0 +1,40 @@
+{
+  "name": "geoapify-quickstart-examples",
+  "version": "1.0.0",
+  "description": "Ready-to-run quickstart examples for Geoapify APIs - Maps, Routing, Isolines, Geocoding",
+  "author": "Geoapify <info@geoapify.com> (https://geoapify.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/geoapify/geoapify-quickstart-examples",
+  "bugs": {
+    "url": "https://github.com/geoapify/geoapify-quickstart-examples/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoapify/geoapify-quickstart-examples.git"
+  },
+  "scripts": {
+    "build": "node combine.js"
+  },
+  "keywords": [
+    "geoapify",
+    "maps",
+    "routing",
+    "geocoding",
+    "isoline",
+    "isochrone",
+    "maplibre",
+    "leaflet",
+    "openlayers",
+    "javascript",
+    "examples",
+    "quickstart",
+    "map tiles",
+    "routing api",
+    "places api",
+    "geocoding api"
+  ],
+  "dependencies": {
+    "inline-source": "^8.0.3"
+  }
+}
+

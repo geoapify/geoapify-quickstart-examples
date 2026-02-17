@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Get Route and Turn-by-Turn Directions | Geoapify Routing API</title>
+  <link rel="stylesheet" href="style.css" inline>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Geoapify Routing API: Get Route and Directions</h1>
+    <p class="description">
+      This demo shows how to request a route with turn-by-turn directions from the Geoapify Routing API.
+      Click the button to fetch a route between Munich and Berlin, then explore the response structure.
+    </p>
+
+    <div class="controls">
+      <button id="fetch-route-btn">Fetch Route</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <div class="results">
+      <div class="result-section">
+        <h2>Route Summary</h2>
+        <div id="route-summary" class="summary-box">
+          <p class="placeholder">Click "Fetch Route" to see the route summary</p>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h2>Turn-by-Turn Directions</h2>
+        <div id="directions-list" class="directions-box">
+          <p class="placeholder">Directions will appear here after fetching the route</p>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h2>Raw API Response</h2>
+        <pre id="raw-response" class="code-box"><code>// API response will appear here</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" inline></script>
+</body>
+
+</html>

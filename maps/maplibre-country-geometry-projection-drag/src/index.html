@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapLibre Country Geometry Projection Playground</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css"
+    />
+    <link rel="stylesheet" href="./style.css" inline />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <section class="controls">
+      <div class="controls__title">Country projection playground</div>
+      <div class="controls__hint">
+        <div class="controls__hint-title">How it works</div>
+        <ul>
+          <li>Click a country to load its polygon from Geoapify.</li>
+          <li>
+            Drag the shape across the map to compare
+            <a href="https://en.wikipedia.org/wiki/Web_Mercator_projection" target="_blank" rel="noreferrer">
+              Web Mercator
+            </a>
+            distortion.
+          </li>
+          <li>Switch the base style or color anytime.</li>
+        </ul>
+      </div>
+      <div class="controls__row">
+        <label class="controls__field">
+          <span>Map style</span>
+          <select id="style-select"></select>
+        </label>
+        <label class="controls__field">
+          <span>Country color</span>
+          <input id="color-picker" type="color" value="#f97316" />
+        </label>
+      </div>
+      <p class="controls__status" id="status">Click a country. Drag it to compare Mercator distortion.</p>
+    </section>
+
+    <section class="info-panel">
+      <div class="info-panel__title">Selection info</div>
+      <dl class="info-panel__list">
+        <div class="info-panel__row">
+          <dt>Selection</dt>
+          <dd id="info-selection">None</dd>
+        </div>
+        <div class="info-panel__row">
+          <dt>Geometry</dt>
+          <dd id="info-geometry">—</dd>
+        </div>
+        <div class="info-panel__row">
+          <dt>Original location</dt>
+          <dd id="info-origin">—</dd>
+        </div>
+        <div class="info-panel__row">
+          <dt>Moved to</dt>
+          <dd id="info-moved">—</dd>
+        </div>
+        <div class="info-panel__row">
+          <dt>Zoom</dt>
+          <dd id="info-zoom">—</dd>
+        </div>
+        <div class="info-panel__row">
+          <dt>Status</dt>
+          <dd id="info-status">Idle</dd>
+        </div>
+      </dl>
+    </section>
+
+    <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

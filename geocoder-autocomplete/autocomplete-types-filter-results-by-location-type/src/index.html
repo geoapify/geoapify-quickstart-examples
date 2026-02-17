@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Autocomplete Types — Filter results by location type</title>
+    <link rel="stylesheet" href="./style.css" inline>
+
+  </head>
+    
+  <body>
+  <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type & Language Demo — Find only cities or postcodes in your language.</title>
+  <link rel="stylesheet" href="./index.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+  <link id="geocoder-theme" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
+</head>
+
+<body>
+  <div class="theme-selector">
+    <span class="theme-label">Theme:</span>
+    <select id="theme-selector" onchange="setTheme(this.value)">
+      <option value="minimal">Light</option>
+      <option value="minimal-dark">Dark</option>
+      <option value="round-borders">Light (Round)</option>
+      <option value="round-borders-dark">Dark (Round)</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <h1>Type & Language Demo — Find only cities or postcodes in your language.</h1>
+    <p class="hint">Type limits what you search; Language changes labels. Try “city” for city‑only results or “any” for
+      full addresses, then switch the language to compare label localization.</p>
+    <p class="hint">
+      Note: The language and country code lists in this demo are examples only. You can use any valid ISO&nbsp;639‑1
+      language code and ISO&nbsp;3166‑1 alpha‑2 country code.
+    </p>
+    <div class="panel">
+      <h3>1. Options</h3>
+      <div class="row">
+
+        <div class="option-selector"> <label for="type-select">Type</label> <select id="type-select">
+            <option value="">any</option>
+            <option value="country">country</option>
+            <option value="state">state</option>
+            <option value="city">city</option>
+            <option value="postcode">postcode</option>
+            <option value="street">street</option>
+            <option value="amenity">amenity</option>
+            <option value="locality">locality</option>
+          </select>
+        </div>
+
+        <div class="option-selector">
+          <label for="lang-select">Language</label>
+          <select id="lang-select" class="option-selector">
+            <option value="en" selected>en</option>
+            <option value="de">de</option>
+            <option value="fr">fr</option>
+            <option value="ru">ru</option>
+            <option value="es">es</option>
+            <option value="it">it</option>
+            <option value="pl">pl</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint" style="margin-top:6px;">
+        Location type: 'country', 'state', 'city', 'postcode', 'street', 'amenity', 'locality'. The
+        <code>type=locality</code> parameter returns administrative areas including postcodes, districts, cities,
+        counties, and states.
+      </div>
+      <div class="hint" style="margin-top:4px;">
+        Language: 2‑character ISO&nbsp;639‑1 language codes are supported (e.g., en, de, fr).
+      </div>
+
+    </div>
+
+    <div class="panel">
+      <h3>2. Autocomplete</h3>
+      <div id="ac" class="autocomplete-container"></div>
+      <div class="row" id="postcode-filter-row" style="margin-top:8px;display:none;">
+        <div class="option-selector">
+          <label for="country-filter">Country (for postcode search)</label>
+          <select id="country-filter" class="option-selector">
+            <option value="">None</option>
+            <option value="us">United States (US)</option>
+            <option value="gb">United Kingdom (GB)</option>
+            <option value="de">Germany (DE)</option>
+            <option value="fr">France (FR)</option>
+            <option value="es">Spain (ES)</option>
+            <option value="it">Italy (IT)</option>
+            <option value="nl">Netherlands (NL)</option>
+            <option value="pl">Poland (PL)</option>
+            <option value="cz">Czechia (CZ)</option>
+            <option value="se">Sweden (SE)</option>
+            <option value="no">Norway (NO)</option>
+            <option value="fi">Finland (FI)</option>
+          </select>
+        </div>
+        <span class="hint">Recommended: combine postcode search with a country filter.</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>3. Info</h3>
+      <div class="kv" id="info-current"><strong>Current:</strong> type=any, lang=en</div>
+      <div class="kv" id="info-selected"><strong>Selected:</strong> —</div>
+      <pre class="code" id="info-json"></pre>
+    </div>
+  </div>
+</body>
+
+</html>
+    <script  src="./script.js" inline></script>
+
+  </body>
+  
+</html>

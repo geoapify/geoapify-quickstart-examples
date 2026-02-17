@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Understanding Map Zoom Levels and the XYZ Tile System</title>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <h1>Zoom Levels Collage (z = 0 → 4)</h1>
+    <p class="note">
+      Tiles: <code>https://maps01.geoapify.com/v1/tile/osm-carto/{z}/{x}/{y}.png?apiKey=YOUR_API_KEY</code><br>
+      At z=0 the world is 1 tile. Each zoom doubles tiles horizontally and vertically: <code>2^z × 2^z</code>.
+    </p>
+
+    <div class="toolbar">
+      <label><input type="checkbox" id="gridToggle"> Show tile grid</label>
+    </div>
+
+    <div id="app"></div>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Leaflet Vector Map Tiles (Geoapify + MapLibre plugin)</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link
+            href="https://unpkg.com/maplibre-gl@2.2.1/dist/maplibre-gl.css"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <!-- The container where the map will be rendered -->
+    <div id="my-map"></div>
+
+    <!-- Load Leaflet JavaScript library (the leaflet.css in the <head> tag) -->
+    <!-- Check the actual version on https://leafletjs.com/download.html -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- MapLibre GL + maplibre-gl-leaflet bridge -->
+    <!-- Load MapLibre GL library -->
+    <script src="https://unpkg.com/maplibre-gl@2.2.1/dist/maplibre-gl.js"></script>
+
+    <!-- Load MapLibre GL Leaflet bridge -->
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.20/leaflet-maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

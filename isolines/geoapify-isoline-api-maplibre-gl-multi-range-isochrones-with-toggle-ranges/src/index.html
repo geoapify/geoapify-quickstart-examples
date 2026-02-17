@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Geoapify Isoline API + MapLibre GL: Multi-range Isochrones with Toggle Ranges</title>
+    <!-- MapLibre GL JS -->
+<link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet"/>
+
+<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script><link rel="stylesheet" href="style.css" inline>
+
+  </head>
+    
+  <body>
+  <header>
+  <div class="controls grid-5">
+    <div class="control">
+      <label>Travel mode</label>
+      <select id="mode">
+        <option value="drive">drive — passenger car</option>
+        <option value="light_truck">light_truck — 3.5t / 3.2m</option>
+        <option value="medium_truck">medium_truck — 7.5t / 4.1m</option>
+        <option value="truck">truck — 22t / 4.1m</option>
+        <option value="heavy_truck">heavy_truck — 40t / 4.1m</option>
+        <option value="truck_dangerous_goods">truck_dangerous_goods — 22t / 4.1m</option>
+        <option value="long_truck">long_truck — 34m</option>
+        <option value="bus">bus</option>
+        <option value="scooter">scooter</option>
+        <option value="motorcycle">motorcycle</option>
+        <option value="bicycle">bicycle</option>
+        <option value="mountain_bike">mountain_bike</option>
+        <option value="road_bike">road_bike</option>
+        <option value="walk">walk</option>
+        <option value="hike">hike</option>
+        <option value="transit">transit</option>
+        <option value="approximated_transit">approximated_transit</option>
+      </select>
+    </div>
+    <div class="control">
+<label>Ranges (min or km)</label>
+<div id="rangesToggle" class="toggle-group"></div>
+    </div>
+    <div class="control">
+      <label>Type</label>
+      <select id="type">
+        <option value="time">time</option>
+        <option value="distance">distance</option>
+      </select>
+    </div>
+
+  </div>
+  
+  <div class="footer-note" style="grid-column: 1 / -1;">Tip: click on the map to set a new center point.</div>
+
+</header>
+
+<div id="map"></div>
+
+<div class="legend" id="legend">
+  <div style="margin-bottom:6px">Legend</div>
+  <div id="legendItems" class="row"></div>
+</div>
+    <script  src="script.js" inline></script>
+
+  </body>
+  
+</html>

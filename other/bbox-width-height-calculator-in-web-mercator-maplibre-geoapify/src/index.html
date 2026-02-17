@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>BBox Width/Height Calculator in Web Mercator (MapLibre + Geoapify)</title>
+    <link href="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js"></script>
+    <link rel="stylesheet" href="./style.css" inline>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <div class="panel">
+      <h3>Lat/Lon BBox → width/height (px)</h3>
+      <div class="row">
+        <label>Lon1
+          <input id="lon1" type="number" step="0.000001" value="13.0"/>
+        </label>
+        <label>Lat1
+          <input id="lat1" type="number" step="0.000001" value="52.0"/>
+        </label>
+      </div>
+      <div class="row">
+        <label>Lon2
+          <input id="lon2" type="number" step="0.000001" value="14.0"/>
+        </label>
+        <label>Lat2
+          <input id="lat2" type="number" step="0.000001" value="53.0"/>
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="fit">Fit map to BBox</button>
+        <button id="draw">Redraw BBox</button>
+      </div>
+
+      <div class="row mt-20">
+        <label>Mode
+          <select id="mode">
+            <option value="zoom" selected>Based on zoom</option>
+            <option value="knownWidth">Based on known width</option>
+            <option value="knownHeight">Based on known height</option>
+          </select>
+        </label>
+        <span id="mode-zoom"><label>Zoom (z)
+        <input id="zoom" type="number" step="0.1" value="8"/>
+      </label></span>
+        <span id="mode-knownWidth">
+      <label>Known width (px)
+        <input id="knownWidth" type="number" step="1" value="800"/>
+      </label></span>
+
+        <span id="mode-knownHeight">
+        <label>Known height (px)
+          <input id="knownHeight" type="number" step="1" value="600"/>
+         </span>
+        </label>
+      </div>
+
+      <div>
+        <button id="calc">Recalculate</button>
+      </div>
+
+      <div class="result" id="result">Results will appear here…</div>
+      <div class="muted">Notes: handles antimeridian; latitudes are clamped to ±85.05112878 (Web Mercator limit); tile
+        size is 256px.
+      </div>
+    </div>
+    <script src="./script.js" inline></script>
+
+  </body>
+
+</html>

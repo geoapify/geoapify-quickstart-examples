@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Leaflet demo: Geoapify Places API category search with dynamic markers</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""
+    />
+    <style>:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-weak: #16a34a;
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.app { display: grid; grid-template-rows: auto auto 1fr; height: 100%; }
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.app__header h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.status { color: var(--muted); font-size: 0.9rem; }
+.header__status { display: flex; flex-direction: column; align-items: flex-end; gap: 0.1rem; }
+.status--zoom { font-size: 0.8rem; color: #93c5fd; letter-spacing: 0.02em; }
+
+.controls { padding: 0.5rem 1rem; background: #0b1220; border-bottom: 1px solid var(--border); }
+.controls__hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 960px;
+  margin: 0 auto 1.75rem 0;
+}
+.controls__intro { margin: 0 0 0.35rem; color: var(--text); font-size: 0.95rem; }
+.controls__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+.controls__list li { margin-bottom: 0.25rem; }
+.controls__buttons {
+  max-width: 1200px;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #0b1628;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.toggle--on { background: #0f1f33; border-color: #234266; }
+.toggle:hover { border-color: #2b3b52; }
+.toggle__icon { width: 25px; height: 25px; display: inline-block; }
+.toggle__label { font-size: 0.85rem; }
+
+#map { height: 100%; width: 100%; }
+
+.leaflet-container { background: #0b1220; }
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #101826; color: var(--text); border: 1px solid var(--border); }</style>
+
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <h1>Leaflet + Geoapify Places API sample: categorized search rendered as map markers</h1>
+        <div class="header__status">
+          <div id="status" class="status">&nbsp;</div>
+          <div id="zoom-info" class="status status--zoom">Zoom: 14</div>
+        </div>
+      </header>
+
+      <section class="controls">
+        <div class="controls__hint">
+          <p class="controls__intro"><strong>How this demo works</strong></p>
+          <ul class="controls__list">
+            <li>Pick the categories you want via the buttons; each toggle updates the categories parameter sent to the
+              Geoapify Places API.
+            </li>
+            <li>Pan or zoom the map (zoom ≥ 13) to trigger a Places request for the current bounds and plot the results
+              as markers.
+            </li>
+            <li>The visible bounds are subdivided into small fragments, so results stream in chunk by chunk for a
+              smoother, more responsive UX.
+            </li>
+          </ul>
+        </div>
+        <div id="category-buttons" class="controls__buttons"></div>
+      </section>
+
+      <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/@geoapify/request-rate-limiter@1.0.1/dist/request-rate-limiter.js"></script>
+    <script>// Simple Leaflet + Geoapify demo: search places by categories on map move
+const GEOAPIFY_API_KEY = "f82ea38cb77543d59c597faaa263e714";
+
+// Configure categories, labels, and icons (Geoapify Icons API)
+// icon names are from the "awesome" icon set; adjust if preferred
+const CATEGORY_CONFIG = [
+  { category: "entertainment.activity_park", label: "Activity Park", icon: "tree", enabled: true },
+  { category: "entertainment.activity_park.climbing", label: "Climbing", icon: "mountain", enabled: true },
+  { category: "entertainment.activity_park.trampoline", label: "Trampoline", icon: "person-running", enabled: true },
+  { category: "entertainment.amusement_arcade", label: "Arcade", icon: "gamepad", enabled: true },
+  { category: "entertainment.aquarium", label: "Aquarium", icon: "fish", enabled: true },
+  { category: "entertainment.bowling_alley", label: "Bowling", icon: "bowling-ball", enabled: true },
+  { category: "entertainment.cinema", label: "Cinema", icon: "film", enabled: true },
+  { category: "entertainment.culture.arts_centre", label: "Arts Centre", icon: "palette", enabled: true },
+  { category: "entertainment.culture.gallery", label: "Gallery", icon: "images", enabled: true },
+  { category: "entertainment.culture.theatre", label: "Theatre", icon: "masks-theater", enabled: true },
+  { category: "entertainment.escape_game", label: "Escape Game", icon: "person-running", enabled: true },
+  { category: "entertainment.flying_fox", label: "Flying Fox", icon: "plane", enabled: true },
+  { category: "entertainment.miniature_golf", label: "Mini Golf", icon: "golf-ball-tee", enabled: true },
+  { category: "entertainment.museum", label: "Museum", icon: "university", enabled: true },
+  { category: "entertainment.planetarium", label: "Planetarium", icon: "meteor", enabled: true },
+  { category: "entertainment.theme_park", label: "Theme Park", icon: "parachute-box", enabled: true },
+  { category: "entertainment.water_park", label: "Water Park", icon: "water", enabled: true },
+  { category: "entertainment.zoo", label: "Zoo", icon: "paw", enabled: true }
+];
+
+// Map setup
+const initialCenter = [51.5074, -0.1278]; // London
+const map = L.map("map", { zoomControl: true }).setView(initialCenter, 14);
+
+const SEARCH_DELAY_MS = 600;
+const MIN_SEARCH_ZOOM = 13;
+
+// Detect retina/high-DPI screens for crisper tiles & icons
+const IS_RETINA = ((typeof window !== "undefined" ? window.devicePixelRatio : 1) || 1) > 1 || (L && L.Browser && L.Browser.retina);
+
+// Geoapify map tiles using klokantech-basic. Use @2x for retina.
+const tileBase = "https://maps.geoapify.com/v1/tile/klokantech-basic/{z}/{x}/{y}";
+const tileUrl = `${tileBase}${IS_RETINA ? "@2x" : ""}.png?apiKey=${GEOAPIFY_API_KEY}`;
+const tileAttrib =
+  'Powered by <a href="https://www.geoapify.com/" target="_blank" rel="noopener">Geoapify</a> | Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
+L.tileLayer(tileUrl, { attribution: tileAttrib, maxZoom: 20 }).addTo(map);
+
+// Layers & accumulated results state
+const resultsLayer = L.layerGroup().addTo(map);
+const seenPlaceIds = new Set();
+
+function clearAllResults() {
+  resultsLayer.clearLayers();
+  seenPlaceIds.clear();
+}
+
+let activeSearchId = 0;
+
+function getFragments(bounds, zoom) {
+  if (!bounds) return [];
+  const chunks = getAxisChunksForZoom(zoom);
+  const sw = bounds.getSouthWest();
+  const ne = bounds.getNorthEast();
+
+  if (chunks <= 1) {
+    return [{ minLng: sw.lng, minLat: sw.lat, maxLng: ne.lng, maxLat: ne.lat }];
+  }
+  
+  console.log(chunks);
+
+  const latStep = (ne.lat - sw.lat) / chunks;
+  const lngStep = (ne.lng - sw.lng) / chunks;
+  const rects = [];
+
+  for (let row = 0; row < chunks; row += 1) {
+    const minLat = sw.lat + row * latStep;
+    const maxLat = row === chunks - 1 ? ne.lat : minLat + latStep;
+
+    for (let col = 0; col < chunks; col += 1) {
+      const minLng = sw.lng + col * lngStep;
+      const maxLng = col === chunks - 1 ? ne.lng : minLng + lngStep;
+      rects.push({ minLng, minLat, maxLng, maxLat });
+    }
+  }
+
+  return rects;
+}
+
+function getAxisChunksForZoom(zoom) {
+  const z = Math.floor(zoom);
+  const delta = Math.max(0, 16 - z);
+  return delta;
+}
+
+// UI elements
+const statusEl = document.getElementById("status");
+const zoomInfoEl = document.getElementById("zoom-info");
+const buttonsContainer = document.getElementById("category-buttons");
+
+// Create toggle buttons for categories
+const state = new Map();
+CATEGORY_CONFIG.forEach(({ category, label, icon, enabled }) => {
+  state.set(category, { enabled: !!enabled, icon, label });
+  const btn = document.createElement("button");
+  btn.className = `toggle ${enabled ? "toggle--on" : ""}`;
+  btn.dataset.category = category;
+  btn.title = `${label} (${category})`;
+
+  const img = document.createElement("img");
+  img.className = "toggle__icon";
+  img.alt = label;
+  img.src = buttonIconUrl(icon, "#37a961");
+
+  const span = document.createElement("span");
+  span.className = "toggle__label";
+  span.textContent = label;
+
+  btn.appendChild(img);
+  btn.appendChild(span);
+  btn.addEventListener("click", () => {
+    const current = state.get(category);
+    current.enabled = !current.enabled;
+    btn.classList.toggle("toggle--on", current.enabled);
+    // update icon tint to show on/off
+    img.src = buttonIconUrl(icon, current.enabled ? "#37a961" : "#9ca3af");
+    clearAllResults();
+    setStatus("Updating categories…");
+    activeSearchId += 1;
+    scheduleSearch();
+  });
+
+  buttonsContainer.appendChild(btn);
+});
+
+// Helper: Build Geoapify Icon URL
+function iconUrl(iconName, colorHex = "#37a961") {
+  const color = encodeURIComponent(colorHex);
+  const icon = encodeURIComponent(iconName);
+  return `https://api.geoapify.com/v2/icon/?type=awesome&color=${color}&size=50&icon=${icon}&contentSize=20&scaleFactor=2&apiKey=${GEOAPIFY_API_KEY}`
+}
+
+function buttonIconUrl(iconName, colorHex = "#37a961") {
+  const color = encodeURIComponent(colorHex);
+  const icon = encodeURIComponent(iconName);
+  return `https://api.geoapify.com/v2/icon/?type=circle&color=${color}&size=30&iconType=awesome&icon=${icon}&contentSize=17&&scaleFactor=2&noWhiteCircle&apiKey=${GEOAPIFY_API_KEY}`
+}
+
+
+// Helper: Find icon by categories array from feature
+function iconForFeature(categoriesArr) {
+  if (!Array.isArray(categoriesArr)) return iconUrl("map-marker");
+  // find the first matching configured category
+  for (const { category, icon } of CATEGORY_CONFIG) {
+    if (categoriesArr.includes(category)) {
+      const isOn = state.get(category)?.enabled;
+      return iconUrl(icon, isOn ? "#22c55e" : "#9ca3af");
+    }
+  }
+  return iconUrl("map-marker");
+}
+
+// Debounced search logic
+let pendingTimer = null;
+
+function scheduleSearch() {
+  if (pendingTimer) clearTimeout(pendingTimer);
+  pendingTimer = setTimeout(searchPlaces, SEARCH_DELAY_MS);
+}
+
+async function searchPlaces() {
+  pendingTimer = null;
+  const zoom = map.getZoom();
+  if (zoom < MIN_SEARCH_ZOOM) {
+    setStatus(`Zoom in to load places (zoom >= ${MIN_SEARCH_ZOOM})`);
+    clearAllResults();
+    return;
+  }
+
+  const enabledCategories = CATEGORY_CONFIG
+    .filter(({ category }) => state.get(category)?.enabled)
+    .map(({ category }) => category);
+
+  if (enabledCategories.length === 0) {
+    setStatus("No categories selected");
+    clearAllResults();
+    return;
+  }
+
+  const bounds = map.getBounds();
+  const fragments = getFragments(bounds, zoom);
+  if (fragments.length === 0) return;
+  const searchId = ++activeSearchId;
+  const categoriesParam = encodeURIComponent(enabledCategories.join(","));
+  setStatus(`Loading places…`);
+
+  const requestFns = fragments.map((fragment) => {
+    const rect = `${fragment.minLng},${fragment.minLat},${fragment.maxLng},${fragment.maxLat}`;
+    const url = `https://api.geoapify.com/v2/places?categories=${categoriesParam}&filter=rect:${rect}&limit=200&apiKey=${GEOAPIFY_API_KEY}`;
+
+    return async () => {
+      if (activeSearchId !== searchId || map.getZoom() < MIN_SEARCH_ZOOM) {
+        return { success: false, skipped: true };
+      }
+      try {
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        if (activeSearchId !== searchId || map.getZoom() < MIN_SEARCH_ZOOM) {
+          return { success: false, skipped: true };
+        }
+        renderResults(data, searchId);
+        return { success: true, count: data.features?.length || 0 };
+      } catch (err) {
+        console.error("Failed to load fragment", fragment, err);
+        return { success: false, error: err };
+      }
+    };
+  });
+
+  const rateLimiterOptions = {
+    onProgress: (progress) => {
+      if (activeSearchId !== searchId) return;
+      console.log(`Progress: ${progress.completedRequests}/${progress.totalRequests} completed`);
+    }
+  };
+
+  let results;
+  try {
+    results = await RequestRateLimiter.rateLimitedRequests(requestFns, 5, 1000, rateLimiterOptions);
+
+    console.log(results);
+  } catch (err) {
+    console.error("Rate-limited requests failed", err);
+    if (activeSearchId === searchId) {
+      setStatus("Failed to load places");
+    }
+    return;
+  }
+
+  if (activeSearchId !== searchId || map.getZoom() < MIN_SEARCH_ZOOM) {
+    return;
+  }
+
+  const successCount = Array.isArray(results)
+    ? results.filter((res) => res && res.success).length
+    : 0;
+
+  if (successCount > 0) {
+    setStatus(`${seenPlaceIds.size} places locaded`);
+  } else {
+    setStatus("Failed to load places");
+  }
+}
+
+function renderResults(geojson, searchId) {
+  if (searchId && activeSearchId !== searchId) return;
+  if (map.getZoom() < MIN_SEARCH_ZOOM) return;
+  if (!geojson || !Array.isArray(geojson.features)) return;
+
+  geojson.features.forEach((f) => {
+    const { geometry, properties } = f;
+    if (!geometry || geometry.type !== "Point") return;
+    const [lng, lat] = geometry.coordinates;
+    const pid = properties?.place_id || `${lng},${lat}:${properties?.name || ""}`;
+    if (seenPlaceIds.has(pid)) return;
+    const icon = L.icon({
+      iconUrl: iconForFeature(properties?.categories),
+      iconSize: [38, 55],
+      iconAnchor: [18, 50], 
+      popupAnchor: [0, -50]
+    });
+
+    const name = properties?.name || properties?.address_line1 || "Unnamed place";
+    const secondary = properties?.address_line2 || properties?.formatted || "";
+    const cats = Array.isArray(properties?.categories) ? properties.categories.join(", ") : "";
+
+    const popupHtml = `
+      <div>
+        <div style="font-weight:600;">${escapeHtml(name)}</div>
+        ${secondary ? `<div style="color:#9ca3af; font-size:0.9em;">${escapeHtml(secondary)}</div>` : ""}
+        ${cats ? `<div style="margin-top:4px; color:#9ca3af; font-size:0.85em;">${escapeHtml(cats)}</div>` : ""}
+      </div>
+    `;
+
+    L.marker([lat, lng], { icon }).bindPopup(popupHtml).addTo(resultsLayer);
+    seenPlaceIds.add(pid);
+  });
+}
+
+function updateZoomInfo() {
+  if (!zoomInfoEl) return;
+  const zoomValue = map.getZoom();
+  const zoomLabel = Number.isInteger(zoomValue) ? zoomValue : zoomValue.toFixed(2);
+  zoomInfoEl.textContent = `Zoom: ${zoomLabel}`;
+}
+
+function setStatus(text) {
+  statusEl.textContent = text || "";
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+// Trigger search on map move or zoom (debounced)
+map.on("moveend", scheduleSearch);
+map.on("zoomend", scheduleSearch);
+map.on("zoomend", updateZoomInfo);
+
+// Initial status and search
+updateZoomInfo();
+setStatus("Pan or zoom the map to search");
+scheduleSearch();</script>
+
+  </body>
+
+</html>

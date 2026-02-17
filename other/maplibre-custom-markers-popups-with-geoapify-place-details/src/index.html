@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>MapLibre Custom Markers &amp; Popups with Geoapify Place Details</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css"/>
+    <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <span class="header-label">Geoapify × MapLibre</span>
+        <h1>MapLibre Marker with Geoapify Place Details</h1>
+        <p>
+          Demonstrates how to fetch Geoapify place details, render a custom marker icon, and display a rich HTML
+          popup using MapLibre GL JS. Click anywhere on the map to request details for that location and drop
+          additional markers without removing the previous ones.
+        </p>
+      </div>
+    </header>
+
+    <div id="my-map"></div>
+
+    <div class="status-banner" id="status-banner" hidden>
+      <div class="status-header">
+        <strong id="status-title">Loading…</strong>
+      </div>
+      <span id="status-message">Fetching place details…</span>
+    </div>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route Elevation Profile Chart | Geoapify Routing API + Chart.js</title>
+  <link rel="stylesheet" href="style.css" inline>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Create a Route Elevation Profile with Chart.js</h1>
+    <p class="description">
+      This demo shows how to extract elevation data from a Geoapify route and visualize it as a chart.
+      Perfect for hiking, cycling, or any route where elevation changes matter.
+    </p>
+
+    <div class="controls">
+      <button id="generate-btn">Generate Elevation Profile</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <div class="results">
+      <div class="result-section">
+        <h2>Elevation Profile Chart</h2>
+        <div id="chart-container" class="chart-container">
+          <p class="placeholder">Click "Generate Elevation Profile" to see the chart</p>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h2>Elevation Data Structure</h2>
+        <pre id="data-structure" class="code-box"><code>// Elevation data will appear here</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="script.js" inline></script>
+</body>
+
+</html>
+

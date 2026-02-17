@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Visualizing GeoJSON Polygons with Leaflet and Geoapify Isoline API</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <div class="app">
+      <aside id="sidebar">
+        <h1>Isoline (drive, time)</h1>
+        <div class="meta">
+          <span class="badge">Leaflet</span>
+          <span class="badge">GeoJSON</span>
+          <span class="badge">Geoapify Isoline API</span>
+        </div>
+        <div id="summary">Loading…</div>
+
+        <div class="legend" id="legend"></div>
+        <p style="margin-top:10px;">
+          Tip: each polygon represents a reachable area within the specified travel time from the origin point.
+        </p>
+      </aside>
+      <div id="my-map"></div>
+    </div>
+
+    <!-- Load Leaflet JavaScript library (the leaflet.css in the <head> tag) -->
+    <!-- Check the actual version on https://leafletjs.com/download.html -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

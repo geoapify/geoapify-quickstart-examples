@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Routes Visualization — Leaflet + Turf.js</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+  <body>
+    <div class="panel">
+      <h3>Multiple Routes</h3>
+      <p class="hint">Geometric offset using Turf.js lineOffset</p>
+      <div id="routes-list"></div>
+
+      <div id="route-details" class="route-details-panel hidden">
+        <h4>Route Details</h4>
+        <div id="route-details-content"></div>
+      </div>
+
+      <div class="zoom-indicator">
+        <div class="zoom-label">Zoom Level</div>
+        <div id="zoom-level" class="zoom-value">13</div>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+</html>

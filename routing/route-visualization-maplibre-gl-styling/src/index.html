@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Visualization — MapLibre GL</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+  <body>
+    <div class="controls-panel">
+      <h3>Route Styling</h3>
+      <p class="hint">Customize route appearance and markers</p>
+
+      <div class="control-group">
+        <label>Route Color</label>
+        <div class="color-picker-group">
+          <input type="color" id="route-color" value="#2196F3">
+          <span id="route-color-value">#2196F3</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Route Width: <span id="width-value">6</span>px</label>
+        <input type="range" id="route-width" min="2" max="20" value="6">
+      </div>
+
+      <div class="control-group">
+        <label>Route Opacity: <span id="opacity-value">0.9</span></label>
+        <input type="range" id="route-opacity" min="0" max="1" step="0.1" value="0.9">
+      </div>
+
+      <hr>
+
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="show-outline" checked>
+          Show Route Outline
+        </label>
+      </div>
+
+      <div class="control-group">
+        <label>Outline Color</label>
+        <div class="color-picker-group">
+          <input type="color" id="outline-color" value="#0D47A1">
+          <span id="outline-color-value">#0D47A1</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Outline Width: <span id="outline-width-value">2</span>px</label>
+        <input type="range" id="outline-width" min="0" max="6" value="2">
+      </div>
+
+      <hr>
+
+      <div class="control-group">
+        <label>Marker Style</label>
+        <select id="marker-type">
+          <option value="awesome">Awesome Pin</option>
+          <option value="material">Material Pin</option>
+          <option value="circle">Circle</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Marker Size: <span id="marker-size-value">48</span>px</label>
+        <input type="range" id="marker-size" min="32" max="80" value="48" step="4">
+      </div>
+
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="marker-shadow" checked>
+          Show Marker Shadow
+        </label>
+      </div>
+
+      <button id="reset-btn" class="btn-reset">Reset to Defaults</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+</html>
+

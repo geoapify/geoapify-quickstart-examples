@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turn-by-Turn Step Preview with Direction Arrows | Geoapify</title>
+  <link rel="stylesheet" href="style.css" inline>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Draw a Single Direction Step Preview</h1>
+    <p class="description">
+      This demo shows how to create a static map image for an individual turn-by-turn step.
+      Each step shows the previous route (gray), upcoming route (pink), and a direction arrow - perfect for
+      printable navigation instructions.
+    </p>
+
+    <div class="controls">
+      <label for="step-selector">Select a step:</label>
+      <select id="step-selector">
+        <option value="">Loading steps...</option>
+      </select>
+      <span id="status" class="status"></span>
+    </div>
+
+    <div class="results">
+      <div class="result-section">
+        <h2>Step Preview Image</h2>
+        <div id="step-info" class="step-info"></div>
+        <div id="image-container" class="image-container">
+          <p class="placeholder">Select a step to see its preview</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <script src="script.js" inline></script>
+</body>
+
+</html>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Places Search (No Map) — Category search with built-in list</title>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+    
+  <body>
+  <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Address Form with Places - Geoapify</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="theme-selector">
+    <span class="theme-label">Theme:</span>
+    <select id="theme-selector" onchange="setTheme(this.value)">
+      <option value="minimal">Light</option>
+      <option value="minimal-dark">Dark</option>
+      <option value="round-borders">Light (Round)</option>
+      <option value="round-borders-dark">Dark (Round)</option>
+    </select>
+  </div>
+
+  <div class="address-collection-container">
+    <div class="sample-header">
+      <h1>Address Autocomplete with Places Search — Built-in List</h1>
+      <p class="message-container">Search places or categories and select a result. The panel below shows the
+        selected place’s name, formatted address, coordinates, and categories.</p>
+    </div>
+    <!-- Places search section - moved to top -->
+    <div class="address-row">
+      <div class="address-field-with-label main-part">
+        <label for="places">Search places and categories:</label><br>
+        <div style="display:flex; align-items:center; gap:10px; margin:6px 0 4px;">
+          <input type="checkbox" id="close-on-select" />
+          <label for="close-on-select" style="font-size:12px;color:#425569;">Exit category mode after selecting a place</label>
+        </div>
+        <div class="info-block">
+          <strong>Tip:</strong> This input supports category search. Try categories like <em>Schools</em>,
+          <em>Libraries</em>, <em>Cafes</em>, <em>Restaurants</em>, <em>Pharmacies</em>,
+          <em>Supermarkets</em>, <em>Parks</em>, <em>Hospitals</em>, <em>Gas stations</em>, or <em>ATMs</em>.
+          <br>
+          When no bias or filter is set, the API may use your IP location to roughly bias results for relevance.
+        </div>
+        <div id="places" class="address-field autocomplete-container"></div>
+      </div>
+    </div>
+
+    <div class="address-row">
+      <div class="address-field-with-label main-part">
+        <label>Selected Place:</label><br>
+        <div id="result" class="message-container" aria-live="polite">Select a place or category to see details here.</div>
+        <div id="result-extra" class="message-container" style="font-size:12px;color:#6b7a90;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+  <link id="geocoder-theme" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
+</body>
+
+</html>
+    <script  src="script.js" inline></script>
+
+  </body>
+  
+</html>

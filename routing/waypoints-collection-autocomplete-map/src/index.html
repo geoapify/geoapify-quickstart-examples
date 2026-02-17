@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing API — Collect Waypoints</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link id="geocoder-theme" rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+  <body>
+    <div class="theme-selector">
+      <span class="theme-label">Theme:</span>
+      <select id="theme-selector" onchange="setTheme(this.value)">
+        <option value="minimal">Light</option>
+        <option value="minimal-dark">Dark</option>
+        <option value="round-borders">Light (Round)</option>
+        <option value="round-borders-dark">Dark (Round)</option>
+      </select>
+    </div>
+
+    <div class="panel">
+      <h3>Collect Waypoints</h3>
+      <p class="hint">Enter addresses or click on the map. Drag rows to reorder.</p>
+      <div id="waypoints"></div>
+      <button id="add-btn" class="btn-add">
+        <span class="plus">+</span> Add a new location
+      </button>
+      <button id="build-route-btn" class="btn-build-route">
+        Build Route
+      </button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+</html>

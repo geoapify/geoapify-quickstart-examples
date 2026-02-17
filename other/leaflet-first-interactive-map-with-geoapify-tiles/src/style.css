@@ -1,0 +1,18 @@
+html,
+body,
+#my-map {
+  height: 100%;
+  margin: 0;
+}
+
+.coords {
+  position: absolute;
+  z-index: 1000;
+  left: 10px;
+  bottom: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}

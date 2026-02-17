@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Leaflet demo: Geoapify Places API category search with dynamic markers</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <h1>Leaflet + Geoapify Places API sample: categorized search rendered as map markers</h1>
+        <div class="header__status">
+          <div id="status" class="status">&nbsp;</div>
+          <div id="zoom-info" class="status status--zoom">Zoom: 14</div>
+        </div>
+      </header>
+
+      <section class="controls">
+        <div class="controls__hint">
+          <p class="controls__intro"><strong>How this demo works</strong></p>
+          <ul class="controls__list">
+            <li>Pick the categories you want via the buttons; each toggle updates the categories parameter sent to the
+              Geoapify Places API.
+            </li>
+            <li>Pan or zoom the map (zoom ≥ 13) to trigger a Places request for the current bounds and plot the results
+              as markers.
+            </li>
+            <li>The visible bounds are subdivided into small fragments, so results stream in chunk by chunk for a
+              smoother, more responsive UX.
+            </li>
+          </ul>
+        </div>
+        <div id="category-buttons" class="controls__buttons"></div>
+      </section>
+
+      <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/@geoapify/request-rate-limiter@1.0.1/dist/request-rate-limiter.js"></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route Elevation Profile Chart | Geoapify Routing API + Chart.js</title>
+  <style>* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+h2 {
+  color: #34495e;
+  font-size: 18px;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+.status {
+  color: #666;
+  font-size: 14px;
+}
+
+.status.loading {
+  color: #f39c12;
+}
+
+.status.success {
+  color: #27ae60;
+}
+
+.status.error {
+  color: #e74c3c;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chart-container {
+  min-height: 300px;
+  max-height: 400px;
+  position: relative;
+}
+
+.chart-container canvas {
+  max-height: 100%;
+}
+
+.code-box {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.placeholder {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Create a Route Elevation Profile with Chart.js</h1>
+    <p class="description">
+      This demo shows how to extract elevation data from a Geoapify route and visualize it as a chart.
+      Perfect for hiking, cycling, or any route where elevation changes matter.
+    </p>
+
+    <div class="controls">
+      <button id="generate-btn">Generate Elevation Profile</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <div class="results">
+      <div class="result-section">
+        <h2>Elevation Profile Chart</h2>
+        <div id="chart-container" class="chart-container">
+          <p class="placeholder">Click "Generate Elevation Profile" to see the chart</p>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h2>Elevation Data Structure</h2>
+        <pre id="data-structure" class="code-box"><code>// Elevation data will appear here</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script>// Route Elevation Profile Demo
+
+// API Key
+const apiKey = "e95f313d38334f9f955e65b71a289126";
+
+// Waypoints: Munich to Berlin (long route to show elevation changes)
+const waypoints = "48.1351,11.5820|52.5200,13.4050";
+
+// Routing API URL - note: elevation=true is required for elevation data
+const routingUrl = `https://api.geoapify.com/v1/routing?waypoints=${waypoints}&mode=drive&details=elevation&apiKey=${apiKey}`;
+
+// DOM elements
+const generateBtn = document.getElementById("generate-btn");
+const statusEl = document.getElementById("status");
+const chartContainer = document.getElementById("chart-container");
+const dataStructureEl = document.getElementById("data-structure");
+
+let chartInstance = null;
+
+// Generate profile when button is clicked
+generateBtn.addEventListener("click", generateElevationProfile);
+
+async function generateElevationProfile() {
+  generateBtn.disabled = true;
+  statusEl.textContent = "Fetching route with elevation...";
+  statusEl.className = "status loading";
+
+  try {
+    // Step 1: Fetch the route with elevation data
+    const response = await fetch(routingUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data.features || data.features.length === 0) {
+      throw new Error("No route found");
+    }
+
+    const route = data.features[0];
+    
+    // Check if elevation data is available
+    if (!route.properties.legs[0].elevation_range) {
+      throw new Error("No elevation data available for this route");
+    }
+
+    statusEl.textContent = "Processing elevation data...";
+
+    // Step 2: Extract and process elevation data
+    const elevationData = calculateElevationProfileData(route);
+
+    // Step 3: Draw the chart
+    drawElevationProfile(route, elevationData);
+
+    // Step 4: Display the raw data structure
+    displayDataStructure(route, elevationData);
+
+    statusEl.textContent = "Elevation profile generated!";
+    statusEl.className = "status success";
+
+  } catch (error) {
+    console.error("Error:", error);
+    statusEl.textContent = `Error: ${error.message}`;
+    statusEl.className = "status error";
+  } finally {
+    generateBtn.disabled = false;
+  }
+}
+
+// Calculate elevation profile data
+function calculateElevationProfileData(routeData) {
+  const legElevations = [];
+
+  // elevation_range contains pairs [distance, elevation] for every leg geometry point
+  routeData.properties.legs.forEach(leg => {
+    if (leg.elevation_range) {
+      legElevations.push(leg.elevation_range);
+    } else {
+      legElevations.push([]);
+    }
+  });
+
+  let labels = [];
+  let data = [];
+
+  // Combine elevation data from all legs
+  legElevations.forEach((legElevation, index) => {
+    let previousLegsDistance = 0;
+    for (let i = 0; i <= index - 1; i++) {
+      previousLegsDistance += legElevations[i][legElevations[i].length - 1][0];
+    }
+
+    labels.push(...legElevation.map(elevationData => elevationData[0] + previousLegsDistance));
+    data.push(...legElevation.map(elevationData => elevationData[1]));
+  });
+
+  // Optimize array size to avoid performance problems
+  const labelsOptimized = [];
+  const dataOptimized = [];
+  const minDist = 5; // 5m
+  const minHeight = 10; // ~10m
+
+  labels.forEach((dist, index) => {
+    if (index === 0 || index === labels.length - 1 ||
+        (dist - labelsOptimized[labelsOptimized.length - 1]) > minDist ||
+        Math.abs(data[index] - dataOptimized[dataOptimized.length - 1]) > minHeight) {
+      labelsOptimized.push(dist);
+      dataOptimized.push(data[index]);
+    }
+  });
+
+  return {
+    data: dataOptimized,
+    labels: labelsOptimized,
+    originalDataPoints: labels.length,
+    optimizedDataPoints: labelsOptimized.length
+  };
+}
+
+// Draw elevation profile using Chart.js
+function drawElevationProfile(routeData, elevationData) {
+  // Destroy existing chart if any
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+
+  // Clear placeholder
+  chartContainer.innerHTML = '<canvas id="elevation-chart"></canvas>';
+  
+  const ctx = document.getElementById("elevation-chart").getContext("2d");
+  
+  const chartData = {
+    labels: elevationData.labels,
+    datasets: [{
+      data: elevationData.data,
+      fill: true,
+      borderColor: '#66ccff',
+      backgroundColor: '#66ccff66',
+      tension: 0.1,
+      pointRadius: 0,
+      spanGaps: true
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: chartData,
+    plugins: [{
+      beforeInit: (chart) => {
+        const maxHeight = Math.max(...chart.data.datasets[0].data);
+        chart.options.scales.x.min = Math.min(...chart.data.labels);
+        chart.options.scales.x.max = Math.max(...chart.data.labels);
+        chart.options.scales.y.max = maxHeight + Math.round(maxHeight * 0.2);
+      }
+    }],
+    options: {
+      animation: false,
+      maintainAspectRatio: false,
+      interaction: {
+        intersect: false,
+        mode: 'index',
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          title: {
+            display: true,
+            text: 'Distance (m)'
+          }
+        },
+        y: {
+          type: 'linear',
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Elevation (m)'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Distance, m / Elevation, m',
+          align: 'end'
+        },
+        legend: {
+          display: false
+        },
+        tooltip: {
+          displayColors: false,
+          callbacks: {
+            title: (tooltipItems) => {
+              return `Distance: ${tooltipItems[0].label}m`;
+            },
+            label: (tooltipItem) => {
+              return `Elevation: ${tooltipItem.raw}m`;
+            },
+          }
+        }
+      }
+    }
+  };
+
+  chartInstance = new Chart(ctx, config);
+}
+
+function displayDataStructure(route, elevationData) {
+  // Show the actual API response structure with elevation data
+  const leg = route.properties.legs[0];
+  
+  const elevationSample = {
+    features: [{
+      properties: {
+        distance: route.properties.distance,
+        time: route.properties.time,
+        legs: [{
+          elevation_range: [
+            ...leg.elevation_range.slice(0, 5),
+            `... ${leg.elevation_range.length - 10} more points ...`,
+            ...leg.elevation_range.slice(-5)
+          ]
+        }]
+      }
+    }]
+  };
+
+  dataStructureEl.innerHTML = `<code>${JSON.stringify(elevationSample, null, 2)}</code>`;
+}
+
+</script>
+</body>
+
+</html>
+

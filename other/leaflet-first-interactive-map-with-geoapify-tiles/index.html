@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Leaflet: First Interactive Map with Geoapify Tiles</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>html,
+body,
+#my-map {
+  height: 100%;
+  margin: 0;
+}
+
+.coords {
+  position: absolute;
+  z-index: 1000;
+  left: 10px;
+  bottom: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}</style>
+
+  </head>
+
+  <body>
+    <!-- The container where the map will be rendered -->
+    <div id="my-map"></div>
+
+    <!-- Load Leaflet JavaScript library (the leaflet.css in the <head> tag) -->
+    <!-- Check the actual version on https://leafletjs.com/download.html -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <div class="coords" id="coords">Click the map to get coordinates</div>
+    <script>// 👉 Replace with your own API key. Sign up at https://www.geoapify.com/ to get one.
+const yourAPIKey = "f82ea38cb77543d59c597faaa263e714";
+
+// 1) Create map
+const map = L.map("my-map").setView([51.505, -0.09], 13);
+
+// 2) Base tiles (Geoapify OSM Bright)
+var isRetina = L.Browser.retina;
+var baseUrl =
+  "https://maps.geoapify.com/v1/tile/osm-bright-grey/{z}/{x}/{y}.png?apiKey={apiKey}";
+var retinaUrl =
+  "https://maps.geoapify.com/v1/tile/osm-bright-grey/{z}/{x}/{y}@2x.png?apiKey={apiKey}";
+
+L.tileLayer(isRetina ? retinaUrl : baseUrl, {
+  attribution:
+    'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
+  maxZoom: 20,
+  id: "osm-bright",
+  apiKey: yourAPIKey
+}).addTo(map);
+
+// 3) Marker + popup
+const marker = L.marker([51.505, -0.09]).addTo(map);
+marker
+  .bindPopup("<b>Hello, Leaflet!</b><br>Welcome to your first map.")
+  .openPopup();
+
+// 4) Scale control (metric + imperial)
+L.control.scale({ metric: true, imperial: true, position: "topleft" }).addTo(map);
+
+// 5) Click handler: show coordinates
+const coordsEl = document.getElementById("coords");
+map.on("click", (e) => {
+  const { lat, lng } = e.latlng;
+  coordsEl.textContent = `Lat: ${lat.toFixed(5)}, Lon: ${lng.toFixed(5)}`;
+
+  // Optional: move marker to click position
+  marker
+    .setLatLng(e.latlng)
+    .bindPopup(`You clicked at<br><b>${lat.toFixed(5)}, ${lng.toFixed(5)}</b>`)
+    .openPopup();
+});</script>
+
+  </body>
+
+</html>
