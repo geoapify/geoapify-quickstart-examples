@@ -1,7 +1,7 @@
 /* global maplibregl */
 
 // Demo key for preview purposes only; create your own Geoapify key for production usage.
-const GEOAPIFY_API_KEY = "f82ea38cb77543d59c597faaa263e714";
+const GEOAPIFY_API_KEY = "5402608de7c44a2d95121c407ad2110b";
 const MAX_MERCATOR_LAT = 85.05112878;
 
 const styleOptions = [

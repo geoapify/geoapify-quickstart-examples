@@ -1,5 +1,8 @@
-// 👉 Replace with your own API key. Sign up at https://www.geoapify.com/ to get one.
-const apiKey = "f82ea38cb77543d59c597faaa263e714";
+// Demo API key for quickstart only.
+// Register for your own free API key at https://myprojects.geoapify.com/.
+// Benefits: usage analytics, project-level limits, and reliable access for production use.
+// This demo key can be blocked or restricted at any time.
+const apiKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Initialize the map and set its view to Chicago (lat/lon) with zoom level 16
 const map = L.map("my-map").setView([41.890491, -87.654306], 16);

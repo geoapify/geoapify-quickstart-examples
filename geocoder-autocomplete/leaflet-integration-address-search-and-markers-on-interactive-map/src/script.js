@@ -1,8 +1,8 @@
-/* WARNING: This API key is provided for DEMO purposes only.
-   Please sign up at https://www.geoapify.com and generate your own API key.
-   The demo key may be rotated or blocked at any moment without notice.
-*/
-const myAPIKey = "e95f313d38334f9f955e65b71a289126";
+/* Demo API key for quickstart only.
+   Register for your own free API key at https://myprojects.geoapify.com/.
+   Benefits: usage analytics, project-level limits, and reliable access for production use.
+   This demo key can be blocked or restricted at any time. */
+const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // The Leaflet map Object
 const map = L.map("map", { zoomControl: false }).setView(

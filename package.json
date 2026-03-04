@@ -12,9 +12,6 @@
     "type": "git",
     "url": "git+https://github.com/geoapify/geoapify-quickstart-examples.git"
   },
-  "scripts": {
-    "build": "node combine.js"
-  },
   "keywords": [
     "geoapify",
     "maps",
@@ -32,9 +29,5 @@
     "routing api",
     "places api",
     "geocoding api"
-  ],
-  "dependencies": {
-    "inline-source": "^8.0.3"
-  }
+  ]
 }
-

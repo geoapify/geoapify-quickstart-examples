@@ -4,17 +4,16 @@ This example demonstrates how to use Geoapify APIs with Geoapify Geocoder Autoco
 
 ## How to Run
 
-1. **Get your API key** at [myprojects.geoapify.com](https://myprojects.geoapify.com/)
-2. **Replace the API key** in the code (look for `YOUR_API_KEY` or the demo key in `src/script.js`)
-3. **Open `index.html`** in your browser — no server required!
+1. **Open `src/index.html`** in your browser — no server required!
 
-The `index.html` file has all CSS and JavaScript inlined, so it runs standalone. If you want to modify the code, edit files in the `src/` folder and rebuild using `npm run build`.
+This example runs directly from the source files in `src/`, so no build step is required.
+
+Note: In rare cases, browser policies or extensions can restrict `file://` access. If that happens, run a local static server and open `src/index.html` via `http://localhost`, or use your IDE's "Open with Live Server" (or similar) option.
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `index.html` | Combined file with inlined CSS/JS (ready to run) |
 | `src/index.html` | Source HTML |
 | `src/script.js` | Source JavaScript |
 | `src/style.css` | Source CSS |
@@ -30,7 +29,6 @@ The `index.html` file has all CSS and JavaScript inlined, so it runs standalone.
 ## Links
 
 - 📖 [Geoapify Documentation](https://apidocs.geoapify.com/)
-- 🔑 [Get API Key](https://myprojects.geoapify.com/)
 - ✏️ [CodePen](https://codepen.io/geoapify) — Interactive playground
 
 ## License
