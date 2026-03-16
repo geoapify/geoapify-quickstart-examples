@@ -2,14 +2,14 @@
    Register for your own free API key at https://myprojects.geoapify.com/.
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
-const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Structured address inputs removed for a simpler, places-focused demo
 
 // Places input with built-in places list functionality
 const placesInput = new autocomplete.GeocoderAutocomplete(
   document.getElementById("places"),
-  myAPIKey,
+  yourAPIKey,
   {
     placeholder: "Search places or categories...",
     addCategorySearch: true,

@@ -1,5 +1,5 @@
 // Simple Leaflet + Geoapify demo: search places by categories on map move
-const GEOAPIFY_API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Configure categories, labels, and icons (Geoapify Icons API)
 // icon names are from the "awesome" icon set; adjust if preferred
@@ -36,7 +36,7 @@ const IS_RETINA = ((typeof window !== "undefined" ? window.devicePixelRatio : 1)
 
 // Geoapify map tiles using klokantech-basic. Use @2x for retina.
 const tileBase = "https://maps.geoapify.com/v1/tile/klokantech-basic/{z}/{x}/{y}";
-const tileUrl = `${tileBase}${IS_RETINA ? "@2x" : ""}.png?apiKey=${GEOAPIFY_API_KEY}`;
+const tileUrl = `${tileBase}${IS_RETINA ? "@2x" : ""}.png?apiKey=${yourAPIKey}`;
 const tileAttrib =
   'Powered by <a href="https://www.geoapify.com/" target="_blank" rel="noopener">Geoapify</a> | Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
 L.tileLayer(tileUrl, { attribution: tileAttrib, maxZoom: 20 }).addTo(map);
@@ -132,13 +132,13 @@ CATEGORY_CONFIG.forEach(({ category, label, icon, enabled }) => {
 function iconUrl(iconName, colorHex = "#37a961") {
   const color = encodeURIComponent(colorHex);
   const icon = encodeURIComponent(iconName);
-  return `https://api.geoapify.com/v2/icon/?type=awesome&color=${color}&size=50&icon=${icon}&contentSize=20&scaleFactor=2&apiKey=${GEOAPIFY_API_KEY}`
+  return `https://api.geoapify.com/v2/icon/?type=awesome&color=${color}&size=50&icon=${icon}&contentSize=20&scaleFactor=2&apiKey=${yourAPIKey}`
 }
 
 function buttonIconUrl(iconName, colorHex = "#37a961") {
   const color = encodeURIComponent(colorHex);
   const icon = encodeURIComponent(iconName);
-  return `https://api.geoapify.com/v2/icon/?type=circle&color=${color}&size=30&iconType=awesome&icon=${icon}&contentSize=17&&scaleFactor=2&noWhiteCircle&apiKey=${GEOAPIFY_API_KEY}`
+  return `https://api.geoapify.com/v2/icon/?type=circle&color=${color}&size=30&iconType=awesome&icon=${icon}&contentSize=17&&scaleFactor=2&noWhiteCircle&apiKey=${yourAPIKey}`
 }
 
 
@@ -191,7 +191,7 @@ async function searchPlaces() {
 
   const requestFns = fragments.map((fragment) => {
     const rect = `${fragment.minLng},${fragment.minLat},${fragment.maxLng},${fragment.maxLat}`;
-    const url = `https://api.geoapify.com/v2/places?categories=${categoriesParam}&filter=rect:${rect}&limit=200&apiKey=${GEOAPIFY_API_KEY}`;
+    const url = `https://api.geoapify.com/v2/places?categories=${categoriesParam}&filter=rect:${rect}&limit=200&apiKey=${yourAPIKey}`;
 
     return async () => {
       if (activeSearchId !== searchId || map.getZoom() < MIN_SEARCH_ZOOM) {

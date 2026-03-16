@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // ─────────────────────────────────────────────────────────────
 // Route Definitions
@@ -35,7 +35,7 @@ const MIN_OFFSET_PX = 2.5; // Minimum visible offset even on retina displays
 const map = L.map("map", {zoomControl: false}).setView([48.866, 2.32], 13);
 L.control.zoom({position: "bottomright"}).addTo(map);
 
-L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${API_KEY}`, {
+L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${yourAPIKey}`, {
     attribution: '© <a href="https://www.geoapify.com/">Geoapify</a> © OpenMapTiles © OpenStreetMap',
     maxZoom: 20
 }).addTo(map);
@@ -69,7 +69,7 @@ updateZoomLevel();
 
 ROUTES.forEach((route, index) => {
     const waypoints = `${route.origin.lat},${route.origin.lon}|${DESTINATION.lat},${DESTINATION.lon}`;
-    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypoints}&mode=drive&apiKey=${API_KEY}`;
+    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypoints}&mode=drive&apiKey=${yourAPIKey}`;
 
     fetch(url)
         .then(res => res.json())
@@ -227,7 +227,7 @@ function renderMarkers() {
 }
 
 function createMarker(lat, lon, color, iconName, name, label) {
-    const iconUrl = `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&icon=${iconName}&iconType=awesome&size=48&scaleFactor=2&apiKey=${API_KEY}`;
+    const iconUrl = `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&icon=${iconName}&iconType=awesome&size=48&scaleFactor=2&apiKey=${yourAPIKey}`;
 
     const icon = L.icon({
         iconUrl: iconUrl,

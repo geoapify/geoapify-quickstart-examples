@@ -2,7 +2,7 @@
    Register for your own free API key at https://myprojects.geoapify.com/.
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
-const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 function setTheme(themeName) {
   const themeLink = document.getElementById("geocoder-theme");
@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 // Initialize autocomplete
 const ac = new autocomplete.GeocoderAutocomplete(
   document.getElementById("search"),
-  myAPIKey,
+  yourAPIKey,
   {
     skipIcons: true,
     allowNonVerifiedStreet: true,
@@ -193,7 +193,7 @@ ac.on &&
     if (lastQuery) params.set("text", lastQuery);
     if (codes.length) params.set("filter", `countrycode:${codes.join(",")}`);
     if (biasOn) params.set("bias", `proximity:${lon},${lat}`);
-    params.set("apiKey", myAPIKey);
+    params.set("apiKey", yourAPIKey);
     const url = `https://api.geoapify.com/v1/geocode/autocomplete?${params.toString()}`;
     const maskedUrl = url.replace(/(apiKey=)[^&]+/i, "$1YOUR_API_KEY");
 

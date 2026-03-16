@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Marker colors (cycles through for each waypoint)
 const MARKER_COLORS = ["#4CAF50", "#2196F3", "#9C27B0", "#FF9800", "#00BCD4", "#E91E63", "#f44336", "#795548"];
@@ -51,7 +51,7 @@ let isInitialLoad = true;
 // Map setup
 const map = new maplibregl.Map({
     container: "map",
-    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${API_KEY}`,
+    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${yourAPIKey}`,
     center: [2.32, 48.865],
     zoom: 13
 });
@@ -63,7 +63,7 @@ map.on("load", async () => {
 // Fetch and render route
 async function fetchRoute() {
     const waypointsStr = waypoints.map(w => `${w.lat},${w.lon}`).join("|");
-    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypointsStr}&mode=drive&apiKey=${API_KEY}`;
+    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypointsStr}&mode=drive&apiKey=${yourAPIKey}`;
 
     try {
         const res = await fetch(url);
@@ -171,7 +171,7 @@ function distToSegment(p, a, b) {
 function createMarkerIcon(type, index) {
     const color = getMarkerColor(index).replace('#', '%23');
     const el = document.createElement("img");
-    el.src = `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${API_KEY}`;
+    el.src = `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${yourAPIKey}`;
     el.className = "marker";
     el.style.width = "36px";
     el.style.height = "48px";

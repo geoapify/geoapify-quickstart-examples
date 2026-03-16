@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // ─────────────────────────────────────────────────────────────
 // Waypoints: Paris landmarks (all on north side of Seine)
@@ -43,7 +43,7 @@ let markerElements = [];
 // ─────────────────────────────────────────────────────────────
 const map = new maplibregl.Map({
     container: "map",
-    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${API_KEY}`,
+    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${yourAPIKey}`,
     center: [2.3376, 48.8606], // Paris [lng, lat]
     zoom: 13
 });
@@ -56,7 +56,7 @@ map.addControl(new maplibregl.NavigationControl(), "bottom-right");
 // ─────────────────────────────────────────────────────────────
 
 // Build routing URL (waypoint format: lat,lon separated by |)
-const routingUrl = `https://api.geoapify.com/v1/routing?waypoints=${waypoints.map(w => `${w.lat},${w.lon}`).join("|")}&mode=drive&apiKey=${API_KEY}`;
+const routingUrl = `https://api.geoapify.com/v1/routing?waypoints=${waypoints.map(w => `${w.lat},${w.lon}`).join("|")}&mode=drive&apiKey=${yourAPIKey}`;
 
 map.on("load", () => {
     fetchRoute();
@@ -191,7 +191,7 @@ function renderMarkers() {
 function createMarkerUrl(type, color, number, size, shadowParam) {
     const contentSize = type === "circle" ? Math.round(size * 0.55) : Math.round(size * 0.4);
     const noWhiteCircle = type === "awesome" ? "&noWhiteCircle" : "";
-    return `https://api.geoapify.com/v2/icon?type=${type}&color=${color}&text=${number}&size=${size}&contentSize=${contentSize}&scaleFactor=2${noWhiteCircle}${shadowParam}&apiKey=${API_KEY}`;
+    return `https://api.geoapify.com/v2/icon?type=${type}&color=${color}&text=${number}&size=${size}&contentSize=${contentSize}&scaleFactor=2${noWhiteCircle}${shadowParam}&apiKey=${yourAPIKey}`;
 }
 
 function getMarkerDimensions(type, size) {

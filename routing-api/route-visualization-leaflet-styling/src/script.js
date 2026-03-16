@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // ─────────────────────────────────────────────────────────────
 // Waypoints: Paris landmarks (all on north side of Seine)
@@ -53,7 +53,7 @@ map.createPane("route-line");
 map.getPane("route-line").style.zIndex = 400;
 
 // Geoapify map tiles
-L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${API_KEY}`, {
+L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${yourAPIKey}`, {
     attribution: '© <a href="https://www.geoapify.com/">Geoapify</a> © OpenMapTiles © OpenStreetMap',
     maxZoom: 20
 }).addTo(map);
@@ -63,7 +63,7 @@ L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?api
 // ─────────────────────────────────────────────────────────────
 
 // Build routing URL (waypoint format: lat,lon separated by |)
-const routingUrl = `https://api.geoapify.com/v1/routing?waypoints=${waypoints.map(w => `${w.lat},${w.lon}`).join("|")}&mode=drive&apiKey=${API_KEY}`;
+const routingUrl = `https://api.geoapify.com/v1/routing?waypoints=${waypoints.map(w => `${w.lat},${w.lon}`).join("|")}&mode=drive&apiKey=${yourAPIKey}`;
 
 function fetchRoute() {
     fetch(routingUrl)
@@ -149,7 +149,7 @@ function createMarkerIcon(type, color, number, size, shadowParam) {
 
     if (type === "circle") {
         return L.icon({
-            iconUrl: `https://api.geoapify.com/v2/icon?type=circle&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.55)}&scaleFactor=2${shadowParam}&apiKey=${API_KEY}`,
+            iconUrl: `https://api.geoapify.com/v2/icon?type=circle&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.55)}&scaleFactor=2${shadowParam}&apiKey=${yourAPIKey}`,
             iconSize: [size, size],
             iconAnchor: [size / 2, size / 2],
             popupAnchor: [0, -size / 2]
@@ -158,7 +158,7 @@ function createMarkerIcon(type, color, number, size, shadowParam) {
 
     if (type === "material") {
         return L.icon({
-            iconUrl: `https://api.geoapify.com/v2/icon?type=material&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.35)}&scaleFactor=2${shadowParam}&apiKey=${API_KEY}`,
+            iconUrl: `https://api.geoapify.com/v2/icon?type=material&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.35)}&scaleFactor=2${shadowParam}&apiKey=${yourAPIKey}`,
             iconSize: [size * 0.65, size],
             iconAnchor: [size * 0.325, size],
             popupAnchor: [0, -size]
@@ -167,7 +167,7 @@ function createMarkerIcon(type, color, number, size, shadowParam) {
 
     // Default: awesome (classic map pin)
     return L.icon({
-        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.4)}&noWhiteCircle&scaleFactor=2${shadowParam}&apiKey=${API_KEY}`,
+        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${number}&size=${size}&contentSize=${Math.round(size * 0.4)}&noWhiteCircle&scaleFactor=2${shadowParam}&apiKey=${yourAPIKey}`,
         iconSize: [size * 0.75, size],
         iconAnchor: [size * 0.375, size - 3],
         popupAnchor: [0, -size + 5]
