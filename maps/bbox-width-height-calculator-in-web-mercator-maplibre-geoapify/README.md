@@ -110,11 +110,14 @@ function calcBboxDimensions(lon1, lat1, lon2, lat2, z) {
   return { widthPx: dx * ws, heightPx: dy * ws };
 }
 
-map.on("moveend", () => {
+function updateOutput() {
   const bounds = map.getBounds();
   const dims = calcBboxDimensions(bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth(), map.getZoom());
   document.getElementById("output").textContent = `Width: ${dims.widthPx.toFixed(0)}px, Height: ${dims.heightPx.toFixed(0)}px`;
-});
+}
+
+map.on("load", updateOutput);
+map.on("moveend", updateOutput);
 ```
 
 ## Customize

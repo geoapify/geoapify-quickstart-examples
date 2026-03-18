@@ -72,7 +72,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 <body>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-polylineoffset@latest/leaflet.polylineoffset.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-polylineoffset@1.1.1/leaflet.polylineoffset.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
@@ -107,14 +107,6 @@ routes.forEach((r) => {
       line.addTo(map);
     });
 });
-    const pt = map.latLngToLayerPoint(ll);
-    if (!lastPt || pt.distanceTo(lastPt) >= minPx) {
-      out.push(ll);
-      lastPt = pt;
-    }
-  }
-  return out.length >= 2 ? out : latLngs;
-}
 ```
 
 ## Customize

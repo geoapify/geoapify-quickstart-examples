@@ -66,6 +66,9 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
   <title>One-Field Address Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
   <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+  <style>
+    #address-search { position: relative; }
+  </style>
 </head>
 <body>
   <div id="address-search"></div>

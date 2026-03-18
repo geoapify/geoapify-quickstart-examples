@@ -69,6 +69,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
   <style>
     #map { height: 400px; }
+    #waypoints > div { position: relative; z-index: 1000; }
   </style>
 </head>
 <body>
@@ -114,12 +115,6 @@ async function buildRoute() {
   const res = await fetch(`https://api.geoapify.com/v1/routing?waypoints=${param}&mode=drive&apiKey=${yourAPIKey}`);
   const data = await res.json();
   if (data.features?.[0]) L.geoJSON(data.features[0], { style: { color: "#3b82f6", weight: 5 } }).addTo(map);
-}
-  if (data.features?.[0]) {
-    routeLayer = L.geoJSON(data.features[0], {
-      style: { color: "#2196F3", weight: 6, opacity: 0.8 }
-    }).addTo(map);
-  }
 }
 ```
 

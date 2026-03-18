@@ -70,6 +70,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
   <style>
     #map { height: 500px; }
+    #autocomplete { position: relative; z-index: 1000; }
   </style>
 </head>
 <body>

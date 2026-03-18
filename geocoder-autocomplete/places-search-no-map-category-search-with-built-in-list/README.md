@@ -65,6 +65,9 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
   <title>Places Search</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css">
   <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+  <style>
+    #places { position: relative; }
+  </style>
 </head>
 <body>
   <div id="places"></div>

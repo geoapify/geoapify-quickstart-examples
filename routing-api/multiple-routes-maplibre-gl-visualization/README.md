@@ -115,11 +115,6 @@ map.on("load", () => {
       });
   });
 });
-  }
-
-  updateUI();
-  renderMarkers();
-};
 ```
 
 ### Create DOM-Based Markers

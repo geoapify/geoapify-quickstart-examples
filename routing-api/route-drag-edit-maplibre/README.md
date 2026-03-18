@@ -122,12 +122,6 @@ map.on("load", () => {
   });
   fetchRoute();
 });
-  floatingMarker.on("dragend", async () => {
-    const {lng, lat} = floatingMarker.getLngLat();
-    waypoints.splice(insertIndex, 0, {lat, lon: lng, type: "via"});
-    await fetchRoute();
-  });
-}
 ```
 
 ### Find Best Insertion Index

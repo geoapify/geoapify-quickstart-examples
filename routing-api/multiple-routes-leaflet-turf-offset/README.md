@@ -101,7 +101,22 @@ routes.forEach((r) => {
     .then((res) => res.json())
     .then((data) => {
       if (!data.features?.[0]) return;
-      const offsetFeature = turf.lineOffset(data.features[0], r.offset / 1000, { units: "kilometers" });
+      
+      const feature = data.features[0];
+      
+      // Handle MultiLineString - take first linestring
+      let lineFeature = feature;
+      if (feature.geometry.type === "MultiLineString") {
+        lineFeature = {
+          ...feature,
+          geometry: {
+            type: "LineString",
+            coordinates: feature.geometry.coordinates[0]
+          }
+        };
+      }
+      
+      const offsetFeature = turf.lineOffset(lineFeature, r.offset / 1000, { units: "kilometers" });
       const coords = offsetFeature.geometry.coordinates.map(([lon, lat]) => [lat, lon]);
       L.polyline(coords, { color: r.color, weight: 4 }).addTo(map);
     });
@@ -120,7 +135,7 @@ API documentation:
 - [Geoapify Routing API](https://apidocs.geoapify.com/docs/routing/)
 - [Geoapify Map Tiles API](https://apidocs.geoapify.com/docs/maps/map-tiles/)
 - [Geoapify Marker Icon API](https://apidocs.geoapify.com/docs/icon/)
-- [Turf.js lineOffset](https://turfjs.org/docs/#lineOffset)
+- [Turf.js lineOffset](https://turfjs.org/docs/api/lineOffset)
 
 No build step is required. Edit files in `src/` and refresh the browser.
 

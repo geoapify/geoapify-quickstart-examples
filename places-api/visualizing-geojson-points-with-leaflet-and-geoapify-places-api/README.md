@@ -86,17 +86,16 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 // This demo key can be blocked or restricted at any time.
 const yourAPIKey = "YOUR_API_KEY";
 
-const map = L.map("map").setView([52.52, 13.405], 11);
+const map = L.map("map").setView([52.52, 13.405], 13);
 L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${yourAPIKey}`).addTo(map);
 
-const placeId = "5102f0dceeadd8624059a63ee96f9c9a4b40f00102f9012a20100000000000c00208";
 const schoolIcon = L.icon({
   iconUrl: `https://api.geoapify.com/v2/icon/?type=awesome&color=%23e2b928&icon=school&scaleFactor=2&apiKey=${yourAPIKey}`,
   iconSize: [36, 53],
   iconAnchor: [18, 48]
 });
 
-fetch(`https://api.geoapify.com/v2/places?categories=education.school&filter=place:${placeId}&limit=500&apiKey=${yourAPIKey}`)
+fetch(`https://api.geoapify.com/v2/places?categories=education.school&filter=circle:13.405,52.52,5000&limit=50&apiKey=${yourAPIKey}`)
   .then((r) => r.json())
   .then((data) => {
     L.geoJSON(data, {
