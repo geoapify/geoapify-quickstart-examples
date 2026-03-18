@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reachability Zones + Places (MapLibre + Geoapify)</title>
+  <!-- MapLibre GL JS -->
+  <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="map"></div>
+  <div class="info-panel" id="infoPanel" role="dialog" aria-label="Map info">
+    <button class="info-close" id="infoPanelClose" aria-label="Close info panel">×</button>
+    <div class="info-title">Reachability Zones</div>
+    <div class="info-body">
+      <div class="info-section">
+        <strong>Apartment search simulation</strong>
+        <ul>
+          <li>Apartment markers are created randomly on load.</li>
+        </ul>
+      </div>
+      <div class="info-section">
+        <strong>How to use</strong>
+        <ul>
+          <li>Click the map to choose a reachability option.</li>
+          <li>Click an isoline marker to change range or invert it.</li>
+          <li>Click a place marker to view details.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="loading-indicator" id="loadingIndicator" aria-live="polite" aria-busy="false">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Loading…</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

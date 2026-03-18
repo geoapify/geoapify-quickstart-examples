@@ -2,7 +2,7 @@
 // Register for your own free API key at https://myprojects.geoapify.com/.
 // Benefits: usage analytics, project-level limits, and reliable access for production use.
 // This demo key can be blocked or restricted at any time.
-const apiKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // 1) Define map center and base layer
 const center = ol.proj.fromLonLat([-0.09, 51.505]); // Lon, Lat
@@ -16,7 +16,7 @@ const map = new ol.Map({
   layers: [
     new ol.layer.Tile({
       source: new ol.source.XYZ({
-        url: `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}${retinaSuffix}.png?apiKey=${apiKey}`,
+        url: `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}${retinaSuffix}.png?apiKey=${yourAPIKey}`,
         tilePixelRatio: isRetina ? 2 : 1,
         attributions:
           'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors'

@@ -1,5 +1,5 @@
 // Demo key for preview purposes only; create your own Geoapify key at https://www.geoapify.com/ for production usage.
-const GEOAPIFY_API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 const initialCoordinates = {
   lat: 45.42165612209891,
@@ -11,7 +11,7 @@ const map = new maplibregl.Map({
   container: "my-map",
   style:
     "https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?apiKey=" +
-    GEOAPIFY_API_KEY,
+    yourAPIKey,
   center: [initialCoordinates.lon, initialCoordinates.lat],
   zoom: 18,
   attributionControl: true
@@ -63,7 +63,7 @@ function buildIconUrl({ color, icon, iconType }) {
     iconType,
     shadow: "true",
     scaleFactor: "2",
-    apiKey: GEOAPIFY_API_KEY
+    apiKey: yourAPIKey
   });
 
   if (!icon) {
@@ -336,7 +336,7 @@ async function fetchPlaceDetails({ lon, lat }) {
   const params = new URLSearchParams({
     lon: lon.toString(),
     lat: lat.toString(),
-    apiKey: GEOAPIFY_API_KEY
+    apiKey: yourAPIKey
   });
 
   const url = `https://api.geoapify.com/v2/place-details?${params.toString()}`;

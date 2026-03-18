@@ -1,7 +1,7 @@
 /* global maplibregl */
 
 // Demo key for preview purposes only; create your own Geoapify key for production usage.
-const GEOAPIFY_API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 const MAX_MERCATOR_LAT = 85.05112878;
 
 const styleOptions = [
@@ -33,7 +33,7 @@ styleOptions.forEach((option, index) => {
 });
 
 function buildStyleUrl(styleId) {
-  return `https://maps.geoapify.com/v1/styles/${styleId}/style.json?apiKey=${GEOAPIFY_API_KEY}`;
+  return `https://maps.geoapify.com/v1/styles/${styleId}/style.json?apiKey=${yourAPIKey}`;
 }
 
 const map = new maplibregl.Map({
@@ -398,7 +398,7 @@ async function fetchCountryByReverseGeocode(lngLat) {
     lat: lngLat.lat.toString(),
     type: "country",
     format: "geojson",
-    apiKey: GEOAPIFY_API_KEY,
+    apiKey: yourAPIKey,
   });
 
   const response = await fetch(
@@ -414,7 +414,7 @@ async function fetchCountryByReverseGeocode(lngLat) {
 }
 
 async function fetchCountryDetails(placeId, lngLat) {
-  const params = new URLSearchParams({ apiKey: GEOAPIFY_API_KEY });
+  const params = new URLSearchParams({ apiKey: yourAPIKey });
 
   if (placeId) {
     params.set("id", placeId);

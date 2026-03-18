@@ -2,12 +2,12 @@
    Register for your own free API key at https://myprojects.geoapify.com/.
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
-const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Initialize a single full-address autocomplete
 const addressSearch = new autocomplete.GeocoderAutocomplete(
   document.getElementById("address-search"),
-  myAPIKey,
+  yourAPIKey,
   {
     // default search mode returns addresses and places
     // keep UI simple for a one-field address search
@@ -120,7 +120,7 @@ function confirmAddress() {
     postcode,
     city,
     country,
-    apiKey: myAPIKey
+    apiKey: yourAPIKey
   });
   const url = `https://api.geoapify.com/v1/geocode/search?${params.toString()}`;
   const maskedUrl = url.replace(/(apiKey=)[^&]+/i, "$1YOUR_API_KEY");

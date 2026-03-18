@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Waypoint colors (cycles through for each waypoint)
 const COLORS = ["#4CAF50", "#2196F3", "#9C27B0", "#FF9800", "#00BCD4", "#E91E63", "#f44336", "#795548"];
@@ -12,8 +12,8 @@ const getColor = (idx) => COLORS[idx % COLORS.length];
 
 // Map tiles for light/dark themes
 const TILES = {
-    light: "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=" + API_KEY,
-    dark: "https://maps.geoapify.com/v1/tile/dark-matter-brown/{z}/{x}/{y}@2x.png?apiKey=" + API_KEY
+    light: "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=" + yourAPIKey,
+    dark: "https://maps.geoapify.com/v1/tile/dark-matter-brown/{z}/{x}/{y}@2x.png?apiKey=" + yourAPIKey
 };
 
 // State
@@ -42,7 +42,7 @@ map.on("click", async (e) => {
     if (activeIdx < 0) return;
 
     const {lat, lng} = e.latlng;
-    const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${API_KEY}`);
+    const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${yourAPIKey}`);
     const data = await res.json();
 
     if (data.features?.[0]) {
@@ -164,7 +164,7 @@ function renderList() {
 
         // Setup autocomplete
         wp.autocomplete = new autocomplete.GeocoderAutocomplete(
-            document.getElementById(`ac-${idx}`), API_KEY, {placeholder: "Enter address"}
+            document.getElementById(`ac-${idx}`), yourAPIKey, {placeholder: "Enter address"}
         );
         if (wp.formatted) wp.autocomplete.setValue(wp.formatted);
 
@@ -187,7 +187,7 @@ function updateMarker(idx) {
 
     const color = getColor(idx).replace('#', '%23'); // URL encode hex color
     const icon = L.icon({
-        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${idx + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${API_KEY}`,
+        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${idx + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${yourAPIKey}`,
         iconSize: [36, 48],
         iconAnchor: [18, 48],
         popupAnchor: [0, -48]
@@ -198,7 +198,7 @@ function updateMarker(idx) {
     // Drag marker → reverse geocode
     wp.marker.on("dragend", async () => {
         const {lat, lng} = wp.marker.getLatLng();
-        const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${API_KEY}`);
+        const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&apiKey=${yourAPIKey}`);
         const data = await res.json();
         if (data.features?.[0]) {
             const p = data.features[0].properties;
@@ -254,7 +254,7 @@ async function buildRoute() {
     }
 
     const waypointsParam = validWaypoints.map(wp => `${wp.lat},${wp.lon}`).join("|");
-    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypointsParam}&mode=drive&apiKey=${API_KEY}`;
+    const url = `https://api.geoapify.com/v1/routing?waypoints=${waypointsParam}&mode=drive&apiKey=${yourAPIKey}`;
 
     try {
         const res = await fetch(url);

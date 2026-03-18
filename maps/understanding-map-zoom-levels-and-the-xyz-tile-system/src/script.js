@@ -2,7 +2,7 @@
 // Register for your own free API key at https://myprojects.geoapify.com/.
 // Benefits: usage analytics, project-level limits, and reliable access for production use.
 // This demo key can be blocked or restricted at any time.
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 const BASE = "https://maps.geoapify.com/v1/tile/klokantech-basic"; // check more map styles here https://apidocs.geoapify.com/docs/maps/
 const TILE_SIZE = 256; // px, stndard size for raster maps
 
@@ -20,7 +20,7 @@ function loadTile(z, x, y) {
     img.crossOrigin = "anonymous";
     img.onload = () => resolve({ img, x, y });
     img.onerror = reject;
-    img.src = `${BASE}/${z}/${x}/${y}.png?apiKey=${API_KEY}`;
+    img.src = `${BASE}/${z}/${x}/${y}.png?apiKey=${yourAPIKey}`;
   });
 }
 

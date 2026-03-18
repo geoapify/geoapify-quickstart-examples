@@ -2,12 +2,12 @@
    Register for your own free API key at https://myprojects.geoapify.com/.
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
-const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Map style configurations for different themes
 const mapStyles = {
-  light: `https://maps.geoapify.com/v1/styles/osm-bright-grey/style.json?apiKey=${myAPIKey}`,
-  dark: `https://maps.geoapify.com/v1/styles/dark-matter-brown/style.json?apiKey=${myAPIKey}`
+  light: `https://maps.geoapify.com/v1/styles/osm-bright-grey/style.json?apiKey=${yourAPIKey}`,
+  dark: `https://maps.geoapify.com/v1/styles/dark-matter-brown/style.json?apiKey=${yourAPIKey}`
 };
 
 // The MapLibre GL map object
@@ -62,7 +62,7 @@ map.addControl(new maplibregl.NavigationControl({ position: "bottom-right" }));
 // check the available autocomplete options on the https://www.npmjs.com/package/@geoapify/geocoder-autocomplete
 const autocompleteInput = new autocomplete.GeocoderAutocomplete(
   document.getElementById("autocomplete"),
-  myAPIKey,
+  yourAPIKey,
   {
     /* Geocoder options */
   }
@@ -76,7 +76,7 @@ const markerIcon = new maplibregl.Marker({
 
 function createMarkerIcon() {
   const img = document.createElement("img");
-  img.src = `https://api.geoapify.com/v2/icon/?type=awesome&color=%23ff5b5f&size=50&scaleFactor=2&apiKey=${myAPIKey}`;
+  img.src = `https://api.geoapify.com/v2/icon/?type=awesome&color=%23ff5b5f&size=50&scaleFactor=2&apiKey=${yourAPIKey}`;
   img.style.width = "38px";
   img.style.height = "55px";
   return img;
@@ -128,7 +128,7 @@ map.on("click", function (e) {
 
 function getAddressByLatLon(lat, lon) {
   return fetch(
-    `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${myAPIKey}`
+    `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${yourAPIKey}`
   )
     .then((result) => result.json())
     .then((result) => {

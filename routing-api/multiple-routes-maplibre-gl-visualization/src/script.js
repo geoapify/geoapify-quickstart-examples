@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // ─────────────────────────────────────────────────────────────
 // Route Definitions
@@ -35,7 +35,7 @@ let markers = [];
 
 const map = new maplibregl.Map({
     container: "map",
-    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${API_KEY}`,
+    style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${yourAPIKey}`,
     center: [2.32, 48.866],
     zoom: 13
 });
@@ -49,7 +49,7 @@ map.addControl(new maplibregl.NavigationControl(), "bottom-right");
 map.on("load", () => {
     ROUTES.forEach((route, index) => {
         const waypoints = `${route.origin.lat},${route.origin.lon}|${DESTINATION.lat},${DESTINATION.lon}`;
-        const url = `https://api.geoapify.com/v1/routing?waypoints=${waypoints}&mode=drive&apiKey=${API_KEY}`;
+        const url = `https://api.geoapify.com/v1/routing?waypoints=${waypoints}&mode=drive&apiKey=${yourAPIKey}`;
 
         fetch(url)
             .then(res => res.json())
@@ -176,7 +176,7 @@ function createMarker(lon, lat, color, iconName, name, label) {
     const el = document.createElement("div");
     el.style.width = "36px";
     el.style.height = "48px";
-    el.style.backgroundImage = `url(https://api.geoapify.com/v2/icon?type=awesome&color=${color}&icon=${iconName}&iconType=awesome&size=48&scaleFactor=2&apiKey=${API_KEY})`;
+    el.style.backgroundImage = `url(https://api.geoapify.com/v2/icon?type=awesome&color=${color}&icon=${iconName}&iconType=awesome&size=48&scaleFactor=2&apiKey=${yourAPIKey})`;
     el.style.backgroundSize = "contain";
     el.style.backgroundRepeat = "no-repeat";
     el.style.cursor = "pointer";

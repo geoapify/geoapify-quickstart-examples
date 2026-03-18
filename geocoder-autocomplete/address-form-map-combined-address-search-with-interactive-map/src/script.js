@@ -2,7 +2,7 @@
    Register for your own free API key at https://myprojects.geoapify.com/.
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
-const myAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // Theme support
 function setTheme(themeName) {
@@ -50,15 +50,15 @@ const MAX_LOCATION_TO_ADDRESS_ERROR = 50; // 50 meters
 const map = L.map("map", { zoomControl: true }).setView([20, 0], 2);
 const isRetina = L.Browser.retina;
 const tileUrl = isRetina
-  ? `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${myAPIKey}`
-  : `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${myAPIKey}`;
+  ? `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${yourAPIKey}`
+  : `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${yourAPIKey}`;
 L.tileLayer(tileUrl, {
   attribution:
     'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" rel="nofollow" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" rel="nofollow" target="_blank">© OpenStreetMap</a> contributors'
 }).addTo(map);
 
 const markerIcon = L.icon({
-  iconUrl: `https://api.geoapify.com/v1/icon/?type=awesome&color=%232ea2ff&size=large&scaleFactor=2&apiKey=${myAPIKey}`,
+  iconUrl: `https://api.geoapify.com/v1/icon/?type=awesome&color=%232ea2ff&size=large&scaleFactor=2&apiKey=${yourAPIKey}`,
   iconSize: [38, 56],
   iconAnchor: [19, 51],
   popupAnchor: [0, -60]
@@ -68,7 +68,7 @@ let marker = null;
 // Initialize autocomplete with optional bias later
 const ac = new autocomplete.GeocoderAutocomplete(
   document.getElementById("autocomplete"),
-  myAPIKey,
+  yourAPIKey,
   {
     skipIcons: true,
     allowNonVerifiedStreet: true,
@@ -77,7 +77,7 @@ const ac = new autocomplete.GeocoderAutocomplete(
 );
 
 // IP geolocation for bias and initial view
-fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${myAPIKey}`)
+fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${yourAPIKey}`)
   .then((r) => r.json())
   .then((ip) => {
     const loc =
@@ -285,7 +285,7 @@ confirmBtn.addEventListener("click", () => {
 function reverseGeocode(lat, lon, cb, target = "pin") {
   const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${encodeURIComponent(
     lat
-  )}&lon=${encodeURIComponent(lon)}&apiKey=${myAPIKey}`;
+  )}&lon=${encodeURIComponent(lon)}&apiKey=${yourAPIKey}`;
   const masked = url.replace(/(apiKey=)[^&]+/i, "$1YOUR_API_KEY");
 
   if (target === "pin") {

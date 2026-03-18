@@ -4,7 +4,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 
-const API_KEY = "5402608de7c44a2d95121c407ad2110b";
+const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
 
 // ═══════════════════════════════════════════════════════════════
 // Constants
@@ -60,7 +60,7 @@ function initializeMap() {
     L.control.zoom({position: "bottomright"}).addTo(mapInstance);
 
     L.tileLayer(
-        `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${API_KEY}`,
+        `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${yourAPIKey}`,
         {
             attribution: '© <a href="https://www.geoapify.com/">Geoapify</a> © OpenMapTiles © OpenStreetMap',
             maxZoom: 20
@@ -114,7 +114,7 @@ function buildRoutingURL() {
     const waypointsParam = state.waypoints
         .map(w => `${w.lat},${w.lon}`)
         .join("|");
-    return `https://api.geoapify.com/v1/routing?waypoints=${waypointsParam}&mode=drive&apiKey=${API_KEY}`;
+    return `https://api.geoapify.com/v1/routing?waypoints=${waypointsParam}&mode=drive&apiKey=${yourAPIKey}`;
 }
 
 function handleRouteResponse(feature) {
@@ -482,7 +482,7 @@ function createMarkerForWaypoint(waypoint, index) {
 function createViaMarker(waypoint, index) {
     const color = getMarkerColor(index).replace('#', '%23');
     const icon = L.icon({
-        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${API_KEY}`,
+        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${yourAPIKey}`,
         iconSize: [36, 48],
         iconAnchor: [18, 48],
         popupAnchor: [0, -48]
@@ -517,7 +517,7 @@ function attachViaMarkerEvents(marker, index) {
 function createEndpointMarker(waypoint, index) {
     const color = getMarkerColor(index).replace('#', '%23');
     const icon = L.icon({
-        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${API_KEY}`,
+        iconUrl: `https://api.geoapify.com/v2/icon?type=awesome&color=${color}&text=${index + 1}&size=48&contentSize=20&scaleFactor=2&apiKey=${yourAPIKey}`,
         iconSize: [36, 48],
         iconAnchor: [18, 48],
         popupAnchor: [0, -48]
