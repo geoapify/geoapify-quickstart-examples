@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to get city, postcode, street, address by coordinates - Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+
+<body>
+  <main>
+    <section id="map-panel">
+      <div id="map"></div>
+      <div id="map-title">
+        <h1>Getting city, postcode, street, address by coordinates</h1>
+        <p>Select type and click on the map to get location info.</p>
+      </div>
+    </section>
+    <aside>
+      <p>Choose what to get from the clicked location:</p>
+      <select id="type-select">
+        <option value="country">Country</option>
+        <option value="state">State</option>        
+        <option value="city">City</option>
+        <option value="postcode">Postcode</option>
+        <option value="street">Street</option>
+        <option value="address" selected>Address</option>
+      </select>
+
+      <section>
+        <h3>API call</h3>
+        <pre id="api-url">Click on map to run request</pre>
+      </section>
+
+      <section>
+        <h3>Clicked location</h3>
+        <pre id="clicked-location">-</pre>
+      </section>
+
+      <section>
+        <h3>Returned result (JSON)</h3>
+        <pre id="raw-json">-</pre>
+      </section>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+
+</html>

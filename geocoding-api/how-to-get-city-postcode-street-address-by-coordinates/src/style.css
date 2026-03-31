@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+}
+
+#map-panel {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#map {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+#map-title {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  max-width: 600px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  color: #111827;
+  border-radius: 10px;
+}
+
+#map-title h1 {
+  margin: 0;
+}
+
+#map-title p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #374151;
+}
+
+aside {
+  width: 360px;
+  flex: 0 0 360px;
+  padding: 20px;
+  overflow: auto;
+  border-left: 1px solid #d1d5db;
+}
+
+aside p {
+  margin: 0;
+}
+
+aside h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+aside section {
+  margin: 0;
+  padding-top: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+
+  margin-top: 10px;
+}
+
+pre {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 240px;
+  overflow: auto;
+}
