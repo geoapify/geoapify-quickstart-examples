@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Geocoding City Boundaries Size Comparison</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css"
+  >
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="toolbar">
+      <h1>Reverse Geocoding City Boundaries</h1>
+      <p id="status">Preparing reverse geocoding map...</p>
+      <div class="preset-controls" aria-label="Guided presets">
+        <button type="button" data-action="align">Align by Label</button>
+        <button type="button" data-action="north">Move North</button>
+        <button type="button" data-action="south">Move South</button>
+        <button type="button" data-action="clean">Clean</button>
+      </div>
+    </header>
+    <main>
+      <div id="map" aria-label="Map area placeholder"></div>
+    </main>
+  </div>
+  <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@turf/turf@7.2.0/turf.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
