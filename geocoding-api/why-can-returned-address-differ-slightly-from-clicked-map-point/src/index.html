@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Returned address can differ slightly from clicked map point</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <section id="map-panel">
+      <div id="map"></div>
+    </section>
+    <aside id="info-panel">
+      <h1>Reverse Geocoding Result</h1>
+      <p>Click on the map to compare clicked and returned locations.</p>
+
+      <section>
+        <h2>Request URL</h2>
+        <pre id="request-url">Click on the map to send request</pre>
+      </section>
+
+      <section>
+        <h2>Clicked Location</h2>
+        <pre id="clicked-coords">-</pre>
+      </section>
+
+      <section>
+        <h2>Returned Location</h2>
+        <pre id="returned-coords">-</pre>
+      </section>
+
+      <section>
+        <h2>Address</h2>
+        <pre id="returned-address">-</pre>
+      </section>
+
+      <section>
+        <h2>Distance</h2>
+        <h3>Returned by API</h3>
+        <pre id="distance-returned">-</pre>
+        <h3>Actual Distance</h3>
+        <pre id="distance-actual">-</pre>
+      </section>
+
+      <section>
+        <h2>Response JSON</h2>
+        <pre id="response-json">-</pre>
+      </section>
+    </aside>
+  </main>
+  <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+</html>

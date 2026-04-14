@@ -83,7 +83,7 @@ Category search and GeoJSON visualization with Places API data.
 | [Places API with Dynamic Markers](./places-api/leaflet-demo-geoapify-places-api-category-search-with-dynamic-markers) | Category search with custom markers | Leaflet | Places API |
 | [Visualize GeoJSON Points](./places-api/visualizing-geojson-points-with-leaflet-and-geoapify-places-api) | Places API results on map | Leaflet | Places API |
 
-### 📮 Geocoding API (2 examples)
+### 📮 Geocoding API (3 examples)
 
 Reverse geocoding and coordinate-to-address lookups.
 
@@ -91,6 +91,7 @@ Reverse geocoding and coordinate-to-address lookups.
 |---------|-------------|---------|------|
 | [City, Postcode, Street, Address By Coordinates](./geocoding-api/how-to-get-city-postcode-street-address-by-coordinates) | Reverse geocoding levels with request and JSON inspector | MapLibre GL | Geocoding API, Map Tiles |
 | [Reverse Geocoding City Boundaries Size Comparison](./geocoding-api/reverse-geocoding-city-boundaries-size-comparison-drag) | Reverse geocode city boundaries, drag them, and compare apparent size | MapLibre GL | Geocoding API, Place Details API, Map Tiles |
+| [Returned Address Can Differ Slightly From Clicked Map Point](./geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
 
 ### 🔍 Geocoder & Autocomplete (10 examples)
 
