@@ -22,6 +22,10 @@ Geocode a large list of addresses with controlled request throughput, live progr
 
 [![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/team/geoapify/pen/MYbgqOO)
 
+## Screenshot
+
+![Geocode List Of Addresses With Request Rate Limiter Screenshot](./screenshots/geocode-list-of-addresses-with-request-rate-limiter-screenshot.png)
+
 ## Quick Start
 
 Open [`src/index.html`](./src/index.html) in your browser.
