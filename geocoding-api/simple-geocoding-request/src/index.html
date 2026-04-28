@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Geocoding Request - Playground Skeleton</title>
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <h1>Simple Geocoding Request Playground</h1>
+    <p>Configure parameters, send request, and inspect response JSON.</p>
+
+    <form id="geocoding-playground-form">
+      <div class="field-grid">
+        <div class="field-row">
+          <label>address mode</label>
+          <div class="mode-options" role="radiogroup" aria-label="address mode">
+            <label class="mode-option" for="address-mode-unstructured">
+              <input
+                id="address-mode-unstructured"
+                type="radio"
+                name="addressMode"
+                value="unstructured"
+                checked
+              />
+              unstructured
+            </label>
+            <label class="mode-option" for="address-mode-structured">
+              <input
+                id="address-mode-structured"
+                type="radio"
+                name="addressMode"
+                value="structured"
+              />
+              structured
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="address-mode-blocks">
+        <section class="address-block" data-address-mode="unstructured">
+          <div class="field-grid">
+            <div class="field-row">
+              <label for="text-input">text</label>
+              <div class="field-control">
+                <div class="field-select-with-clear">
+                  <input
+                    id="text-input"
+                    name="text"
+                    type="text"
+                    list="text-options"
+                    class="input-with-clear"
+                    minlength="1"
+                    maxlength="1024"
+                  />
+                  <datalist id="text-options"></datalist>
+                  <button
+                    id="text-clear-button"
+                    type="button"
+                    class="clear-button"
+                    aria-label="Clear selected address"
+                    title="Clear"
+                    hidden
+                  >
+                    x
+                  </button>
+                </div>
+                <div class="field-help" title="Selecting an example also fills structured address fields.">
+                  Tip: selecting an example also fills structured address fields.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="address-block" data-address-mode="structured">
+          <div class="field-grid">
+            <div class="field-row">
+              <label for="housenumber-input">housenumber</label>
+              <input id="housenumber-input" name="housenumber" type="text" minlength="1" maxlength="1024" />
+            </div>
+
+            <div class="field-row">
+              <label for="street-input">street</label>
+              <input id="street-input" name="street" type="text" minlength="1" maxlength="1024" />
+            </div>
+
+            <div class="field-row">
+              <label for="postcode-input">postcode</label>
+              <input id="postcode-input" name="postcode" type="text" minlength="1" maxlength="1024" />
+            </div>
+
+            <div class="field-row">
+              <label for="city-input">city</label>
+              <input id="city-input" name="city" type="text" minlength="1" maxlength="1024" />
+            </div>
+
+            <div class="field-row">
+              <label for="country-input">country</label>
+              <input id="country-input" name="country" type="text" minlength="1" maxlength="1024" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="field-grid field-grid-common">
+        <div class="field-row">
+          <label for="filter-countrycode-select">Country filter</label>
+          <div class="field-select-with-clear">
+            <select id="filter-countrycode-select" name="filterCountryCode" class="select-no-arrow"></select>
+            <button
+              id="filter-clear-button"
+              type="button"
+              class="clear-button"
+              aria-label="Clear filter country code"
+              title="Clear"
+              hidden
+            >
+              x
+            </button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label for="bias-countrycode-select">Country bias</label>
+          <div class="field-select-with-clear">
+            <select id="bias-countrycode-select" name="biasCountryCode" class="select-no-arrow"></select>
+            <button
+              id="bias-clear-button"
+              type="button"
+              class="clear-button"
+              aria-label="Clear bias country code"
+              title="Clear"
+              hidden
+            >
+              x
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-grid field-grid-common request-preview-block">
+        <div class="field-row field-row-top request-preview-row">
+          <label for="request-url-output">API request</label>
+          <pre id="request-url-output">-</pre>
+        </div>
+        <div class="field-row request-action-row">
+          <button id="send-request-button" type="button" class="send-request-button">Send Request</button>
+        </div>
+      </div>
+
+      <div id="response-preview-block" class="field-grid field-grid-common response-preview-block" hidden>
+        <div class="field-row field-row-top response-preview-row">
+          <label for="response-output">API response</label>
+          <pre id="response-output">Click "Send Request" to execute the request.</pre>
+        </div>
+      </div>
+    </form>
+  </main>
+  <script src="./script.js" inline></script>
+</body>
+</html>

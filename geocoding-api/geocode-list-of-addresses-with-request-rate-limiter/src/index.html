@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geocode List Of Addresses With Request Rate Limiter</title>
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <h1>Geocode List Of Addresses With Request Rate Limiter</h1>
+
+    <section class="list-editor">
+      <label for="addresses-textarea">Addresses to geocode (one address per line):</label>
+      <textarea id="addresses-textarea" spellcheck="false"></textarea>
+      <section class="list-controls">
+        <button id="geocode-button" type="button">
+          <span id="geocode-button-spinner" class="button-spinner" aria-hidden="true" hidden></span>
+          <span id="geocode-button-label">Geocode</span>
+        </button>
+        <button id="download-json-button" type="button" hidden disabled>Download as JSON</button>
+        <button id="download-csv-button" type="button" hidden disabled>Download as CSV</button>
+        <span id="geocoding-progress">0 addresses</span>
+      </section>
+    </section>
+  </main>
+  <script src="https://unpkg.com/@geoapify/request-rate-limiter"></script>
+  <script src="./script.js" inline></script>
+</body>
+</html>
