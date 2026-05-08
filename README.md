@@ -95,6 +95,14 @@ Forward and reverse geocoding examples.
 | [Reverse Geocoding City Boundaries Size Comparison](./geocoding-api/reverse-geocoding-city-boundaries-size-comparison-drag) | Reverse geocode city boundaries, drag them, and compare apparent size | MapLibre GL | Geocoding API, Place Details API, Map Tiles |
 | [Returned Address Can Differ Slightly From Clicked Map Point](./geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
 
+### 🔢 Matrix API (1 example)
+
+Large route matrix processing with request splitting, sequential execution, merge, and progress/error reporting.
+
+| Example | Description | Library | APIs |
+|---------|-------------|---------|------|
+| [Process Large Route Matrices with Sequential API Calls](./matrix-api/calculate-big-matrices-sequential) | Split large matrix input into API-sized sub-matrices, send sequential Route Matrix requests, merge results, and export JSON | JavaScript | Route Matrix API |
+
 ### 🔍 Geocoder & Autocomplete (10 examples)
 
 Address search, autocomplete, and geocoding.
