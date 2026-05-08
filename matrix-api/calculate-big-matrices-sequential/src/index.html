@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculate Big Matrices</title>
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <section class="load-controls" aria-label="load matrix input">
+      <button id="load-matrix-input-button" type="button">Load Matrix Input JSON</button>
+      <input id="load-matrix-input-file" type="file" accept="application/json,.json" hidden />
+    </section>
+    <p class="sample-note">
+      This sample shows built-in data. You can load your own data in Geoapify Route Matrix input format:
+      <a href="https://apidocs.geoapify.com/docs/route-matrix/" target="_blank" rel="noopener noreferrer">Route Matrix docs</a>.
+    </p>
+
+    <h1>Process Large Route Matrices with Sequential API Calls</h1>
+    <p class="sample-subtitle">
+      This code sample takes a large Geoapify Route Matrix input, splits it into smaller API request steps,
+      sends those requests sequentially, merges all partial responses into one final matrix result, and renders progress in the table.
+    </p>
+    <p id="dataset-info" class="dataset-info"></p>
+
+    <section class="matrix-value-controls" aria-label="matrix value display controls">
+      <span class="switch-label">Matrix cell value</span>
+      <label class="inline-radio" for="matrix-value-time">
+        <input id="matrix-value-time" name="matrix-value-mode" type="radio" value="time" checked />
+        time (s)
+      </label>
+      <label class="inline-radio" for="matrix-value-distance">
+        <input id="matrix-value-distance" name="matrix-value-mode" type="radio" value="distance" />
+        distance (m)
+      </label>
+    </section>
+    <p id="hover-info" class="hover-info">Hover a source, target, or matrix cell.</p>
+    <section class="matrix-table-container">
+      <table id="matrix-table" class="matrix-table" aria-label="Route matrix preview"></table>
+    </section>
+    <section class="processing-controls" aria-label="processing controls">
+      <div class="processing-controls-row processing-main-row">
+        <button id="start-processing-button" type="button">Start Processing</button>
+        <button id="download-results-button" type="button" hidden>Download Results</button>
+        <label for="matrix-size-select">API request step size (rows x cols)</label>
+        <select id="matrix-size-select">
+          <option value="optimal" selected>optimal</option>
+          <option value="10x10">10x10</option>
+          <option value="20x30">20x30</option>
+          <option value="custom">custom</option>
+        </select>
+        <input id="custom-row-step-input" type="number" min="1" value="10" hidden />
+        <input id="custom-col-step-input" type="number" min="1" value="10" hidden />
+      </div>
+    </section>
+    <p id="processing-status" class="processing-status">Ready to process.</p>
+    <section class="log-block" aria-live="polite">
+      <h2>API Log</h2>
+      <pre id="api-log-output">No API errors.</pre>
+    </section>
+  </main>
+
+  <script src="./script.js" inline></script>
+</body>
+</html>
