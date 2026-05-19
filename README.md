@@ -31,13 +31,14 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 
 ## 📦 Examples by Category
 
-### 🗺️ Maps (10 examples)
+### 🗺️ Maps (11 examples)
 
 Map setup, tiles, visualization fundamentals, and utility demos.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
 | [MapLibre Map Tiles Starter](./maps/maplibre-geoapify-map-tiles-starter) | Basic MapLibre GL map with Geoapify tiles | MapLibre GL | Map Tiles |
+| [MapLibre Vector Map Localization](./maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
 | [Leaflet OSM Tiles](./maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
 | [Leaflet Vector Tiles](./maps/leaflet-vector-map-tiles-geoapify-maplibre-plugin) | Leaflet with vector tiles via MapLibre plugin | Leaflet | Map Tiles |
 | [Understanding Map Zoom Levels](./maps/understanding-map-zoom-levels-and-the-xyz-tile-system) | Visual explanation of XYZ tile system | JavaScript | Map Tiles |
