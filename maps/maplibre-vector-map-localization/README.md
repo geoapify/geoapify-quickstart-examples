@@ -141,11 +141,12 @@ function localizeMapLayers(languageCode) {
     const originalTextField = originalTextFieldsByLayerId.get(layer.id);
     if (originalTextField === undefined) return;
     if (shouldSkipLocalization(originalTextField)) return;
+    const fallbackTextField = textFieldToExpression(originalTextField); // Helper from app code.
 
     const localizedTextField = [
       "coalesce",
       ["coalesce", ["get", `name:${languageCode}`], ["get", `name_${languageCode}`], ["get", "name"], ["get", "name_int"]],
-      Array.isArray(originalTextField) ? originalTextField : ["to-string", originalTextField]
+      fallbackTextField
     ];
 
     map.setLayoutProperty(layer.id, "text-field", localizedTextField);

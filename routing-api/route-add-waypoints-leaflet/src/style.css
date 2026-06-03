@@ -1,0 +1,230 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+}
+
+.controls-panel {
+  width: 360px;
+  border-right: 1px solid #d9dde3;
+  background: #fff;
+  min-height: 0;
+
+}
+
+.controls-panel__inner {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.controls-panel__intro {
+  margin: 0 0 10px;
+}
+
+.controls-panel__meta {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.control-group {
+  min-width: 0;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.control-group h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+#waypoint-selector {
+  min-height: 150px;
+}
+
+#directions-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.geoapify-autocomplete-items {
+  font-size: smaller;
+}
+
+.directions-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+#route-summary {
+  color: #5f6b7a;
+  font-size: 12px;
+}
+
+.route-error {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.route-instructions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e5e7eb;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.route-instructions:empty::before {
+  content: "Route steps will appear here.";
+  display: block;
+  padding: 14px 0;
+  color: #8a94a6;
+  font-size: 13px;
+}
+
+.route-leg {
+  padding: 14px 0 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.route-leg__header {
+  margin-bottom: 10px;
+}
+
+.route-leg__title {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.route-leg__eyebrow {
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.route-leg__address + .route-leg__eyebrow {
+  margin-top: 6px;
+}
+
+.route-leg__address {
+  color: #111827;
+}
+
+.route-leg__meta {
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.route-leg__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.route-instruction {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.route-instruction__index {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #e8f0fe;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+.route-instruction__body {
+  min-width: 0;
+  padding-bottom: 14px;
+}
+
+.route-instruction__title {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.route-instruction__text {
+  margin: 0 0 4px;
+  color: #18202a;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.route-instruction__meta {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  padding: 0 8px;
+  background: #fff;
+  color: #6b7280;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.route-instruction__details {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.route-instruction__detail + .route-instruction__detail {
+  margin-top: 4px;
+}
+
+.map-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
