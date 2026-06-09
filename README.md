@@ -37,17 +37,17 @@ Map setup, tiles, visualization fundamentals, and utility demos.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [MapLibre Map Tiles Starter](./maps/maplibre-geoapify-map-tiles-starter) | Basic MapLibre GL map with Geoapify tiles | MapLibre GL | Map Tiles |
-| [MapLibre Vector Map Localization](./maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
-| [Leaflet OSM Tiles](./maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
-| [Leaflet Vector Tiles](./maps/leaflet-vector-map-tiles-geoapify-maplibre-plugin) | Leaflet with vector tiles via MapLibre plugin | Leaflet | Map Tiles |
-| [Understanding Map Zoom Levels](./maps/understanding-map-zoom-levels-and-the-xyz-tile-system) | Visual explanation of XYZ tile system | JavaScript | Map Tiles |
-| [Lat/Lon to Pixels](./maps/maplibre-geoapify-lat-lon-to-pixels-with-map-project) | Convert coordinates to screen pixels | MapLibre GL | Map Tiles |
-| [Country Geometry & Projection](./maps/maplibre-country-geometry-projection-drag) | Drag and project country boundaries | MapLibre GL | Map Tiles |
-| [Leaflet First Map](./maps/leaflet-first-interactive-map-with-geoapify-tiles) | Basic Leaflet map setup | Leaflet | Map Tiles |
-| [OpenLayers First Map](./maps/openlayers-first-interactive-map-with-geoapify-tiles) | Basic OpenLayers map setup | OpenLayers | Map Tiles |
-| [Custom Markers & Popups](./maps/maplibre-custom-markers-popups-with-geoapify-place-details) | Rich place details in popups | MapLibre GL | Places API |
-| [BBox Calculator](./maps/bbox-width-height-calculator-in-web-mercator-maplibre-geoapify) | Calculate bounding box dimensions | MapLibre GL | Map Tiles |
+| [MapLibre Map Tiles Starter](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-map-tiles-starter) | Basic MapLibre GL map with Geoapify tiles | MapLibre GL | Map Tiles |
+| [MapLibre Vector Map Localization](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
+| [Leaflet OSM Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
+| [Leaflet Vector Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-vector-map-tiles-geoapify-maplibre-plugin) | Leaflet with vector tiles via MapLibre plugin | Leaflet | Map Tiles |
+| [Understanding Map Zoom Levels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/understanding-map-zoom-levels-and-the-xyz-tile-system) | Visual explanation of XYZ tile system | JavaScript | Map Tiles |
+| [Lat/Lon to Pixels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-lat-lon-to-pixels-with-map-project) | Convert coordinates to screen pixels | MapLibre GL | Map Tiles |
+| [Country Geometry & Projection](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-country-geometry-projection-drag) | Drag and project country boundaries | MapLibre GL | Map Tiles |
+| [Leaflet First Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-first-interactive-map-with-geoapify-tiles) | Basic Leaflet map setup | Leaflet | Map Tiles |
+| [OpenLayers First Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/openlayers-first-interactive-map-with-geoapify-tiles) | Basic OpenLayers map setup | OpenLayers | Map Tiles |
+| [Custom Markers & Popups](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-custom-markers-popups-with-geoapify-place-details) | Rich place details in popups | MapLibre GL | Places API |
+| [BBox Calculator](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/bbox-width-height-calculator-in-web-mercator-maplibre-geoapify) | Calculate bounding box dimensions | MapLibre GL | Map Tiles |
 
 ### 🚗 Routing API (10 examples)
 
@@ -55,16 +55,16 @@ Route calculation, visualization, and interactive routing features.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Route Visualization - Leaflet](./routing-api/route-visualization-leaflet-styling) | Customize route appearance and markers | Leaflet | Routing API, Map Marker API |
-| [Route Visualization - MapLibre](./routing-api/route-visualization-maplibre-gl-styling) | Route styling controls for MapLibre | MapLibre GL | Routing API, Map Marker API |
-| [Multiple Routes - Leaflet](./routing-api/multiple-routes-leaflet-plain) | Display multiple route alternatives | Leaflet | Routing API |
-| [Multiple Routes - Leaflet + Polyline Offset](./routing-api/multiple-routes-leaflet-polylineoffset) | Offset overlapping routes | Leaflet | Routing API |
-| [Multiple Routes - Leaflet + Turf](./routing-api/multiple-routes-leaflet-turf-offset) | Offset routes using Turf.js | Leaflet | Routing API |
-| [Multiple Routes - MapLibre](./routing-api/multiple-routes-maplibre-gl-visualization) | Multiple routes with MapLibre GL | MapLibre GL | Routing API |
-| [Waypoints Collection](./routing-api/waypoints-collection-autocomplete-map) | Collect waypoints with autocomplete & drag | Leaflet | Routing API, Geocoding API |
-| [Route Drag & Edit - Leaflet](./routing-api/route-drag-edit-leaflet) | Interactive route editing | Leaflet | Routing API |
-| [Route Drag & Edit - MapLibre](./routing-api/route-drag-edit-maplibre) | Drag waypoints to recalculate route | MapLibre GL | Routing API |
-| [Visualize GeoJSON Routes](./routing-api/visualizing-geojson-routes-with-leaflet-and-geoapify-routing-api) | Routes on map | Leaflet | Routing API |
+| [Route Visualization - Leaflet](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/route-visualization-leaflet-styling) | Customize route appearance and markers | Leaflet | Routing API, Map Marker API |
+| [Route Visualization - MapLibre](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/route-visualization-maplibre-gl-styling) | Route styling controls for MapLibre | MapLibre GL | Routing API, Map Marker API |
+| [Multiple Routes - Leaflet](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/multiple-routes-leaflet-plain) | Display multiple route alternatives | Leaflet | Routing API |
+| [Multiple Routes - Leaflet + Polyline Offset](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/multiple-routes-leaflet-polylineoffset) | Offset overlapping routes | Leaflet | Routing API |
+| [Multiple Routes - Leaflet + Turf](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/multiple-routes-leaflet-turf-offset) | Offset routes using Turf.js | Leaflet | Routing API |
+| [Multiple Routes - MapLibre](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/multiple-routes-maplibre-gl-visualization) | Multiple routes with MapLibre GL | MapLibre GL | Routing API |
+| [Waypoints Collection](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/waypoints-collection-autocomplete-map) | Collect waypoints with autocomplete & drag | Leaflet | Routing API, Geocoding API |
+| [Route Drag & Edit - Leaflet](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/route-drag-edit-leaflet) | Interactive route editing | Leaflet | Routing API |
+| [Route Drag & Edit - MapLibre](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/route-drag-edit-maplibre) | Drag waypoints to recalculate route | MapLibre GL | Routing API |
+| [Visualize GeoJSON Routes](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/routing-api/visualizing-geojson-routes-with-leaflet-and-geoapify-routing-api) | Routes on map | Leaflet | Routing API |
 
 ### ⏱️ Isoline API (2 examples)
 
@@ -72,8 +72,8 @@ Travel time and distance isolines (isochrones), including GeoJSON polygon visual
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Multi-Range Isochrones](./isoline-api/geoapify-isoline-api-maplibre-gl-multi-range-isochrones-with-toggle-ranges) | Toggle multiple isoline ranges | MapLibre GL | Isoline API |
-| [Visualize GeoJSON Polygons](./isoline-api/visualizing-geojson-polygons-with-leaflet-and-geoapify-isoline-api) | Isoline polygons on map | Leaflet | Isoline API |
+| [Multi-Range Isochrones](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/geoapify-isoline-api-maplibre-gl-multi-range-isochrones-with-toggle-ranges) | Toggle multiple isoline ranges | MapLibre GL | Isoline API |
+| [Visualize GeoJSON Polygons](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/visualizing-geojson-polygons-with-leaflet-and-geoapify-isoline-api) | Isoline polygons on map | Leaflet | Isoline API |
 
 ### 📍 Places API (2 examples)
 
@@ -81,8 +81,8 @@ Category search and GeoJSON visualization with Places API data.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Places API with Dynamic Markers](./places-api/leaflet-demo-geoapify-places-api-category-search-with-dynamic-markers) | Category search with custom markers | Leaflet | Places API |
-| [Visualize GeoJSON Points](./places-api/visualizing-geojson-points-with-leaflet-and-geoapify-places-api) | Places API results on map | Leaflet | Places API |
+| [Places API with Dynamic Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/leaflet-demo-geoapify-places-api-category-search-with-dynamic-markers) | Category search with custom markers | Leaflet | Places API |
+| [Visualize GeoJSON Points](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/visualizing-geojson-points-with-leaflet-and-geoapify-places-api) | Places API results on map | Leaflet | Places API |
 
 ### 📮 Geocoding API (5 examples)
 
@@ -90,11 +90,11 @@ Forward and reverse geocoding examples.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Simple Geocoding Request Playground](./geocoding-api/simple-geocoding-request) | Build and send geocoding requests, inspect encoded URL and JSON response | JavaScript | Geocoding API |
-| [Geocode List Of Addresses With Request Rate Limiter](./geocoding-api/geocode-list-of-addresses-with-request-rate-limiter) | Geocode a list with throttled requests, progress tracking, and JSON/CSV export | JavaScript | Geocoding API |
-| [City, Postcode, Street, Address By Coordinates](./geocoding-api/how-to-get-city-postcode-street-address-by-coordinates) | Reverse geocoding levels with request and JSON inspector | MapLibre GL | Geocoding API, Map Tiles |
-| [Reverse Geocoding City Boundaries Size Comparison](./geocoding-api/reverse-geocoding-city-boundaries-size-comparison-drag) | Reverse geocode city boundaries, drag them, and compare apparent size | MapLibre GL | Geocoding API, Place Details API, Map Tiles |
-| [Returned Address Can Differ Slightly From Clicked Map Point](./geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
+| [Simple Geocoding Request Playground](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/simple-geocoding-request) | Build and send geocoding requests, inspect encoded URL and JSON response | JavaScript | Geocoding API |
+| [Geocode List Of Addresses With Request Rate Limiter](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/geocode-list-of-addresses-with-request-rate-limiter) | Geocode a list with throttled requests, progress tracking, and JSON/CSV export | JavaScript | Geocoding API |
+| [City, Postcode, Street, Address By Coordinates](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/how-to-get-city-postcode-street-address-by-coordinates) | Reverse geocoding levels with request and JSON inspector | MapLibre GL | Geocoding API, Map Tiles |
+| [Reverse Geocoding City Boundaries Size Comparison](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/reverse-geocoding-city-boundaries-size-comparison-drag) | Reverse geocode city boundaries, drag them, and compare apparent size | MapLibre GL | Geocoding API, Place Details API, Map Tiles |
+| [Returned Address Can Differ Slightly From Clicked Map Point](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
 
 ### 🔢 Matrix API (1 example)
 
@@ -102,7 +102,7 @@ Large route matrix processing with request splitting, sequential execution, merg
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Process Large Route Matrices with Sequential API Calls](./matrix-api/calculate-big-matrices-sequential) | Split large matrix input into API-sized sub-matrices, send sequential Route Matrix requests, merge results, and export JSON | JavaScript | Route Matrix API |
+| [Process Large Route Matrices with Sequential API Calls](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/matrix-api/calculate-big-matrices-sequential) | Split large matrix input into API-sized sub-matrices, send sequential Route Matrix requests, merge results, and export JSON | JavaScript | Route Matrix API |
 
 ### 🔍 Geocoder & Autocomplete (10 examples)
 
@@ -110,16 +110,16 @@ Address search, autocomplete, and geocoding.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
-| [Leaflet Integration](./geocoder-autocomplete/leaflet-integration-address-search-and-markers-on-interactive-map) | Address search with map markers | Leaflet | Geocoding API |
-| [MapLibre Integration](./geocoder-autocomplete/maplibre-gl-integration-vector-maps-and-reverse-geocoding-on-click) | Autocomplete + reverse geocoding | MapLibre GL | Geocoding API |
-| [Address Form with Map](./geocoder-autocomplete/address-form-map-combined-address-search-with-interactive-map) | Combined address form & map picker | Leaflet | Geocoding API |
-| [One-Field Address Form](./geocoder-autocomplete/one-field-address-form-single-field-autocomplete-input) | Single-field verified address input | Autocomplete | Geocoding API |
-| [Autocomplete Type Filters](./geocoder-autocomplete/autocomplete-types-filter-results-by-location-type) | Filter results by location type | Autocomplete | Geocoding API |
-| [Filters & Bias Demo](./geocoder-autocomplete/filters-bias-demonstrates-filter-and-bias-customization) | Customize filters and bias | Autocomplete | Geocoding API |
-| [Events Showcase](./geocoder-autocomplete/events-showcase-demonstrates-available-events-and-callbacks) | Available events and callbacks | Autocomplete | Geocoding API |
-| [Places List - Built-in UI](./geocoder-autocomplete/leaflet-built-in-places-list-category-search-with-default-ui) | Category search with default UI | Leaflet | Places API |
-| [Places List - Custom UI](./geocoder-autocomplete/leaflet-custom-places-list-custom-ui-for-places-results) | Custom UI for places results | Leaflet | Places API |
-| [Places Search - No Map](./geocoder-autocomplete/places-search-no-map-category-search-with-built-in-list) | Standalone category search | Autocomplete | Places API |
+| [Leaflet Integration](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/leaflet-integration-address-search-and-markers-on-interactive-map) | Address search with map markers | Leaflet | Geocoding API |
+| [MapLibre Integration](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/maplibre-gl-integration-vector-maps-and-reverse-geocoding-on-click) | Autocomplete + reverse geocoding | MapLibre GL | Geocoding API |
+| [Address Form with Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/address-form-map-combined-address-search-with-interactive-map) | Combined address form & map picker | Leaflet | Geocoding API |
+| [One-Field Address Form](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/one-field-address-form-single-field-autocomplete-input) | Single-field verified address input | Autocomplete | Geocoding API |
+| [Autocomplete Type Filters](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/autocomplete-types-filter-results-by-location-type) | Filter results by location type | Autocomplete | Geocoding API |
+| [Filters & Bias Demo](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/filters-bias-demonstrates-filter-and-bias-customization) | Customize filters and bias | Autocomplete | Geocoding API |
+| [Events Showcase](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/events-showcase-demonstrates-available-events-and-callbacks) | Available events and callbacks | Autocomplete | Geocoding API |
+| [Places List - Built-in UI](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/leaflet-built-in-places-list-category-search-with-default-ui) | Category search with default UI | Leaflet | Places API |
+| [Places List - Custom UI](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/leaflet-custom-places-list-custom-ui-for-places-results) | Custom UI for places results | Leaflet | Places API |
+| [Places Search - No Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/places-search-no-map-category-search-with-built-in-list) | Standalone category search | Autocomplete | Places API |
 
 ## 📖 Documentation
 
