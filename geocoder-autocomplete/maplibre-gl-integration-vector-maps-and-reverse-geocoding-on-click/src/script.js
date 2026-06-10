@@ -3,6 +3,7 @@
    Benefits: usage analytics, project-level limits, and reliable access for production use.
    This demo key can be blocked or restricted at any time. */
 const yourAPIKey = "5402608de7c44a2d95121c407ad2110b";
+const markerShadowOffset = 5;
 
 // Map style configurations for different themes
 const mapStyles = {
@@ -31,33 +32,10 @@ function switchMapTheme(themeName) {
 
   // Switch map style
   map.setStyle(newStyle);
-
-  // Re-add controls and event listeners after style change
-  map.once("style.load", () => {
-    // Re-add click event listener
-    map.on("click", function (e) {
-      const lat = e.lngLat.lat;
-      const lon = e.lngLat.lng;
-
-      getAddressByLatLon(lat, lon).then((location) => {
-        if (marker) {
-          marker.remove();
-        }
-
-        autocompleteInput.setValue(location.properties.formatted);
-        marker = new maplibregl.Marker({
-          element: createMarkerIcon(),
-          offset: [0, -25]
-        })
-          .setLngLat([location.properties.lon, location.properties.lat])
-          .addTo(map);
-      });
-    });
-  });
 }
 
 // Re-add navigation control
-map.addControl(new maplibregl.NavigationControl({ position: "bottom-right" }));
+map.addControl(new maplibregl.NavigationControl(), "bottom-right");
 
 // check the available autocomplete options on the https://www.npmjs.com/package/@geoapify/geocoder-autocomplete
 const autocompleteInput = new autocomplete.GeocoderAutocomplete(
@@ -69,11 +47,6 @@ const autocompleteInput = new autocomplete.GeocoderAutocomplete(
 );
 
 // Generate a marker icon with https://apidocs.geoapify.com/playground/icon
-const markerIcon = new maplibregl.Marker({
-  element: createMarkerIcon(),
-  anchor: "bottom"
-});
-
 function createMarkerIcon() {
   const img = document.createElement("img");
   img.src = `https://api.geoapify.com/v2/icon/?type=awesome&color=%23ff5b5f&size=50&scaleFactor=2&apiKey=${yourAPIKey}`;
@@ -84,21 +57,30 @@ function createMarkerIcon() {
 
 let marker;
 
-autocompleteInput.on("select", (location) => {
-  // Add marker with the selected location
+function updateSelection(location) {
+  if (!location) {
+    return;
+  }
+
   if (marker) {
     marker.remove();
   }
 
-  if (location) {
-    marker = new maplibregl.Marker({
-      element: createMarkerIcon(),
-      offset: [0, -25 /* -(icon height - icon shadow offset) / 2 */]
-    })
-      .setLngLat([location.properties.lon, location.properties.lat])
-      .addTo(map);
+  autocompleteInput.setValue(location.properties.formatted);
+  marker = new maplibregl.Marker({
+    element: createMarkerIcon(),
+    anchor: "bottom",
+    offset: [0, markerShadowOffset]
+  })
+    .setLngLat([location.properties.lon, location.properties.lat])
+    .addTo(map);
+}
 
-    map.flyTo({
+autocompleteInput.on("select", (location) => {
+  // Add marker with the selected location
+  if (location) {
+    updateSelection(location);
+    map.jumpTo({
       center: [location.properties.lon, location.properties.lat],
       zoom: 14
     });
@@ -111,26 +93,26 @@ map.on("click", function (e) {
   const lon = e.lngLat.lng; // Get longitude from the click event
 
   // Call reverse geocoding for the clicked location
-  getAddressByLatLon(lat, lon).then((location) => {
-    if (marker) {
-      marker.remove();
-    }
-
-    autocompleteInput.setValue(location.properties.formatted);
-    marker = new maplibregl.Marker({
-      element: createMarkerIcon(),
-      offset: [0, -25 /* -(icon height - icon shadow offset) / 2 */]
+  getAddressByLatLon(lat, lon)
+    .then((location) => {
+      updateSelection(location);
     })
-      .setLngLat([location.properties.lon, location.properties.lat])
-      .addTo(map);
-  });
+    .catch((error) => {
+      console.error("Reverse geocoding failed:", error);
+    });
 });
 
 function getAddressByLatLon(lat, lon) {
   return fetch(
     `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${yourAPIKey}`
   )
-    .then((result) => result.json())
+    .then((result) => {
+      if (!result.ok) {
+        throw new Error(`Reverse geocoding request failed with status ${result.status}`);
+      }
+
+      return result.json();
+    })
     .then((result) => {
       if (result && result.features && result.features.length) {
         return result.features[0];
@@ -169,27 +151,8 @@ function setTheme(themeName) {
   console.log("Body classes:", document.body.className);
   console.log("Theme class added:", `theme-${themeName}`);
 
-  // Wait for CSS to load, then apply styles
-  themeLink.onload = function () {
-    if (themeName === "round-borders-dark") {
-      setTimeout(applyRoundDarkStyles, 100); // Small delay to ensure CSS is applied
-    }
-  };
-
   // Store theme preference in localStorage
   localStorage.setItem("geocoder-theme", themeName);
-}
-
-function applyRoundDarkStyles() {
-  // Find all autocomplete inputs and apply styles directly
-  const inputs = document.querySelectorAll(".geoapify-autocomplete-input");
-  inputs.forEach((input) => {
-    input.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-    input.style.borderColor = "rgba(255, 255, 255, 0.4)";
-    console.log("Applied styles to input:", input);
-  });
-
-  console.log("Applied round-dark styles to", inputs.length, "inputs");
 }
 
 // Load saved theme on page load
