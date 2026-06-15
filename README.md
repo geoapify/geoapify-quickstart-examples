@@ -75,6 +75,14 @@ Travel time and distance isolines (isochrones), including GeoJSON polygon visual
 | [Multi-Range Isochrones](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/geoapify-isoline-api-maplibre-gl-multi-range-isochrones-with-toggle-ranges) | Toggle multiple isoline ranges | MapLibre GL | Isoline API |
 | [Visualize GeoJSON Polygons](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/visualizing-geojson-polygons-with-leaflet-and-geoapify-isoline-api) | Isoline polygons on map | Leaflet | Isoline API |
 
+### ⛰️ Elevation API (1 example)
+
+Elevation lookup examples for current location, city boundaries, and visible map areas.
+
+| Example | Description | Library | APIs |
+|---------|-------------|---------|------|
+| [What Is My Current Elevation?](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/what-is-my-current-elevation-tool) | Find elevation for a browser/IP location, selected city, or current map view | MapLibre GL | Elevation API, IP Geolocation API, Boundaries API, Geometry Operations API, Map Tiles |
+
 ### 📍 Places API (2 examples)
 
 Category search and GeoJSON visualization with Places API data.
@@ -150,4 +158,4 @@ MIT License - see [MIT License](https://opensource.org/licenses/MIT) for details
 
 ---
 
-**Keywords**: Geoapify, Maps API, Routing API, Isoline API, Isochrone, Geocoding API, Places API, MapLibre GL JS, Leaflet, OpenLayers, JavaScript map examples, location-based services, interactive maps
+**Keywords**: Geoapify, Maps API, Routing API, Isoline API, Elevation API, Isochrone, Geocoding API, Places API, MapLibre GL JS, Leaflet, OpenLayers, JavaScript map examples, location-based services, interactive maps

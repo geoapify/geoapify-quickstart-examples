@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Is My Current Elevation? Tool - Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+
+<body>
+  <main class="app">
+    <aside class="left-panel">
+      <h1>What is my current elevation?</h1>
+      <p>
+        Select an elevation mode or click the map to request elevation for a location.
+      </p>
+
+      <div class="mode-buttons" aria-label="Elevation mode">
+        <button id="my-elevation-button" type="button" class="mode-button">My Elevation</button>
+        <button id="my-city-elevation-button" type="button" class="mode-button">My City Elevation</button>
+        <button id="map-view-elevation-button" type="button" class="mode-button">Map View Elevation</button>
+      </div>
+
+      <section class="elevation-info">
+        <h2>Elevation information</h2>
+        <pre id="elevation-info">Click "My Elevation" or click a location on the map.</pre>
+        <div id="city-elevation-legend" class="legend" hidden>
+          <div class="legend-gradient"></div>
+          <div class="legend-values">
+            <span id="legend-min">Low</span>
+            <span id="legend-max">High</span>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <section class="right-panel">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+
+</html>
