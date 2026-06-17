@@ -31,7 +31,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 
 ## 📦 Examples by Category
 
-### 🗺️ Maps (11 examples)
+### 🗺️ Maps (12 examples)
 
 Map setup, tiles, visualization fundamentals, and utility demos.
 
@@ -40,6 +40,7 @@ Map setup, tiles, visualization fundamentals, and utility demos.
 | [MapLibre Map Tiles Starter](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-map-tiles-starter) | Basic MapLibre GL map with Geoapify tiles | MapLibre GL | Map Tiles |
 | [MapLibre Vector Map Localization](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
 | [Leaflet OSM Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
+| [Leaflet Priority Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-priority-markers-with-geoapify-marker-icon-api) | Show multi-level priority markers with flag icons | Leaflet | Map Tiles, Map Marker API |
 | [Leaflet Vector Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-vector-map-tiles-geoapify-maplibre-plugin) | Leaflet with vector tiles via MapLibre plugin | Leaflet | Map Tiles |
 | [Understanding Map Zoom Levels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/understanding-map-zoom-levels-and-the-xyz-tile-system) | Visual explanation of XYZ tile system | JavaScript | Map Tiles |
 | [Lat/Lon to Pixels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-lat-lon-to-pixels-with-map-project) | Convert coordinates to screen pixels | MapLibre GL | Map Tiles |
@@ -83,12 +84,13 @@ Elevation lookup examples for current location, city boundaries, and visible map
 |---------|-------------|---------|------|
 | [What Is My Current Elevation?](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/what-is-my-current-elevation-tool) | Find elevation for a browser/IP location, selected city, or current map view | MapLibre GL | Elevation API, IP Geolocation API, Boundaries API, Geometry Operations API, Map Tiles |
 
-### 📍 Places API (2 examples)
+### 📍 Places API (3 examples)
 
 Category search and GeoJSON visualization with Places API data.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
+| [MapLibre Restaurant Finder](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/maplibre-nearest-restaurants-with-type-markers) | Find nearby restaurants with cuisine-based Geoapify marker icons | MapLibre GL | Places API, Map Marker API, Map Tiles |
 | [Places API with Dynamic Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/leaflet-demo-geoapify-places-api-category-search-with-dynamic-markers) | Category search with custom markers | Leaflet | Places API |
 | [Visualize GeoJSON Points](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/visualizing-geojson-points-with-leaflet-and-geoapify-places-api) | Places API results on map | Leaflet | Places API |
 
@@ -142,6 +144,7 @@ Want to modify examples? Edit files in `src/` and refresh the browser.
 ## 🔗 Useful Links
 
 - 🌐 [Geoapify Website](https://www.geoapify.com/)
+- 🗺️ [Geoapify Maps API](https://www.geoapify.com/maps-api/)
 - 📚 [API Documentation](https://apidocs.geoapify.com/)
 - 🔑 [Get Your API Key](https://myprojects.geoapify.com/)
 - ✏️ [CodePen Demos](https://codepen.io/geoapify)

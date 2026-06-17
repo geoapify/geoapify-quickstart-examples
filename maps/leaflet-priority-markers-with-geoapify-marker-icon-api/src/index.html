@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Priority Markers on a Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <main class="app-shell">
+      <section class="map-panel" aria-label="Priority markers map">
+        <div id="my-map"></div>
+      </section>
+
+      <aside class="priority-panel" aria-label="Priority marker legend">
+        <h1>Priority Markers</h1>
+        <p>
+          This code sample shows how to create priority markers with the
+          <a href="https://www.geoapify.com/map-marker-icon-api/" target="_blank">Geoapify Marker Icon API</a>
+          and render them on a Leaflet map.
+        </p>
+        <ul id="priority-list"></ul>
+      </aside>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>
