@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculate Driving Distance Matrix with Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/styles/minimal.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel" aria-label="Driving distance matrix controls">
+      <div class="panel-header">
+        <h1>Driving Distance Matrix</h1>
+        <p>Driving distances and travel times between selected locations.</p>
+      </div>
+
+      <section class="location-section">
+        <div class="section-heading">
+          <div>
+            <h2>Sources</h2>
+            <p>Matrix rows.</p>
+          </div>
+        </div>
+        <div id="source-list" class="location-list"></div>
+        <button id="add-source-button" type="button" class="secondary-button add-row-button">+ Add</button>
+      </section>
+
+      <label class="checkbox-row" for="different-destinations-checkbox">
+        <input id="different-destinations-checkbox" type="checkbox" />
+        <span>Use different destinations</span>
+      </label>
+
+      <section id="destination-section" class="location-section" hidden>
+        <div class="section-heading">
+          <div>
+            <h2>Destinations</h2>
+            <p>Matrix columns.</p>
+          </div>
+        </div>
+        <div id="destination-list" class="location-list"></div>
+        <button id="add-destination-button" type="button" class="secondary-button add-row-button">+ Add</button>
+      </section>
+
+      <section id="map-click-controls" class="map-click-controls" aria-label="Map click target" hidden>
+        <span>Map click adds</span>
+        <label class="inline-radio" for="map-click-source">
+          <input id="map-click-source" name="map-click-target" type="radio" value="source" checked />
+          source
+        </label>
+        <label class="inline-radio" for="map-click-destination">
+          <input id="map-click-destination" name="map-click-target" type="radio" value="destination" />
+          destination
+        </label>
+      </section>
+
+      <span id="status-message" class="status-message" role="status"></span>
+      <div class="action-row">
+        <button id="calculate-button" type="button" class="primary-button">Calculate</button>
+      </div>
+    </section>
+
+    <section class="map-panel" aria-label="Map">
+      <div id="map"></div>
+      <div id="toast" class="toast" hidden></div>
+    </section>
+
+    <section class="results-panel" aria-label="Matrix results">
+      <p id="hover-info" class="visually-hidden">No matrix pair selected.</p>
+      <div class="table-scroll">
+        <table id="matrix-table" class="matrix-table" aria-label="Driving distance matrix"></table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.0.1/dist/index.min.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+</html>

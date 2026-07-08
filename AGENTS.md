@@ -3,9 +3,12 @@
 - Do not create `try/catch` blocks unless explicitly requested.
 - When asked to create a skeleton, create only the minimal file/folder structure and placeholders. Do not add implementation code unless explicitly requested.
 - Do not create or update README files unless explicitly requested.
+- When adding a new code sample, list it in the root `README.md` and in the corresponding API folder README.
 
 ## README Documentation
 
+- Use `elevation-api/what-is-my-current-elevation-tool/README.md` as the full README structure template when creating example documentation, while still applying the README guidance below.
+- Use `geocoding-api/README.md` as the README structure template when creating API folder index documentation.
 - README code samples should be based on the project source code, but simplified for documentation readability.
 - Use relative paths for README links to files in the current example folder, for example `./src/index.html` or `./src/script.js`.
 - Use absolute links for external resources, product pages, documentation, demos, and repository-wide related examples when needed.
