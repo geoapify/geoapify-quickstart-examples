@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IANA Timezone and DST Explorer - Geoapify</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <h1>IANA Timezone and DST Explorer</h1>
+        <p>Find a timezone and inspect its metadata, current state, and clock changes.</p>
+      </div>
+      <div id="database-info" class="database-info">Loading timezone data…</div>
+    </header>
+
+    <fieldset class="task-selector">
+      <legend>What do you want to do?</legend>
+      <label class="task-option">
+        <input type="radio" name="task" value="coordinates" checked />
+        <span><strong>Coordinates → Timezone</strong><small>Click a map or enter latitude and longitude</small></span>
+      </label>
+      <label class="task-option">
+        <input type="radio" name="task" value="details" />
+        <span><strong>Timezone Details</strong><small>Inspect a timezone or alias at an instant</small></span>
+      </label>
+      <label class="task-option">
+        <input type="radio" name="task" value="transitions" />
+        <span><strong>DST Transitions</strong><small>List clock changes during a year</small></span>
+      </label>
+      <label class="task-option">
+        <input type="radio" name="task" value="country" />
+        <span><strong>Timezones by Country</strong><small>List timezones associated with a country</small></span>
+      </label>
+    </fieldset>
+
+    <p id="app-error" class="message error" role="alert" hidden></p>
+
+    <section class="task-panel" data-task-panel="coordinates">
+      <div class="coordinates-layout">
+        <div id="map" aria-label="Interactive map for selecting coordinates"></div>
+        <div class="controls-panel">
+          <h2>Find timezone by coordinates</h2>
+          <p>Click the map, drag the marker, enter coordinates, or use your location.</p>
+
+          <form id="coordinates-form" class="form-grid">
+            <label for="latitude-input">Latitude</label>
+            <input id="latitude-input" type="number" min="-90" max="90" step="any" required value="40.748817" />
+            <label for="longitude-input">Longitude</label>
+            <input id="longitude-input" type="number" min="-180" max="180" step="any" required value="-73.985428" />
+            <div class="form-actions">
+              <button type="submit" class="primary-button">Find timezone</button>
+              <button id="use-location-button" type="button">Use my location</button>
+            </div>
+          </form>
+
+          <p id="coordinates-status" class="message" role="status">Select a location to run reverse geocoding.</p>
+          <div id="coordinates-result"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="task-panel narrow-panel" data-task-panel="details" hidden>
+      <h2>Get timezone information</h2>
+      <p>Choose a canonical IANA timezone or a known alias and select an instant in UTC.</p>
+      <form id="details-form" class="form-grid horizontal-form">
+        <label for="details-timezone-select">Timezone or alias</label>
+        <select id="details-timezone-select" required></select>
+        <label for="details-instant-input">UTC date and time</label>
+        <div class="input-action">
+          <input id="details-instant-input" type="datetime-local" required />
+          <button id="details-now-button" type="button">Use now</button>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary-button">Get details</button>
+        </div>
+      </form>
+      <div id="details-result"></div>
+    </section>
+
+    <section class="task-panel narrow-panel" data-task-panel="transitions" hidden>
+      <h2>Explore DST transitions</h2>
+      <p>List every timezone state change during a supported calendar year.</p>
+      <form id="transitions-form" class="form-grid horizontal-form">
+        <label for="transitions-timezone-select">Timezone or alias</label>
+        <select id="transitions-timezone-select" required></select>
+        <label for="transitions-year-select">Year</label>
+        <select id="transitions-year-select"></select>
+        <div class="form-actions">
+          <button type="submit" class="primary-button">Show transitions</button>
+        </div>
+      </form>
+      <div id="transitions-result"></div>
+    </section>
+
+    <section class="task-panel narrow-panel" data-task-panel="country" hidden>
+      <h2>Find timezones by country</h2>
+      <p>Choose an ISO country to list its canonical IANA timezones and current states.</p>
+      <form id="country-form" class="form-grid horizontal-form">
+        <label for="country-select">Country</label>
+        <select id="country-select"></select>
+        <div class="form-actions">
+          <button type="submit" class="primary-button">Show timezones</button>
+        </div>
+      </form>
+      <div id="country-result"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@^5.7.3/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+</html>

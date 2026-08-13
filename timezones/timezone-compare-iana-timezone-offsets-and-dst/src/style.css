@@ -1,0 +1,290 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #111827;
+  background: #f8fafc;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: start;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-size: 28px;
+}
+
+header p {
+  color: #4b5563;
+}
+
+.database-info {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.compare-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: end;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.timezone-field,
+.instant-field {
+  display: grid;
+  gap: 7px;
+}
+
+.instant-field {
+  grid-column: 1 / 3;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+}
+
+button {
+  padding: 9px 13px;
+  border: 1px solid #9ca3af;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f3f4f6;
+}
+
+.primary-button {
+  border-color: #1f3f8f;
+  background: #1f3f8f;
+  color: #fff;
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  background: #173273;
+}
+
+.swap-button {
+  width: 50px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.input-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.comparison-summary {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid #b7c8ff;
+  border-left: 4px solid #1f3f8f;
+  border-radius: 7px;
+  background: #f5f8ff;
+}
+
+.comparison-summary h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.comparison-summary p {
+  margin-bottom: 0;
+  color: #374151;
+}
+
+.timezone-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.timezone-card {
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.timezone-card h3 {
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+
+.timezone-subtitle {
+  margin-bottom: 14px;
+  color: #6b7280;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.local-time {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.local-time strong,
+.local-time span {
+  display: block;
+}
+
+.local-time strong {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.local-time span {
+  margin-top: 4px;
+  color: #4b5563;
+}
+
+.result-items {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 7px 10px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.result-items dt {
+  color: #6b7280;
+}
+
+.result-items dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.next-transition {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.next-transition h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.next-transition p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.message {
+  margin: 16px 0 0;
+}
+
+.error {
+  padding: 10px;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+@media (max-width: 720px) {
+  header {
+    display: block;
+  }
+
+  .database-info {
+    margin-top: 12px;
+  }
+
+  .compare-form {
+    grid-template-columns: 1fr;
+  }
+
+  .swap-button,
+  .instant-field,
+  .primary-button {
+    grid-column: 1;
+  }
+
+  .swap-button {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .timezone-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 16px 12px;
+  }
+
+  .input-action,
+  .result-items {
+    grid-template-columns: 1fr;
+  }
+
+  .result-items dd + dt {
+    margin-top: 5px;
+  }
+}

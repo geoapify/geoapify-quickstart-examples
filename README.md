@@ -84,6 +84,15 @@ Elevation lookup examples for current location, city boundaries, and visible map
 |---------|-------------|---------|------|
 | [What Is My Current Elevation?](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/what-is-my-current-elevation-tool) | Find elevation for a browser/IP location, selected city, or current map view | MapLibre GL | Elevation API, IP Geolocation API, Boundaries API, Geometry Operations API, Map Tiles |
 
+### 🕐 IANA Timezones (2 examples)
+
+IANA timezone lookup and timezone comparison examples covering UTC offsets, local times, daylight-saving states, transitions, aliases, and country associations.
+
+| Example | Description | Library | APIs |
+|---------|-------------|---------|------|
+| [IANA Timezone and DST Explorer](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/timezones/interactive-iana-timezone-dst-explorer) | Find a timezone on a map, inspect its state at an instant, explore clock transitions, and list timezones by country | MapLibre GL, IANA Timezone Metadata | Reverse Geocoding API, Map Tiles, Map Marker API |
+| [Timezone Compare: IANA Timezones, UTC Offsets, and DST](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/timezones/timezone-compare-iana-timezone-offsets-and-dst) | Compare two IANA timezones at the same instant, including local time, offset difference, DST state, aliases, and transitions | JavaScript, IANA Timezone Metadata | — |
+
 ### 📍 Places API (3 examples)
 
 Category search and GeoJSON visualization with Places API data.
@@ -159,7 +168,3 @@ MIT License - see [MIT License](https://opensource.org/licenses/MIT) for details
 
 - 📧 Email: info@geoapify.com
 - 💬 Open an issue in this repository
-
----
-
-**Keywords**: Geoapify, Maps API, Routing API, Isoline API, Elevation API, Isochrone, Geocoding API, Places API, MapLibre GL JS, Leaflet, OpenLayers, JavaScript map examples, location-based services, interactive maps

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timezone Compare: Compare IANA Timezones, UTC Offsets, and DST</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Timezone Compare</h1>
+        <p>Compare local time, UTC offsets, and daylight-saving states for two IANA timezones.</p>
+      </div>
+      <div id="database-info" class="database-info">Loading IANA timezone data…</div>
+    </header>
+
+    <p id="app-error" class="message error" role="alert" hidden></p>
+
+    <form id="compare-form" class="compare-form">
+      <div class="timezone-field">
+        <label for="first-timezone-select">First IANA timezone</label>
+        <select id="first-timezone-select" required></select>
+      </div>
+
+      <button id="swap-button" type="button" class="swap-button" aria-label="Swap timezones" title="Swap timezones">⇄</button>
+
+      <div class="timezone-field">
+        <label for="second-timezone-select">Second IANA timezone</label>
+        <select id="second-timezone-select" required></select>
+      </div>
+
+      <div class="instant-field">
+        <label for="instant-input">UTC date and time</label>
+        <div class="input-action">
+          <input id="instant-input" type="datetime-local" required />
+          <button id="now-button" type="button">Use now</button>
+        </div>
+      </div>
+
+      <button type="submit" class="primary-button">Compare timezones</button>
+    </form>
+
+    <section id="comparison-result" aria-live="polite"></section>
+  </main>
+
+  <script src="./script.js" inline></script>
+</body>
+</html>
