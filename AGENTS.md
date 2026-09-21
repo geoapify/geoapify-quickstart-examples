@@ -3,6 +3,7 @@
 - Do not create `try/catch` blocks unless explicitly requested.
 - When asked to create a skeleton, create only the minimal file/folder structure and placeholders. Do not add implementation code unless explicitly requested.
 - Do not create or update README files unless explicitly requested.
+- Use the same folder structure as existing code samples: place implementation files in `<category>/<example-slug>/src/`, using `index.html`, `script.js`, and `style.css` where applicable.
 - When adding a new code sample, list it in the root `README.md` and in the corresponding API folder README.
 
 ## README Documentation

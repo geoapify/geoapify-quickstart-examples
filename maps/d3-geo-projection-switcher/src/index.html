@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>D3 Geo Interactive Map Projection Explorer</title>
+    <link rel="stylesheet" href="./style.css" inline />
+  </head>
+  <body>
+    <main class="map-shell">
+      <svg
+        id="map"
+        class="map"
+        role="img"
+        aria-label="Interactive projected map of country boundaries"
+      ></svg>
+
+      <section class="projection-panel" aria-labelledby="panel-title">
+        <p class="eyebrow">D3 Geo + Geoapify</p>
+        <h1 id="panel-title">Explore cartographic projections</h1>
+        <p class="intro">
+          Project spherical vector geometry directly to responsive SVG paths.
+        </p>
+
+        <label class="select-label" for="projection-select">Projection</label>
+        <div class="select-wrap">
+          <select id="projection-select" disabled></select>
+        </div>
+
+        <div class="projection-meta" aria-live="polite">
+          <div class="meta-heading">
+            <span class="meta-title">Projection details</span>
+            <code id="projection-code"></code>
+          </div>
+
+          <dl class="projection-facts">
+            <div>
+              <dt>Type</dt>
+              <dd id="projection-type"></dd>
+            </div>
+            <div>
+              <dt>Preserves</dt>
+              <dd id="projection-preserves"></dd>
+            </div>
+            <div>
+              <dt>Best for</dt>
+              <dd id="projection-best-for"></dd>
+            </div>
+          </dl>
+
+          <p id="projection-description"></p>
+          <a
+            id="projection-reference"
+            class="projection-reference"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn more about this projection ↗
+          </a>
+        </div>
+
+        <p class="source-note">
+          <strong>Rendering:</strong> Mercator dynamically loads Geoapify Web
+          Mercator raster tiles as you pan and zoom. Other projections use
+          Natural Earth vectors because D3 Geo does not reproject raster
+          images.
+        </p>
+
+        <p id="status" class="status" aria-live="polite">Loading countries…</p>
+      </section>
+
+      <div class="map-hint">Drag to pan · Scroll to zoom</div>
+      <div id="tile-attribution" class="tile-attribution" hidden>
+        Powered by
+        <a href="https://www.geoapify.com/" target="_blank">Geoapify</a>
+        · © OpenMapTiles ·
+        <a href="https://www.openstreetmap.org/copyright" target="_blank">
+          © OpenStreetMap contributors
+        </a>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-tile@1.0.0/dist/d3-tile.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4.0.0/dist/d3-geo-projection.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-polygon@2.0.1/dist/d3-geo-polygon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+    <script src="./script.js" inline></script>
+  </body>
+</html>

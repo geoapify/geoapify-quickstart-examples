@@ -31,7 +31,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 
 ## 📦 Examples by Category
 
-### 🗺️ Maps (12 examples)
+### 🗺️ Maps (14 examples)
 
 Map setup, tiles, visualization fundamentals, and utility demos.
 
@@ -47,6 +47,8 @@ Map setup, tiles, visualization fundamentals, and utility demos.
 | [Country Geometry & Projection](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-country-geometry-projection-drag) | Drag and project country boundaries | MapLibre GL | Map Tiles |
 | [Leaflet First Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-first-interactive-map-with-geoapify-tiles) | Basic Leaflet map setup | Leaflet | Map Tiles |
 | [OpenLayers First Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/openlayers-first-interactive-map-with-geoapify-tiles) | Basic OpenLayers map setup | OpenLayers | Map Tiles |
+| [OpenLayers Projection Switcher](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/openlayers-geoapify-map-projection-switcher) | Reproject Geoapify Web Mercator raster tiles into global and country-specific CRSs | OpenLayers, Proj4js | Map Tiles |
+| [D3 Geo Projection Explorer](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/d3-geo-projection-switcher) | Compare cylindrical, pseudocylindrical, and polyhedral world projections with a Mercator raster basemap | D3 Geo | Map Tiles |
 | [Custom Markers & Popups](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-custom-markers-popups-with-geoapify-place-details) | Rich place details in popups | MapLibre GL | Places API |
 | [BBox Calculator](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/bbox-width-height-calculator-in-web-mercator-maplibre-geoapify) | Calculate bounding box dimensions | MapLibre GL | Map Tiles |
 

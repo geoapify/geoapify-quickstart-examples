@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenLayers Map Projection Switcher with Geoapify Tiles</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css"
+    />
+    <link rel="stylesheet" href="./style.css" inline />
+  </head>
+  <body>
+    <main class="map-shell">
+      <div id="map" class="map" aria-label="Interactive world map"></div>
+
+      <section class="projection-panel" aria-labelledby="panel-title">
+        <p class="eyebrow">OpenLayers + Geoapify</p>
+        <h1 id="panel-title">Explore map projections</h1>
+        <p class="intro">
+          The same map, reprojected live in your browser.
+        </p>
+
+        <label class="select-label" for="projection-select">Projection</label>
+        <div class="select-wrap">
+          <select id="projection-select"></select>
+        </div>
+
+        <div class="projection-meta" aria-live="polite">
+          <div class="meta-heading">
+            <span id="projection-type" class="projection-type"></span>
+            <code id="projection-code"></code>
+          </div>
+          <p id="projection-description"></p>
+        </div>
+
+        <p class="source-note">
+          <strong>Tile source:</strong> This example uses raster tiles created
+          in Web Mercator (EPSG:3857). OpenLayers reprojects them in the
+          browser.
+        </p>
+
+      </section>
+
+      <div class="map-hint">Drag to pan · Scroll to zoom</div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/proj4@2.20.9/dist/proj4.js"></script>
+    <script src="./script.js?v=20260916-7" inline></script>
+  </body>
+</html>
