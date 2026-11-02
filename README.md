@@ -31,7 +31,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 
 ## 📦 Examples by Category
 
-### 🗺️ Maps (14 examples)
+### 🗺️ Maps (17 examples)
 
 Map setup, tiles, visualization fundamentals, and utility demos.
 
@@ -41,6 +41,9 @@ Map setup, tiles, visualization fundamentals, and utility demos.
 | [MapLibre Vector Map Localization](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
 | [Leaflet OSM Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
 | [Leaflet Priority Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-priority-markers-with-geoapify-marker-icon-api) | Show multi-level priority markers with flag icons | Leaflet | Map Tiles, Map Marker API |
+| [Marker Shadows and Anchors - Leaflet](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-marker-icon-api-shadows-and-anchor-headers) | Place markers exactly with Icon-Anchor headers from a HEAD request, for every shadow type | Leaflet | Map Tiles, Map Marker API |
+| [Marker Shadows and Anchors - MapLibre GL](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-marker-icon-api-shadows-and-anchor-headers) | Place markers exactly with Icon-Anchor headers from a HEAD request, for every shadow type | MapLibre GL | Map Tiles, Map Marker API |
+| [Marker Shadows and Anchors - OpenLayers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/openlayers-marker-icon-api-shadows-and-anchor-headers) | Place markers exactly with Icon-Anchor headers from a HEAD request, for every shadow type | OpenLayers | Map Tiles, Map Marker API |
 | [Leaflet Vector Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-vector-map-tiles-geoapify-maplibre-plugin) | Leaflet with vector tiles via MapLibre plugin | Leaflet | Map Tiles |
 | [Understanding Map Zoom Levels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/understanding-map-zoom-levels-and-the-xyz-tile-system) | Visual explanation of XYZ tile system | JavaScript | Map Tiles |
 | [Lat/Lon to Pixels](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-lat-lon-to-pixels-with-map-project) | Convert coordinates to screen pixels | MapLibre GL | Map Tiles |

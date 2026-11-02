@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Marker Shadows and Anchors on a Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <h1>Marker Anchors</h1>
+        <p class="panel-description">
+          Change the shadow and check that each pin still points at its red dot.
+        </p>
+
+        <label for="shape-select">Shape</label>
+        <select id="shape-select">
+          <option value="material">material</option>
+          <option value="awesome">awesome</option>
+          <option value="tabler">tabler</option>
+          <option value="phosphor">phosphor</option>
+          <option value="lucide">lucide</option>
+          <option value="material-symbols-rounded">material-symbols-rounded</option>
+          <option value="circle">circle</option>
+        </select>
+
+        <label for="shadow-select">Shadow</label>
+        <select id="shadow-select">
+          <option value="none">none</option>
+          <option value="ellipse">ellipse</option>
+          <option value="ellipse-dark">ellipse-dark</option>
+          <option value="ellipse-soft">ellipse-soft</option>
+          <option value="floating">floating</option>
+          <option value="drop" selected>drop</option>
+          <option value="glow">glow</option>
+        </select>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="use-headers" checked>
+          Use the anchor from the response headers
+        </label>
+
+        <div class="status-box" id="status-box">Loading...</div>
+      </aside>
+
+      <main class="map-stage">
+        <div id="my-map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>
