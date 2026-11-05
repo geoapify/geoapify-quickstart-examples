@@ -30,7 +30,7 @@ Process large Geoapify Route Matrix inputs by splitting them into smaller API re
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/team/geoapify/pen/019e06ca-65c2-7e21-9e3b-7a9659d3913a)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a73f-0d62-7091-b16d-06b89abd1538)
 
 ## Screenshot
 
@@ -325,7 +325,7 @@ function getOptimalChunkCounts(sourcesCount, targetsCount, maxMatrixElements = 1
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - Route Matrix docs: [https://apidocs.geoapify.com/docs/route-matrix/](https://apidocs.geoapify.com/docs/route-matrix/)
 - Route Matrix playground: [https://apidocs.geoapify.com/playground/route-matrix/](https://apidocs.geoapify.com/playground/route-matrix/)
-- Geoapify CodePen profile: [https://codepen.io/team/geoapify](https://codepen.io/team/geoapify)
+- Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)
 
 ## License
 

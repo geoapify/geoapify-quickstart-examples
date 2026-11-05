@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Seasonal Map Style by Date with MapLibre GL and Geoapify</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <h1>Seasonal Map Style</h1>
+        <p class="panel-description">
+          The same Geoapify vector tiles, recolored by date. Pick a date or a theme.
+        </p>
+
+        <label for="date-input">Date</label>
+        <input type="date" id="date-input">
+
+        <label for="theme-select">Theme</label>
+        <select id="theme-select">
+          <option value="auto" selected>Auto (by date)</option>
+          <option value="default">Default</option>
+          <option value="christmas">Christmas</option>
+          <option value="winter">Winter</option>
+          <option value="valentine">Valentine's Day</option>
+          <option value="stpatrick">St. Patrick's Day</option>
+          <option value="easter">Easter</option>
+          <option value="summer">Summer</option>
+          <option value="autumn">Autumn</option>
+          <option value="halloween">Halloween</option>
+        </select>
+
+        <div class="status-box" id="status-box">Loading...</div>
+      </aside>
+
+      <main class="map-stage">
+        <div id="my-map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>

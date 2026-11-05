@@ -27,7 +27,7 @@ Display multiple routes from different origins using MapLibre GL's line-offset p
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/team/geoapify/pen/vEKENNr)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb)
 
 ## Screenshot
 
@@ -157,7 +157,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 | Map is blank or unstyled | MapLibre assets failed to load | Open browser DevTools (`Console` + `Network`) and confirm CDN files load without errors. |
 | Map does not load data / API responds `403` | API key is invalid, restricted, or over limits | Get your own free key at `https://myprojects.geoapify.com/`, then update `yourAPIKey` in `src/script.js`. |
 | Works inconsistently from local file | Browser policy blocks some `file://` behavior | Open with IDE Live Server (or any local static server) and run from `http://localhost`. |
-| Output differs from expected | Local edits introduced a regression | Compare your files with the [CodePen demo](https://codepen.io/team/geoapify/pen/vEKENNr) and align differences step by step. |
+| Output differs from expected | Local edits introduced a regression | Compare your files with the [CodePen demo](https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb) and align differences step by step. |
 
 ## APIs and Libraries
 
@@ -179,8 +179,8 @@ No build step is required. Edit files in `src/` and refresh the browser.
 ## Useful Links
 
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
-- CodePen demo: [https://codepen.io/team/geoapify/pen/vEKENNr](https://codepen.io/team/geoapify/pen/vEKENNr)
-- Geoapify CodePen profile: [https://codepen.io/team/geoapify](https://codepen.io/team/geoapify)
+- CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb](https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb)
+- Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)
 
 ## License
 

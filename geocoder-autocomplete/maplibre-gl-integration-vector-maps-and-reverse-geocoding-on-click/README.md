@@ -286,7 +286,7 @@ Key parts:
 - [Geoapify account and API keys](https://myprojects.geoapify.com/)
 - [Geoapify API documentation](https://apidocs.geoapify.com/)
 - [CodePen demo](https://codepen.io/geoapify/pen/PwWqzjL)
-- [Geoapify CodePen profile](https://codepen.io/team/geoapify)
+- [Geoapify CodePen profile](https://codepen.io/geoapify)
 
 ## License
 

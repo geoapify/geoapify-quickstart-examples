@@ -31,7 +31,7 @@ Note: In rare cases, browser policies or extensions can restrict `file://` acces
 
 ## 📦 Examples by Category
 
-### 🗺️ Maps (17 examples)
+### 🗺️ Maps (18 examples)
 
 Map setup, tiles, visualization fundamentals, and utility demos.
 
@@ -39,6 +39,7 @@ Map setup, tiles, visualization fundamentals, and utility demos.
 |---------|-------------|---------|------|
 | [MapLibre Map Tiles Starter](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-geoapify-map-tiles-starter) | Basic MapLibre GL map with Geoapify tiles | MapLibre GL | Map Tiles |
 | [MapLibre Vector Map Localization](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-vector-map-localization) | Localize vector map labels with different map styles | MapLibre GL | Map Tiles |
+| [Seasonal Map Style by Date](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/maplibre-seasonal-map-style-by-date) | Recolor the vector map and switch markers for Christmas, Halloween and other seasons by date | MapLibre GL | Map Tiles, Map Marker API |
 | [Leaflet OSM Tiles](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-map-with-osm-map-tiles-by-geoapify) | Leaflet map with raster OSM tiles | Leaflet | Map Tiles |
 | [Leaflet Priority Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-priority-markers-with-geoapify-marker-icon-api) | Show multi-level priority markers with flag icons | Leaflet | Map Tiles, Map Marker API |
 | [Marker Shadows and Anchors - Leaflet](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/maps/leaflet-marker-icon-api-shadows-and-anchor-headers) | Place markers exactly with Icon-Anchor headers from a HEAD request, for every shadow type | Leaflet | Map Tiles, Map Marker API |

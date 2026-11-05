@@ -155,6 +155,9 @@ const map = new ol.Map({
     markerLayer,
     new ol.layer.Vector({ source: markerSource, style: pointStyle })
   ],
+  controls: ol.control.defaults.defaults({
+    attributionOptions: { collapsible: false }
+  }),
   view: new ol.View({
     center: ol.proj.fromLonLat([-87.6340, 41.8818]),
     zoom: 15

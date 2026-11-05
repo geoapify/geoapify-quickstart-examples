@@ -11,7 +11,7 @@ Click on the map to compare the clicked coordinates with the coordinates returne
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/team/geoapify/pen/019d8e47-9b0b-70c9-921a-07c5565e0694)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a73f-7145-75d4-bfd5-bb7c1c0df0a2)
 
 ## Screenshot
 

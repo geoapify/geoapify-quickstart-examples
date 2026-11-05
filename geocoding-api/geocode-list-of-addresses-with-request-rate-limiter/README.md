@@ -20,7 +20,7 @@ Geocode a large list of addresses with controlled request throughput, live progr
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/team/geoapify/pen/MYbgqOO)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a73f-2983-75b1-85b8-d77ace1be608)
 
 ## Screenshot
 

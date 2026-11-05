@@ -31,7 +31,7 @@ Click on the map to run Geoapify reverse geocoding and inspect what was requeste
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/team/geoapify/pen/raMdrar)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a73f-8cee-7124-89fd-413c5714c83b)
 
 ## Screenshot
 

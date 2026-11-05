@@ -13,6 +13,10 @@ How it works:
 - For each style, the sample sends one `HEAD` request and reads `Icon-Width`, `Icon-Height`, `Icon-Anchor-X`, and `Icon-Anchor-Y`.
 - A red dot marks each exact coordinate. Uncheck "Use the anchor from the response headers" to see where a guessed anchor puts the markers.
 
+## Live Demo
+
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1aaf3-fdc6-7d45-942a-ffc2a923c48b)
+
 ## Screenshot
 
 ![OpenLayers map of downtown Chicago with Geoapify pin markers placed exactly on red location dots, and a panel with marker shape, shadow, and Icon-Anchor header values](./screenshots/openlayers-marker-icon-api-shadows-and-anchor-headers-screenshot.png)
@@ -170,6 +174,7 @@ Without the headers, a `drop` marker anchored at the bottom center points to a s
 - [Geoapify API documentation](https://apidocs.geoapify.com/)
 - [How to Add Markers to a Map](https://apidocs.geoapify.com/how-to/maps/add-map-markers/)
 - [Geoapify My Projects: get an API key](https://myprojects.geoapify.com/)
+- CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1aaf3-fdc6-7d45-942a-ffc2a923c48b](https://codepen.io/editor/geoapify/pen/01a1aaf3-fdc6-7d45-942a-ffc2a923c48b)
 
 ## License
 

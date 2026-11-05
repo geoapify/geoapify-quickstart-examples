@@ -22,7 +22,7 @@ Build a Geoapify Geocoding API request from UI fields, send it, and inspect the 
 
 ## Live Demo
 
-[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/team/geoapify/pen/019dbf0d-fbbf-7f67-8675-ad0484b66010)
+[![Open in CodePen](https://img.shields.io/badge/Open%20in-CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/editor/geoapify/pen/01a1a73f-5219-75c2-aa13-d3bc24493194)
 
 ## Screenshot
 
