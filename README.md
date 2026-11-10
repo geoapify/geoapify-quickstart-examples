@@ -99,17 +99,28 @@ IANA timezone lookup and timezone comparison examples covering UTC offsets, loca
 | [IANA Timezone and DST Explorer](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/timezones/interactive-iana-timezone-dst-explorer) | Find a timezone on a map, inspect its state at an instant, explore clock transitions, and list timezones by country | MapLibre GL, IANA Timezone Metadata | Reverse Geocoding API, Map Tiles, Map Marker API |
 | [Timezone Compare: IANA Timezones, UTC Offsets, and DST](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/timezones/timezone-compare-iana-timezone-offsets-and-dst) | Compare two IANA timezones at the same instant, including local time, offset difference, DST state, aliases, and transitions | JavaScript, IANA Timezone Metadata | — |
 
-### 📍 Places API (3 examples)
+### 📍 Places API (5 examples)
 
-Category search and GeoJSON visualization with Places API data.
+Category and name search, nearest places, and GeoJSON visualization with Places API data.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
 | [MapLibre Restaurant Finder](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/maplibre-nearest-restaurants-with-type-markers) | Find nearby restaurants with cuisine-based Geoapify marker icons | MapLibre GL | Places API, Map Marker API, Map Tiles |
 | [Places API with Dynamic Markers](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/leaflet-demo-geoapify-places-api-category-search-with-dynamic-markers) | Category search with custom markers | Leaflet | Places API |
 | [Visualize GeoJSON Points](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/visualizing-geojson-points-with-leaflet-and-geoapify-places-api) | Places API results on map | Leaflet | Places API |
+| [Nearest Stores of a Brand](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/maplibre-find-nearest-brand-stores-places-name-search) | Find the nearest stores of a brand by name within a chosen radius, with optional walking times | MapLibre GL | Places API, Route Matrix API, Map Tiles |
+| [Nearest EV Charging Stations](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/places-api/maplibre-nearest-ev-charging-stations-connector-types) | Find the nearest EV charging stations with operators and connector types, with optional driving times | MapLibre GL | Places API, Route Matrix API, Map Tiles |
 
-### 📮 Geocoding API (5 examples)
+### 🌐 IP Geolocation API (2 examples)
+
+Approximate, city-level visitor location from an IP address.
+
+| Example | Description | Library | APIs |
+|---------|-------------|---------|------|
+| [Center a Map on the Visitor's Location by IP](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/ip-geolocation-api/maplibre-center-map-on-visitor-location-by-ip) | Open a map at the visitor's approximate location, with a fallback view and a field to try another IP | MapLibre GL | IP Geolocation API, Map Tiles |
+| [Pre-fill Country, Phone Code and Currency by IP](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/ip-geolocation-api/prefill-country-phone-currency-form-by-ip) | Pre-fill a checkout form from the visitor's IP; every field stays editable | JavaScript | IP Geolocation API |
+
+### 📮 Geocoding API (6 examples)
 
 Forward and reverse geocoding examples.
 
@@ -120,6 +131,7 @@ Forward and reverse geocoding examples.
 | [City, Postcode, Street, Address By Coordinates](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/how-to-get-city-postcode-street-address-by-coordinates) | Reverse geocoding levels with request and JSON inspector | MapLibre GL | Geocoding API, Map Tiles |
 | [Reverse Geocoding City Boundaries Size Comparison](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/reverse-geocoding-city-boundaries-size-comparison-drag) | Reverse geocode city boundaries, drag them, and compare apparent size | MapLibre GL | Geocoding API, Place Details API, Map Tiles |
 | [Returned Address Can Differ Slightly From Clicked Map Point](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
+| [Same Name, Different Places: Filter and Bias](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/maplibre-same-name-different-places-filter-and-bias) | Search one place name that exists in many places and compare results with `filter` and `bias` | MapLibre GL | Geocoding API, Map Tiles |
 
 ### 🔢 Matrix API (2 examples)
 
