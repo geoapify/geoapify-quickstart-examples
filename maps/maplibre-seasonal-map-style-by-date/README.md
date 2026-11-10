@@ -12,7 +12,7 @@ How it works:
 - "Auto (by date)" picks the theme from the date: Christmas (Dec 1 – Jan 6), Winter, Valentine's Day, St. Patrick's Day, Easter (Palm Sunday to Easter Monday), Summer, Autumn, and Halloween (Oct 24 – 31).
 - Change the date to preview another season, or choose a theme directly.
 - Force a theme regardless of the date with `?theme=halloween` in the page URL or the `forcedTheme` setting in `script.js`.
-- Each theme sets one color per layer group (water, parks, roads, labels, and so on) and its own marker shape and icons. Every theme uses a different Marker Icon API `type`, so the example shows all marker shapes.
+- Each theme sets one color per layer group (water, parks, roads, labels, and so on) and its own marker shape and icons. Between them, the themes use seven Marker Icon API marker types (`material`, `awesome`, `circle`, `tabler`, `phosphor`, `material-symbols-rounded`, `lucide`).
 - Before a theme is applied, the original paint values are restored, so themes never mix.
 
 ## Live Demo
@@ -50,7 +50,7 @@ The `osm-bright` style has more than 100 layers. A theme does not need a color f
 ```js
 const layerGroups = {
   background: [["background", "background-color"]],
-  park: ["park", "landcover-grass", "landcover-grass-park"].map((id) => [id, "fill-color"]),
+  park: ["landcover-grass", "landcover-grass-park"].map((id) => [id, "fill-color"]),
   water: [["water", "fill-color"], ["waterway-river", "line-color"]],
   roadMajor: ["highway-primary", "highway-trunk", "highway-motorway"].map((id) => [id, "line-color"]),
   path: ["highway-path", "bridge-path", "tunnel-path"].map((id) => [id, "line-color"]),
@@ -98,6 +98,10 @@ function applyPalette(palette) {
       }
     });
   });
+
+  if (map.getLayer("park")) {
+    map.setLayoutProperty("park", "visibility", Object.keys(palette).length ? "none" : "visible");
+  }
 }
 ```
 
@@ -106,6 +110,7 @@ How it works:
 - `setPaintProperty` changes a layer on the client. No tiles are downloaded again.
 - Many original values are zoom expressions, not plain colors. Saving them with `getPaintProperty` restores the exact default style, including the zoom-dependent widths and colors.
 - An empty palette (`{}`) brings back the default `osm-bright` look.
+- The `park` layer is hidden while a theme is on. Despite its name, in `osm-bright` it also holds protected areas such as historic districts and nature reserves, so a park color would tint whole old towns. City parks come from `landcover-grass` and `landcover-grass-park`.
 
 ### 3. Pick the Theme by Date
 
@@ -233,6 +238,7 @@ Check the [icon attribution requirements](https://apidocs.geoapify.com/docs/icon
 
 ## Useful Links
 
+- [Seasonal map styles in MapLibre GL](https://www.geoapify.com/seasonal-map-styles/): the blog post that explains this example step by step
 - [Geoapify API documentation](https://apidocs.geoapify.com/)
 - [How to change and customize a map style](https://apidocs.geoapify.com/how-to/maps/change-map-style/)
 - [Maps playground](https://apidocs.geoapify.com/playground/maps/)

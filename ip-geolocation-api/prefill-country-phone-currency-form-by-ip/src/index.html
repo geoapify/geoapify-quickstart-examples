@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-fill Country, Phone Code and Currency from the Visitor's IP (Geoapify IP Geolocation API)</title>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <header class="sample-panel">
+      <h1>Pre-fill country, phone code and currency from the visitor's IP</h1>
+      <p>
+        The form asks the
+        <a href="https://www.geoapify.com/ip-geolocation-api/" target="_blank" rel="noopener">Geoapify IP Geolocation API</a>
+        for the visitor's country and fills in the country, the phone country code and the currency.
+        Every field stays editable.
+      </p>
+    </header>
+
+    <main class="page">
+      <form id="checkout-form" class="section-block" autocomplete="off">
+        <div class="section-title">
+          <span class="section-num" aria-hidden="true">1</span>
+          <span class="section-heading">Contact and payment details</span>
+        </div>
+
+        <p id="prefill-note" class="prefill-note" aria-live="polite">Detecting your approximate location…</p>
+
+        <label for="full-name">Full name</label>
+        <input id="full-name" type="text" placeholder="Jane Doe">
+
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="">Select a country</option>
+        </select>
+
+        <label for="phone">Phone</label>
+        <div class="phone-row">
+          <input id="phone-prefix" class="phone-prefix" type="text" placeholder="+" aria-label="Country calling code">
+          <input id="phone" type="tel" placeholder="Phone number">
+        </div>
+
+        <label for="currency">Currency</label>
+        <select id="currency">
+          <option value="">Select a currency</option>
+        </select>
+
+        <div class="button-container">
+          <button type="submit">Continue</button>
+        </div>
+
+        <div id="result" class="result" hidden></div>
+      </form>
+
+      <form id="ip-form" class="section-block ip-form">
+        <div class="section-title">
+          <span class="section-num" aria-hidden="true">2</span>
+          <span class="section-heading">Try another IP</span>
+        </div>
+        <div class="ip-row">
+          <input id="ip-input" type="text" placeholder="For example, 129.6.15.28" aria-label="IP address">
+          <button type="submit">Look up</button>
+        </div>
+        <p class="hint">Leave it empty to use your own IP address. You can also open the page with <code>?ip=129.6.15.28</code>.</p>
+      </form>
+    </main>
+
+    <footer class="footer">
+      Powered by <a href="https://www.geoapify.com/" target="_blank" rel="noopener">Geoapify</a>
+    </footer>
+
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Nearest EV Charging Stations and Connector Types (MapLibre + Geoapify Places API)</title>
+    <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <header class="sample-panel">
+      <div class="sample-panel__intro">
+        <h1>Nearest EV charging stations and their connector types</h1>
+        <p>
+          Click the map to set a search point. The
+          <a href="https://www.geoapify.com/places-api/" target="_blank" rel="noopener">Geoapify Places API</a>
+          returns the nearest charging stations within 1 km, with connector types from <code>socket_options</code>.
+        </p>
+      </div>
+    </header>
+    <main class="sample-layout">
+      <div id="map"></div>
+      <aside class="station-list">
+        <h2 class="station-list__title">Nearest stations</h2>
+        <p class="station-list__status" id="status">Loading charging stations…</p>
+        <ol class="station-list__items" id="stations"></ol>
+        <label id="travel-toggle" class="station-list__checkbox" hidden>
+          <input id="travel-checkbox" type="checkbox">
+          Show driving time (Route Matrix API)
+        </label>
+      </aside>
+    </main>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

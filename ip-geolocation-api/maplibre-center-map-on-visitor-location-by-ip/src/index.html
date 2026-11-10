@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Center a Map on the Visitor's Approximate Location by IP (MapLibre + Geoapify IP Geolocation API)</title>
+    <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <header class="sample-panel">
+      <div class="sample-panel__intro">
+        <h1>Center a map on the visitor's approximate location by IP</h1>
+        <p>
+          The map opens at your approximate, city-level location from the
+          <a href="https://www.geoapify.com/ip-geolocation-api/" target="_blank" rel="noopener">Geoapify IP Geolocation API</a>.
+          No location permission is needed.
+        </p>
+      </div>
+      <form class="sample-panel__form" id="ip-form">
+        <label for="ip-input">Try another IP</label>
+        <input id="ip-input" type="text" placeholder="129.6.15.28" autocomplete="off" spellcheck="false">
+        <button type="submit">Locate</button>
+      </form>
+    </header>
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="location-card" id="location-card">
+        <p class="location-card__status">Detecting your location…</p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>

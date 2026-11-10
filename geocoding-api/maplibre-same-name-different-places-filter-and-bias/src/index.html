@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Same Name, Different Places: Geocoding Filter and Bias (MapLibre + Geoapify Geocoding API)</title>
+    <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <main>
+      <div id="map"></div>
+
+      <aside class="sample-panel">
+        <h1>Same name, different places</h1>
+        <p>
+          Many towns share one name. Geocode it with the
+          <a href="https://www.geoapify.com/geocoding-api/" target="_blank" rel="noopener">Geoapify Geocoding API</a>
+          and compare what comes back with no filter, with a proximity bias and with a filter by the map view. Click the map to set a bias point.
+        </p>
+
+        <form id="search-form" class="search-form">
+          <label for="place-name">Place name</label>
+          <div class="search-form__row">
+            <input id="place-name" type="text" value="Springfield" autocomplete="off">
+            <button type="submit">Search</button>
+          </div>
+        </form>
+
+        <div class="mode-switch" role="radiogroup" aria-label="Search mode">
+          <button type="button" class="mode-switch__button" data-mode="none" aria-pressed="true">No filter</button>
+          <button type="button" class="mode-switch__button" data-mode="bias" aria-pressed="false">Bias near a point</button>
+          <button type="button" class="mode-switch__button" data-mode="filter" aria-pressed="false">Filter by map view</button>
+        </div>
+        <p id="mode-hint" class="mode-hint"></p>
+
+        <section>
+          <h2>API call</h2>
+          <pre id="request-url">-</pre>
+        </section>
+
+        <section>
+          <h2>Results</h2>
+          <ol id="result-list" class="result-list"></ol>
+        </section>
+      </aside>
+    </main>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>

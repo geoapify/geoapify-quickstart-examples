@@ -21,7 +21,9 @@ const layerGroups = {
   background: [["background", "background-color"]],
   landuse: [["landuse-residential", "fill-color"]],
   landuseOther: ["landuse-commercial", "landuse-industrial", "landuse-school", "landuse-hospital", "landuse-railway", "landuse-cemetery"].map((id) => [id, "fill-color"]),
-  park: ["park", "landcover-grass", "landcover-grass-park"].map((id) => [id, "fill-color"]),
+  // City parks and green spaces. The "park" layer is left out: in osm-bright it also holds
+  // protected areas (historic districts, nature reserves), so themed palettes hide it instead.
+  park: ["landcover-grass", "landcover-grass-park"].map((id) => [id, "fill-color"]),
   wood: [["landcover-wood", "fill-color"]],
   water: [["water", "fill-color"], ["water-offset", "fill-color"], ...["waterway-river", "waterway-stream-canal", "waterway-other", "waterway_tunnel"].map((id) => [id, "line-color"])],
   building: [["building", "fill-color"], ["building", "fill-outline-color"]],
@@ -186,6 +188,11 @@ function applyPalette(palette) {
       }
     });
   });
+
+  // Hide the protected-area tint while a theme is on; the default style keeps it.
+  if (map.getLayer("park")) {
+    map.setLayoutProperty("park", "visibility", Object.keys(palette).length ? "none" : "visible");
+  }
 }
 
 function getMarkerIconUrl(theme, index) {

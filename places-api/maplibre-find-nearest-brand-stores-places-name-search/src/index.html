@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Find the Nearest Stores of a Brand (MapLibre + Geoapify Places API name search)</title>
+    <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" inline>
+
+  </head>
+
+  <body>
+    <header class="sample-panel">
+      <div class="sample-panel__intro">
+        <h1>Find the nearest stores of a brand</h1>
+        <p>
+          Search places by name with the
+          <a href="https://www.geoapify.com/places-api/" target="_blank" rel="noopener">Geoapify Places API</a>.
+          Click the map to move the search point, or change the radius.
+        </p>
+        <p class="sample-panel__note">Matches place names, not a brand ID.</p>
+      </div>
+      <form id="search-form" class="search-form">
+        <label>
+          Brand
+          <input id="brand-input" type="text" value="Starbucks" required>
+        </label>
+        <label>
+          Category
+          <select id="category-select">
+            <option value="catering" selected>catering</option>
+            <option value="commercial">commercial</option>
+          </select>
+        </label>
+        <label>
+          Radius
+          <select id="radius-select">
+            <option value="500">500 m</option>
+            <option value="1000" selected>1 km</option>
+            <option value="2000">2 km</option>
+          </select>
+        </label>
+        <button type="submit">Search</button>
+      </form>
+    </header>
+    <main class="content">
+      <div id="map"></div>
+      <aside class="results">
+        <p id="results-status" class="results__status"></p>
+        <ol id="results-list" class="results__list"></ol>
+        <label id="travel-toggle" class="results__checkbox" hidden>
+          <input id="travel-checkbox" type="checkbox">
+          Show walking time (Route Matrix API)
+        </label>
+      </aside>
+    </main>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+
+  </body>
+
+</html>
