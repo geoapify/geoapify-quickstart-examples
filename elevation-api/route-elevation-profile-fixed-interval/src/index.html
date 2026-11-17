@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Route Elevation Profile with a Point Every N Meters - Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+
+<body>
+  <main class="app">
+    <aside class="left-panel">
+      <h1>Route elevation profile with a point every N meters</h1>
+      <p>
+        The route comes from the Routing API. The sample places a point every N meters along it and gets
+        their heights from the Elevation API. Switch the source to compare with the heights the Routing API
+        returns itself. Drag the A and B markers to change the route.
+      </p>
+
+      <fieldset class="source">
+        <legend class="field">Elevation source</legend>
+        <label class="option">
+          <input type="radio" name="source" value="elevation-api" checked />
+          <span><strong>Elevation API: a point every N meters</strong><br />
+            An even step for charts, grades and route comparisons.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="source" value="routing-api" />
+          <span><strong>Routing API: route points</strong> (<code>details=elevation</code>)<br />
+            Heights come with the route, one per geometry point: dense on curves, sparse on straight
+            sections.</span>
+        </label>
+      </fieldset>
+
+      <label class="field" for="interval-select">Sampling interval</label>
+      <select id="interval-select">
+        <option value="200">Every 200 m</option>
+        <option value="100" selected>Every 100 m</option>
+        <option value="50">Every 50 m</option>
+        <option value="25">Every 25 m</option>
+        <option value="10">Every 10 m</option>
+      </select>
+
+      <dl id="stats" class="stats"></dl>
+      <p id="status" class="status">Loading the route…</p>
+    </aside>
+
+    <section class="right-panel">
+      <div id="map"></div>
+      <div class="profile">
+        <svg id="profile-chart" role="img" aria-labelledby="profile-title"></svg>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+
+</html>

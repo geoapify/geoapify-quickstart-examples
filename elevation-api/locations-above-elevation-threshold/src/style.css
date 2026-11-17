@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2933;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 100%;
+}
+
+.left-panel {
+  padding: 28px;
+  background: #ffffff;
+  border-right: 1px solid #d9e2ec;
+  overflow-y: auto;
+}
+
+.left-panel h1 {
+  margin: 0 0 12px;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.left-panel p {
+  margin: 0 0 18px;
+  color: #52606d;
+  line-height: 1.5;
+}
+
+.field {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 0 0 6px;
+}
+
+.left-panel .hint {
+  font-size: 13px;
+}
+
+.left-panel .summary {
+  color: #1f2933;
+  font-weight: bold;
+}
+
+.results {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.results th {
+  padding: 6px 4px;
+  border-bottom: 2px solid #d9e2ec;
+  color: #52606d;
+  text-align: left;
+}
+
+.results td {
+  padding: 6px 4px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.results .number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.badge.above {
+  background: #d1495b;
+}
+
+.badge.below {
+  background: #2e86ab;
+}
+
+.left-panel .status {
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+#map {
+  height: 100%;
+}

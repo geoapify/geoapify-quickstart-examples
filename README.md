@@ -82,13 +82,15 @@ Travel time and distance isolines (isochrones), including GeoJSON polygon visual
 | [Multi-Range Isochrones](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/geoapify-isoline-api-maplibre-gl-multi-range-isochrones-with-toggle-ranges) | Toggle multiple isoline ranges | MapLibre GL | Isoline API |
 | [Visualize GeoJSON Polygons](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/isoline-api/visualizing-geojson-polygons-with-leaflet-and-geoapify-isoline-api) | Isoline polygons on map | Leaflet | Isoline API |
 
-### ⛰️ Elevation API (1 example)
+### ⛰️ Elevation API (3 examples)
 
-Elevation lookup examples for current location, city boundaries, and visible map areas.
+Elevation lookup examples for current location, city boundaries, visible map areas, route profiles, and elevation thresholds.
 
 | Example | Description | Library | APIs |
 |---------|-------------|---------|------|
 | [What Is My Current Elevation?](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/what-is-my-current-elevation-tool) | Find elevation for a browser/IP location, selected city, or current map view | MapLibre GL | Elevation API, IP Geolocation API, Boundaries API, Geometry Operations API, Map Tiles |
+| [Route Elevation Profile Every N Meters](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/route-elevation-profile-fixed-interval) | Sample a route at a fixed interval for an evenly spaced elevation profile | MapLibre GL | Routing API, Elevation API, Map Tiles |
+| [Points Above a Chosen Elevation](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/elevation-api/locations-above-elevation-threshold) | Get the elevation of many locations in one request and flag the ones above a threshold | MapLibre GL | Elevation API, Map Tiles |
 
 ### 🕐 IANA Timezones (2 examples)
 
