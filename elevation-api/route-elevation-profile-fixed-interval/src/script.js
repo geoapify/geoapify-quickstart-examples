@@ -300,26 +300,43 @@ function renderRouteStats(profile) {
 function renderRows(profile, sourceRows) {
   const elevations = profile.map((point) => point.elevation);
   let ascent = 0;
-  let steepest = { grade: 0, distance: 0 };
 
   for (let i = 1; i < profile.length; i++) {
     const rise = profile[i].elevation - profile[i - 1].elevation;
-    const run = profile[i].distance - profile[i - 1].distance;
     if (rise > 0) ascent += rise;
-    if (run > 0 && rise / run > steepest.grade) {
-      steepest = { grade: rise / run, distance: profile[i].distance };
-    }
   }
+
+  const steepest = findSteepest(profile);
 
   const rows = [
     ["Route length", `${(profile[profile.length - 1].distance / 1000).toFixed(2)} km`],
     ...sourceRows,
     ["Lowest / highest", `${Math.round(Math.min(...elevations))} m / ${Math.round(Math.max(...elevations))} m`],
     ["Total ascent", `${Math.round(ascent)} m`],
-    ["Steepest section", `${(steepest.grade * 100).toFixed(1)}% at ${(steepest.distance / 1000).toFixed(1)} km`],
+    ["Steepest section", `${(steepest.grade * 100).toFixed(1)}% over ${Math.round(steepest.length)} m at ${(steepest.distance / 1000).toFixed(1)} km`],
   ];
 
   statsElement.innerHTML = rows.map(([name, value]) => `<dt>${name}</dt><dd>${value}</dd>`).join("");
+}
+
+// The steepest climb over at least 100 m. Single short gaps are left out: over a few meters,
+// small differences in the terrain data turn into grades no road has.
+function findSteepest(profile, minLength = 100) {
+  let steepest = { grade: 0, distance: 0, length: 0 };
+  let j = 0;
+
+  for (let i = 0; i < profile.length; i++) {
+    j = Math.max(j, i + 1);
+    while (j < profile.length && profile[j].distance - profile[i].distance < minLength) j++;
+    if (j >= profile.length) break;
+
+    const run = profile[j].distance - profile[i].distance;
+    const grade = (profile[j].elevation - profile[i].elevation) / run;
+    if (grade > steepest.grade) {
+      steepest = { grade, distance: profile[j].distance, length: run };
+    }
+  }
+  return steepest;
 }
 
 // Each request costs max(1, ceil(locations / 100)) credits

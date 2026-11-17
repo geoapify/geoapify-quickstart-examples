@@ -4,7 +4,7 @@ Build a route elevation profile with an even sampling interval: get a route from
 
 ## Overview
 
-The Routing API can return elevation for a route itself, but only at the route's geometry points, and those are unevenly spaced. For a chart with an even step, or for a fair comparison of two routes, this example walks the route line and adds a point every N meters (200, 100, 50, 25 or 10 m), keeping the first and last point. It then sends the points to the Elevation API, at most 1,000 per request, and draws the profile with total ascent and the steepest section.
+The Routing API can return elevation for a route itself, but only at the route's geometry points, and those are unevenly spaced. For a chart with an even step, or for a fair comparison of two routes, this example walks the route line and adds a point every N meters (200, 100, 50, 25 or 10 m), keeping the first and last point. It then sends the points to the Elevation API, at most 1,000 per request, and draws the profile with total ascent and the steepest section, measured over at least 100 m so that tiny gaps between points don't produce unrealistic grades.
 
 The route goes from 19th Street in Golden, Colorado, up Lookout Mountain Road to the Buffalo Bill Memorial Museum. Drag the A and B markers to plan another route, and hover the chart to see each point on the map.
 
