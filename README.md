@@ -2,7 +2,11 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+[![Geoapify quickstart examples: radius circle vs drive-distance area, isochrones, routes, city boundaries, elevation, marker icons, EV chargers and seasonal map styles on interactive maps](./screenshots/geoapify-quickstart-examples.jpg)](#-examples-by-category)
+
 Ready-to-run code examples for **Geoapify Location Platform APIs**. Simple, frontend-focused demos that you can download and run immediately. Perfect for learning and prototyping.
+
+⭐ **Star the repo** to get new examples as they're added.
 
 ## 🎯 Purpose
 
