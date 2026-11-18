@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radius Circle vs Drive-Distance Area on a Map - Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+
+<body>
+  <main class="app">
+    <aside class="left-panel">
+      <h1>Radius circle vs drive-distance area</h1>
+      <p>
+        The circle shows everything within the distance in a straight line. The drive-distance area comes
+        from the Isoline API (<code>type=distance</code>) and shows what is within the same distance by road.
+        Click the map to move the center.
+      </p>
+
+      <label class="field" for="distance-select">Distance</label>
+      <select id="distance-select">
+        <option value="3000">3 km</option>
+        <option value="5000">5 km</option>
+        <option value="8047" selected>5 miles (8,047 m)</option>
+        <option value="10000">10 km</option>
+      </select>
+
+      <ul class="legend">
+        <li><span class="swatch circle-swatch"></span>Radius circle (straight line)</li>
+        <li><span class="swatch drive-swatch"></span>Drive-distance area (by road)</li>
+      </ul>
+
+      <dl id="stats" class="stats"></dl>
+      <p id="status" class="status">Loading the drive-distance area…</p>
+    </aside>
+
+    <section class="right-panel">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+
+</html>
