@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Custom Marker Image in a MapLibre GL Symbol Layer</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <h1>Symbol Layer Markers</h1>
+        <p class="panel-description">
+          One marker image, added to the map style once, draws every café. Click a marker to see its name.
+        </p>
+        <div class="status-box" id="status-box">Loading...</div>
+      </aside>
+
+      <main class="map-stage">
+        <div id="my-map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>

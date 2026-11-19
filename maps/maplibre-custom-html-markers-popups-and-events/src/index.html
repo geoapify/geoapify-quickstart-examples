@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Custom HTML Markers with Popups and Events on a MapLibre GL Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="style.css" inline>
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <h1>Marker Events</h1>
+        <p class="panel-description">
+          Hover a marker to show its popup. Click it to keep the popup open.
+        </p>
+        <div class="status-box" id="status-box">Loading...</div>
+        <p class="event-log" id="event-log">No marker events yet.</p>
+      </aside>
+
+      <main class="map-stage">
+        <div id="my-map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="script.js" inline></script>
+  </body>
+
+</html>
