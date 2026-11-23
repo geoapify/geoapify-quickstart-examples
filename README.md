@@ -152,7 +152,7 @@ Large route matrix processing with request splitting, sequential execution, merg
 | [Calculate Driving Distance Matrix](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/matrix-api/calculate-driving-distance-matrix-api) | Calculate driving distances and travel times between multiple locations with address autocomplete and map-click reverse geocoding | MapLibre GL | Route Matrix API, Geocoding API, Map Marker API, Map Tiles |
 | [Process Large Route Matrices with Sequential API Calls](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/matrix-api/calculate-big-matrices-sequential) | Split large matrix input into API-sized sub-matrices, send sequential Route Matrix requests, merge results, and export JSON | JavaScript | Route Matrix API |
 
-### 🔍 Geocoder & Autocomplete (10 examples)
+### 🔍 Geocoder & Autocomplete (11 examples)
 
 Address search, autocomplete, and geocoding.
 
@@ -162,6 +162,7 @@ Address search, autocomplete, and geocoding.
 | [MapLibre Integration](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/maplibre-gl-integration-vector-maps-and-reverse-geocoding-on-click) | Autocomplete + reverse geocoding | MapLibre GL | Geocoding API |
 | [Address Form with Map](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/address-form-map-combined-address-search-with-interactive-map) | Combined address form & map picker | Leaflet | Geocoding API |
 | [One-Field Address Form](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/one-field-address-form-single-field-autocomplete-input) | Single-field verified address input | Autocomplete | Geocoding API |
+| [Vue 3 Address Autocomplete](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/vue-address-autocomplete-component-fills-address-form) | Vue 3 component that fills an address form | Vue 3 | Geocoding API |
 | [Autocomplete Type Filters](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/autocomplete-types-filter-results-by-location-type) | Filter results by location type | Autocomplete | Geocoding API |
 | [Filters & Bias Demo](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/filters-bias-demonstrates-filter-and-bias-customization) | Customize filters and bias | Autocomplete | Geocoding API |
 | [Events Showcase](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoder-autocomplete/events-showcase-demonstrates-available-events-and-callbacks) | Available events and callbacks | Autocomplete | Geocoding API |

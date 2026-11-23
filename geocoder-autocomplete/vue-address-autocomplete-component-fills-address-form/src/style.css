@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2a37;
+  background: #f5f7fa;
+}
+
+.page {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 24px 28px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.hint {
+  margin: 0 0 20px;
+  color: #6b7a90;
+  font-size: 14px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* The autocomplete dropdown is positioned against this container */
+.autocomplete-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.wide {
+  flex: 2;
+}
+
+.narrow {
+  flex: 1;
+}
+
+.field input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.state {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: #f3f4f6;
+  border-radius: 6px;
+}
+
+.state-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7a90;
+  text-transform: uppercase;
+}
+
+.state pre {
+  margin: 6px 0 0;
+  font-size: 13px;
+}
