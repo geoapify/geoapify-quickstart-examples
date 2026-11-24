@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZIP Code Autofill — Type a ZIP code, city and state fill in, then check the address</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.1.0/styles/round-borders.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.1.0/dist/index.min.js"></script>
+</head>
+
+<body>
+  <main class="checkout">
+    <h1>Shipping address</h1>
+    <p class="hint">Start with your ZIP code and pick it from the list. City and state fill in, and you can still edit them.</p>
+
+    <form id="shipping-form" autocomplete="on">
+      <div class="row">
+        <div class="field zip">
+          <label for="zip-field">ZIP code</label>
+          <div id="zip-field" class="autocomplete-container"></div>
+        </div>
+        <label class="field city">City
+          <input id="city" name="city" autocomplete="address-level2">
+        </label>
+        <label class="field state">State
+          <input id="state" name="state" autocomplete="address-level1" maxlength="2">
+        </label>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <label class="field">Street address
+        <input id="street" name="street" autocomplete="address-line1" placeholder="123 Main St">
+        <span class="field-note">Type your street and house number.</span>
+      </label>
+
+      <button type="submit" id="check-button" class="check-button">Check the address</button>
+
+      <div id="check-result" class="check-result" hidden aria-live="polite"></div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
