@@ -163,6 +163,7 @@ See [Working with geocoding confidence](https://apidocs.geoapify.com/docs/geocod
 
 ## Useful Links
 
+- Tutorial on dev.to: [The ZIP Already Knows the City: Autofill City and State, Then Check the Address](https://dev.to/geoapify-maps-api/the-zip-already-knows-the-city-autofill-city-and-state-then-check-the-address-2p1c)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a20d90-c2a7-734f-9ccb-b5f377f1b232](https://codepen.io/editor/geoapify/pen/01a20d90-c2a7-734f-9ccb-b5f377f1b232)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

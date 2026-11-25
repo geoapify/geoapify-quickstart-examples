@@ -157,6 +157,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Edit Routes with Drag and Drop on a Leaflet Map](https://dev.to/geoapify-maps-api/how-to-edit-routes-with-drag-and-drop-on-a-leaflet-map-59n1)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-8f81-7659-9d43-806e30b8a770](https://codepen.io/editor/geoapify/pen/01a1a740-8f81-7659-9d43-806e30b8a770)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

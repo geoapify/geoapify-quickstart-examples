@@ -162,6 +162,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [Build a Verified Address Input Form with Autocomplete Suggestions and UX-Friendly Confirmation](https://dev.to/geoapify-maps-api/build-a-verified-address-input-form-with-autocomplete-suggestions-and-ux-friendly-confirmation-11na)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a742-3fa4-7716-a8a3-df4e3412a86e](https://codepen.io/editor/geoapify/pen/01a1a742-3fa4-7716-a8a3-df4e3412a86e)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

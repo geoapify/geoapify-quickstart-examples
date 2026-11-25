@@ -168,6 +168,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Visualize Multiple Overlapping Routes on a Leaflet Map](https://dev.to/geoapify-maps-api/how-to-visualize-multiple-overlapping-routes-on-a-leaflet-map-16ni)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a73f-c377-75f3-ae30-db322a75a024](https://codepen.io/editor/geoapify/pen/01a1a73f-c377-75f3-ae30-db322a75a024)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

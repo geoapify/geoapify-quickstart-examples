@@ -165,6 +165,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Collect Route Waypoints with Address Autocomplete and Map Clicks](https://dev.to/geoapify-maps-api/how-to-collect-route-waypoints-with-address-autocomplete-and-map-clicks-2i74)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a741-15f9-7682-bb4e-5cfa835ed5d1](https://codepen.io/editor/geoapify/pen/01a1a741-15f9-7682-bb4e-5cfa835ed5d1)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

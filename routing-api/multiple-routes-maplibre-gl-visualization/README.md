@@ -178,6 +178,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Visualize Multiple Overlapping Routes on a MapLibre GL Map](https://dev.to/geoapify-maps-api/how-to-visualize-multiple-overlapping-routes-on-a-maplibre-gl-map-2om9)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb](https://codepen.io/editor/geoapify/pen/01a1a740-a92a-718d-bbf6-463377d92cdb)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

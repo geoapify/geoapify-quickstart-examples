@@ -143,6 +143,7 @@ How it works:
 
 ## Useful Links
 
+- Tutorial on dev.to: [Address Autocomplete in Vue 3 Without a Wrapper Package (and Without Leaks)](https://dev.to/geoapify-maps-api/address-autocomplete-in-vue-3-without-a-wrapper-package-and-without-leaks-hlh)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a208a1-f15f-7da9-93cf-8128cbd77d9b](https://codepen.io/editor/geoapify/pen/01a208a1-f15f-7da9-93cf-8128cbd77d9b)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

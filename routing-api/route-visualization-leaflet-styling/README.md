@@ -147,6 +147,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Visualize and Style Routes on a Leaflet Map](https://dev.to/geoapify-maps-api/how-to-visualize-and-style-routes-on-a-leaflet-map-4ljk)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-fa87-767d-bb37-9fb837ef9051](https://codepen.io/editor/geoapify/pen/01a1a740-fa87-767d-bb37-9fb837ef9051)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

@@ -159,6 +159,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [Leaflet Address Autocomplete with Geoapify (Companion to MapLibre Example)](https://dev.to/geoapify-maps-api/leaflet-address-autocomplete-with-geoapify-companion-to-maplibre-example-35p2)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a741-7fb0-71e0-a724-2a213e403772](https://codepen.io/editor/geoapify/pen/01a1a741-7fb0-71e0-a724-2a213e403772)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

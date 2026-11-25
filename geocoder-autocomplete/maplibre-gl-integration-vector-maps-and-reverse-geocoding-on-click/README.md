@@ -283,6 +283,7 @@ Key parts:
 
 ## Useful Links
 
+- Tutorial on dev.to: [Add Address Autocomplete to a MapLibre GL Map (with Click-to-Address Reverse Geocoding)](https://dev.to/geoapify-maps-api/add-address-autocomplete-to-a-maplibre-gl-map-with-click-to-address-reverse-geocoding-3c14)
 - [Geoapify account and API keys](https://myprojects.geoapify.com/)
 - [Geoapify API documentation](https://apidocs.geoapify.com/)
 - [CodePen demo](https://codepen.io/geoapify/pen/PwWqzjL)

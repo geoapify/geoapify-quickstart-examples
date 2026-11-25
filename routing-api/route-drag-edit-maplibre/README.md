@@ -189,6 +189,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Edit Routes with Drag and Drop on a MapLibre GL Map](https://dev.to/geoapify-maps-api/how-to-edit-routes-with-drag-and-drop-on-a-maplibre-gl-map-i0b)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-7565-7125-b60f-3194bbdb514a](https://codepen.io/editor/geoapify/pen/01a1a740-7565-7125-b60f-3194bbdb514a)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)

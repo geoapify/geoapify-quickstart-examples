@@ -174,6 +174,7 @@ No build step is required. Edit files in `src/` and refresh the browser.
 
 ## Useful Links
 
+- Tutorial on dev.to: [How to Visualize and Style Routes on a MapLibre GL Map](https://dev.to/geoapify-maps-api/how-to-visualize-and-style-routes-on-a-maplibre-gl-map-416g)
 - Geoapify API docs: [https://apidocs.geoapify.com/](https://apidocs.geoapify.com/)
 - CodePen demo: [https://codepen.io/editor/geoapify/pen/01a1a740-ded2-7176-98ae-d704f0d0932a](https://codepen.io/editor/geoapify/pen/01a1a740-ded2-7176-98ae-d704f0d0932a)
 - Geoapify CodePen profile: [https://codepen.io/geoapify](https://codepen.io/geoapify)
