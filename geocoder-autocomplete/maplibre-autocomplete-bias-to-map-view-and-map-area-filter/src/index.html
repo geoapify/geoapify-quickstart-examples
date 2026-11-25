@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map-Aware Address Autocomplete — Suggestions near the map view first, or only in this map area</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.1.0/styles/round-borders.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@3.1.0/dist/index.min.js"></script>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <div class="panel">
+    <h1>Search near the map</h1>
+    <div id="autocomplete" class="autocomplete-container"></div>
+
+    <label class="switch">
+      <input type="checkbox" id="area-only">
+      <span>Only in this map area</span>
+    </label>
+
+    <p id="mode-hint" class="hint"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

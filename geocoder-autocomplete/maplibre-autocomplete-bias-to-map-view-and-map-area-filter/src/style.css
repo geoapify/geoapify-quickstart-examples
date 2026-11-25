@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2a37;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+.panel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 340px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+/* The suggestion list is positioned against this container */
+.autocomplete-container {
+  position: relative;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.switch input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #6b7a90;
+}
