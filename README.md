@@ -143,6 +143,14 @@ Forward and reverse geocoding examples.
 | [Returned Address Can Differ Slightly From Clicked Map Point](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/why-can-returned-address-differ-slightly-from-clicked-map-point) | Compare clicked vs returned coordinates, inspect distances, and draw direct vs great-circle path | MapLibre GL | Geocoding API, Geometry Operation API, Map Tiles |
 | [Same Name, Different Places: Filter and Bias](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/geocoding-api/maplibre-same-name-different-places-filter-and-bias) | Search one place name that exists in many places and compare results with `filter` and `bias` | MapLibre GL | Geocoding API, Map Tiles |
 
+### 📬 Postcode API (1 example)
+
+List postcodes and ZIP codes in an area and draw their shapes.
+
+| Example | Description | Library | APIs |
+|---------|-------------|---------|------|
+| [Draw Every ZIP Code in a Circle](https://github.com/geoapify/geoapify-quickstart-examples/tree/main/postcode-api/draw-zip-codes-in-a-circle-on-a-map) | Click the map to draw a circle and color every ZIP code area that reaches into it | MapLibre GL | Postcode API, Map Tiles |
+
 ### 🔢 Matrix API (2 examples)
 
 Large route matrix processing with request splitting, sequential execution, merge, and progress/error reporting.

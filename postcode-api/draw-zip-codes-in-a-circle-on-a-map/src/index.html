@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Draw Every ZIP Code in a Circle on a Map - Geoapify</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./style.css" inline />
+</head>
+
+<body>
+  <main class="app">
+    <aside class="left-panel">
+      <h1>Every ZIP code in a circle</h1>
+      <p>
+        One Postcode API request (<code>/v1/postcode/list</code> with <code>filter=circle</code>) returns every
+        ZIP code area that reaches into the circle. The map shows the part of each area inside it.
+        Click the map to move the circle.
+      </p>
+
+      <label class="field" for="radius-select">Radius</label>
+      <select id="radius-select">
+        <option value="1000">1 km</option>
+        <option value="2000">2 km</option>
+        <option value="3000" selected>3 km</option>
+        <option value="5000">5 km</option>
+      </select>
+
+      <dl id="stats" class="stats"></dl>
+      <ul id="zip-list" class="zip-list"></ul>
+      <p id="status" class="status">Loading ZIP codes…</p>
+    </aside>
+
+    <section class="right-panel">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@turf/turf@7.4.0/turf.min.js"></script>
+  <script src="./script.js" inline></script>
+</body>
+
+</html>
